@@ -1,4 +1,5 @@
 $( document ).ready(function() {
+    $('#command').focus();
     $('#commandForm').submit(function( event ) {
         event.preventDefault();
         $.ajax({
