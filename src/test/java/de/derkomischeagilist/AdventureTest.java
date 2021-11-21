@@ -50,4 +50,24 @@ public class AdventureTest {
         //Then i can see magazines
         assertThat(actual, containsStringIgnoringCase("used micky mouse magazine"));
     }
+
+    @Test
+    void EnteringAnInvalidCommandResultsInWhatResponse() {
+        //given i am on the loo
+        assertThat(adventure.Begin(), containsStringIgnoringCase("you wake up on the Loo"));
+        //When i look around
+        String actual = adventure.tell("Do something stupid");
+        //Then i can see magazines
+        assertThat(actual, endsWithIgnoringCase("What???"));
+    }
+
+    @Test
+    void EnteringAnInvalidCommandStillIncludesPreviousResponse() {
+        //given i am on the loo
+        assertThat(adventure.Begin(), containsStringIgnoringCase("you wake up on the Loo"));
+        //When i look around
+        String actual = adventure.tell("Do something stupid");
+        //Then i can see magazines
+        assertThat(actual, containsStringIgnoringCase("you wake up on the Loo"));
+    }
 }
