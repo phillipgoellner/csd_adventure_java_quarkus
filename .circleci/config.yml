@@ -30,7 +30,7 @@ jobs:
 
       - run:
           name: Maven Version
-          command: mvn --version && java --version
+          command: mvn --version
       # Download maven dependencies so that we can cache them
       # ########################
       - run:
