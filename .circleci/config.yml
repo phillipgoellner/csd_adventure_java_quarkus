@@ -5,7 +5,8 @@ version: 2
 jobs:
   build:
     # Use "machine" instead of e.g. "docker" for better/faster results
-    machine: true
+    machine:
+      image: ubuntu-2004:202008-01
     # Uses a "medium" sized machine - maybe increase this to "large" if you pay for CircleCI
     resource_class: small
     working_directory: ~/repo
@@ -26,6 +27,9 @@ jobs:
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
+      - run:
+          name: Maven Version
+          command: mvn --version
       # Download maven dependencies so that we can cache them
       # ########################
       - run:
