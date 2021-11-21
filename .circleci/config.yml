@@ -50,3 +50,5 @@ jobs:
       - run:
           name: Verify (Standard)
           command: ./mvnw test
+       - store_test_results:
+           path: target/surefire-reports
