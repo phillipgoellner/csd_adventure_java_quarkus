@@ -1,5 +1,32 @@
 # csd-java-quarkus Project
 
+## On your machine
+### build 
+```shell script
+./mvnw compile
+```
+
+### run tests
+```shell script
+./mvnw test
+```
+
+### run dev server with hot reload for development
+```shell script
+./mvnw compile quarkus:dev
+```
+
+### package
+```shell script
+./mvnw package
+```
+
+### run the application
+```shell script
+java -jar target/csd-java-quarkus-1.0-SNAPSHOT.jar
+```
+
+---
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
 
 If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
