@@ -32,6 +32,16 @@ public class AdventureTest {
     }
 
     @Test
+    void LookingAroundInTheLooThenIWillFindScrumDeveloperCard() {
+        //given i am on the loo
+        assertThat(adventure.Begin(), containsStringIgnoringCase("you wake up on the Loo"));
+        //When i look around
+        String actual = adventure.tell("look around");
+        //Then i can see magazines
+        assertThat(actual, containsStringIgnoringCase("certified scrum developer"));
+    }
+
+    @Test
     void LookingAtMagazinesInTheLooThenICanSeeAScrumGuide() {
         //given i am on the loo
         assertThat(adventure.Begin(), containsStringIgnoringCase("you wake up on the Loo"));
