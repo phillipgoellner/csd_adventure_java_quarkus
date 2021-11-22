@@ -6,6 +6,8 @@ public class Loo {
     }
 
     public String DetailedDescription() {
-        return "You see a pretty dirty door, with some nasty jokes on it. Next to you is some toilet paper, a coin and a few magazines.";
+        return "You see a pretty dirty door, with some nasty jokes on it. Next to you is some toilet paper, a coin and a few magazines."
+          + "<br/>"
+          + "In your pocket you find a card that says you are a certified scrum developer";
     }
 }
