@@ -1,11 +1,12 @@
 package de.derkomischeagilist;
 
 import de.derkomischeagilist.Rooms.Loo;
+import de.derkomischeagilist.Rooms.Room;
 
 public class Adventure {
 
     private int counter;
-    private Loo room;
+    private Room room;
     private String lastResponse;
 
     public Adventure() {
@@ -18,7 +19,7 @@ public class Adventure {
         String response = "";
         switch (command){
             case "look around":
-                response = room.DetailedDescription();
+                response = room.getDetailedDescription();
                 break;
             case "look at magazines":
                 response = "You see a very much used Micky Mouse magazine, a very old and unusable playboy and what seems to be a scrum guide 2009 in mint condition.";
@@ -35,7 +36,7 @@ public class Adventure {
     }
 
     public String Begin() {
-        lastResponse = room.Description();
-        return room.Description();
+        lastResponse = room.getDescription();
+        return room.getDescription();
     }
 }
