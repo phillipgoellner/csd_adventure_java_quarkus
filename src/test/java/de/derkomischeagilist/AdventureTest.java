@@ -39,6 +39,7 @@ public class AdventureTest {
         String actual = adventure.tell("look around");
         //Then i can see magazines
         assertThat(actual, containsStringIgnoringCase("certified scrum developer"));
+        assertThat(actual, containsStringIgnoringCase("card"));
     }
 
     @Test
