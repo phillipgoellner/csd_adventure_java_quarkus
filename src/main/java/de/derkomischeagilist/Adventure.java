@@ -38,7 +38,7 @@ public class Adventure {
                 response = currentRoom.getDescription();
                 break;
             default:
-               return lastResponse + "\n\nWhat???";
+               return room.handleCommand(command);
         }
         lastResponse = response;
         return response;
