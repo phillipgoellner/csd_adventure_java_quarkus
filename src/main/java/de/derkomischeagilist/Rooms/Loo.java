@@ -13,4 +13,14 @@ public class Loo implements Room {
           + "<br/>"
           + "In your pocket you find a card that says you are a certified scrum developer";
     }
+
+    @Override
+    public String handleCommand(String command){
+        return null;
+    }
+
+    @Override
+    public String getHelp() {
+        return null;
+    }
 }

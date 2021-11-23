@@ -29,7 +29,7 @@ public class Adventure {
                 response = "The counter is at " + counter;
                 break;
             default:
-               return lastResponse + "\n\nWhat???";
+               return room.handleCommand(command);
         }
         lastResponse = response;
         return response;

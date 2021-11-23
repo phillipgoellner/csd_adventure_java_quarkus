@@ -13,4 +13,14 @@ public class WashRoom implements Room {
           + "<br/>"
           + "On the other side of the room you see another door";
     }
+
+    @Override
+    public String handleCommand(String command){
+        return null;
+    }
+
+    @Override
+    public String getHelp() {
+        return null;
+    }
 }
