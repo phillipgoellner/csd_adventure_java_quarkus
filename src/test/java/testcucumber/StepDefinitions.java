@@ -15,28 +15,11 @@ public class StepDefinitions {
     private Adventure adventure;
     private String lastResponse;
 
-    @Given("I have {int} cukes in my belly")
-    public void i_have_cukes_in_my_belly(Integer int1) {
-        // Write code here that turns the phrase above into concrete actions
-        //throw new io.cucumber.java.PendingException();
-    }
-    @When("I wait {int} hour")
-    public void i_wait_hour(Integer int1) {
-        // Write code here that turns the phrase above into concrete actions
-        //throw new io.cucumber.java.PendingException();
-    }
-    @Then("my belly should growl")
-    public void my_belly_should_growl() {
-        // Write code here that turns the phrase above into concrete actions
-        //throw new io.cucumber.java.PendingException();
-    }
-
     @Given("I am playing the game")
     public void i_am_playing_the_game() {
         adventure = new Adventure();
         adventure.Begin();
     }
-
 
     @When("I ask for help")
     public void i_ask_for_help() {
