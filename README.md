@@ -23,7 +23,7 @@
 
 ### run the application
 ```shell script
-java -jar target/csd-java-quarkus-1.0-SNAPSHOT.jar
+java -jar target/quarkus-app/quarkus-run.jar 
 ```
 
 ---
