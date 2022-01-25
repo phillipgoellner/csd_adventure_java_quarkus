@@ -50,5 +50,14 @@ public class StepDefinitions {
         assertThat(lastResponse, containsStringIgnoringCase(string));
     }
 
+    @When("I use the door to the hallway")
+    public void i_use_the_door_to_the_hallway() {
+        lastResponse = adventure.tell("use door to hallway");
+    }
+
+    @Then("I am now in the hallway")
+    public void i_am_now_in_the_hallway() {
+        assertThat(lastResponse, containsStringIgnoringCase("welcome to the hallway"));
+    }
 
 }

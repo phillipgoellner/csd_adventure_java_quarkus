@@ -1,5 +1,6 @@
 package de.derkomischeagilist;
 
+import de.derkomischeagilist.Rooms.Hallway;
 import de.derkomischeagilist.Rooms.Loo;
 import de.derkomischeagilist.Rooms.Room;
 import de.derkomischeagilist.Rooms.WashRoom;
@@ -10,11 +11,13 @@ public class Adventure {
     private Room currentRoom;
     private Room loo;
     private Room washroom;
+    private Room hallway;
     private String lastResponse;
 
     public Adventure() {
         loo = new Loo();
         washroom = new WashRoom();
+        hallway = new Hallway();
         currentRoom = loo;
         counter = 0;
         lastResponse = "";
@@ -32,6 +35,10 @@ public class Adventure {
                 break;
             case "go through door":
                 currentRoom = washroom;
+                response = currentRoom.getDescription();
+                break;
+            case "use door to hallway":
+                currentRoom = hallway;
                 response = currentRoom.getDescription();
                 break;
             case "help":
