@@ -6,6 +6,7 @@ Feature: We want help
     When I ask for help
     Then I see "look around"
     And I see "go through door"
+    And I see "look at magazines"
 
   Scenario: help in the washroom
     Given I am in the washroom

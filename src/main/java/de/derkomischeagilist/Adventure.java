@@ -39,7 +39,7 @@ public class Adventure {
                     response = "Try to 'look around'. Might help.";
                 }
                 else if (currentRoom.equals(loo)) {
-                    response = "Try to 'look around' or just 'go through door'";
+                    response = "Try to 'look around', 'look at magazines' (better get your gloves) or just 'go through door' to escape the smell.";
                 }
                 else {
                     response = "There is no help for you!";
