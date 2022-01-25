@@ -35,7 +35,15 @@ public class Adventure {
                 response = currentRoom.getDescription();
                 break;
             case "help":
-                response = "There is no help for you!";
+                if (currentRoom.equals(washroom)) {
+                    response = "Try to 'look around'. Might help.";
+                }
+                else if (currentRoom.equals(loo)) {
+                    response = "Try to 'look around' or just 'go through door'";
+                }
+                else {
+                    response = "There is no help for you!";
+                }
                 break;
             default:
                return currentRoom.handleCommand(command);
