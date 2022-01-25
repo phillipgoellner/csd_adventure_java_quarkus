@@ -34,6 +34,9 @@ public class Adventure {
                 currentRoom = washroom;
                 response = currentRoom.getDescription();
                 break;
+            case "help":
+                response = "There is no help for you!";
+                break;
             default:
                return currentRoom.handleCommand(command);
         }
