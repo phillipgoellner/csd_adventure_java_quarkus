@@ -3,7 +3,8 @@ package de.derkomischeagilist.Rooms;
 public class TeamOffice implements Room {
     @Override
     public String getDescription() {
-        return "This is a very stinky room. Smells like real work.";
+        return "This is a very stinky room. Smells like real work. \n" +
+                "Your smelly Teammates greet you in the usual manner: 'Hey, you moron! ;)'";
     }
 
     @Override
