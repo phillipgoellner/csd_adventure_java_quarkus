@@ -2,6 +2,8 @@ package de.derkomischeagilist;
 
 import de.derkomischeagilist.Rooms.*;
 
+import java.util.Locale;
+
 public class Adventure {
 
     private int counter;
@@ -24,7 +26,7 @@ public class Adventure {
 
     public String tell(String command) {
         String response = "";
-        switch (command){
+        switch (command.toLowerCase()){
             case "look around":
                 response = currentRoom.getDetailedDescription();
                 break;

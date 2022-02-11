@@ -3,6 +3,7 @@ package de.derkomischeagilist;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import static org.hamcrest.CoreMatchers.not;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsStringIgnoringCase;
 import static org.hamcrest.Matchers.endsWithIgnoringCase;
@@ -125,5 +126,15 @@ public class AdventureTest {
         assertThat(actual, containsStringIgnoringCase("smart"));
         //Then my teammates are smelly
         assertThat(actual, containsStringIgnoringCase("smelly"));
+    }
+
+    @Test
+    void commandsAreCaseInsensitive() {
+        //given i am on the loo
+        assertThat(adventure.Begin(), containsStringIgnoringCase("you wake up on the Loo"));
+        //When I go into the Team Office
+        String actual = adventure.tell("uSe DoOr tO tEaM oFfIcE");
+        //Then the command leads me to the team room
+        assertThat(actual, not(containsStringIgnoringCase("What???")));
     }
 }
