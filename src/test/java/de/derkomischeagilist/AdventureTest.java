@@ -15,6 +15,11 @@ public class AdventureTest {
     }
 
     @Test
+    void currentTimeLooksGood() {
+        assertThat("timestamp", TimeService.currentTimeInEuropeBerlin(), greaterThan(-1));
+    }
+
+    @Test
     void AdventureStartsOnTheLoo() {
         assertThat(adventure.Begin(), containsStringIgnoringCase("you wake up on the Loo"));
     }
