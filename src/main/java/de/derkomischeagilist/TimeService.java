@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
 public class TimeService {
 
     public static Integer currentTimeInEuropeBerlin() {
-        Pattern pattern = Pattern.compile("unixtime: (\\d+)", Pattern.MULTILINE);
+        Pattern pattern = Pattern.compile("\"unixtime\":.*?(\\d+)", Pattern.MULTILINE);
 
         try {
             HttpClient client = HttpClient.newHttpClient();
