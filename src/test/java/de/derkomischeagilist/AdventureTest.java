@@ -2,8 +2,11 @@ package de.derkomischeagilist;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import static org.hamcrest.CoreMatchers.not;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.*;
+import static org.hamcrest.Matchers.containsStringIgnoringCase;
+import static org.hamcrest.Matchers.endsWithIgnoringCase;
 
 public class AdventureTest {
 
@@ -23,7 +26,6 @@ public class AdventureTest {
     void AdventureStartsOnTheLoo() {
         assertThat(adventure.Begin(), containsStringIgnoringCase("you wake up on the Loo"));
     }
-
 
 
     @Test
@@ -116,6 +118,28 @@ public class AdventureTest {
         //When I go into the Team Office
         String actual = adventure.tell("use door to team office");
         //Then i am greeted by my teammates
-        assertThat(actual, containsStringIgnoringCase("Your smelly Teammates greet you in the usual manner: 'Hey, you moron! ;)'"));
+        assertThat(actual, containsStringIgnoringCase("Hey, you moron! ;)"));
+    }
+
+    @Test
+    void GoingThroughDoorInTheTeamRoomThenMyTeammatesAreSmartAndSmelly() {
+        //given i am on the loo
+        assertThat(adventure.Begin(), containsStringIgnoringCase("you wake up on the Loo"));
+        //When I go into the Team Office
+        String actual = adventure.tell("use door to team office");
+        //Then my teammates are smart
+        assertThat(actual, containsStringIgnoringCase("smart"));
+        //Then my teammates are smelly
+        assertThat(actual, containsStringIgnoringCase("smelly"));
+    }
+
+    @Test
+    void commandsAreCaseInsensitive() {
+        //given i am on the loo
+        assertThat(adventure.Begin(), containsStringIgnoringCase("you wake up on the Loo"));
+        //When I go into the Team Office
+        String actual = adventure.tell("uSe DoOr tO tEaM oFfIcE");
+        //Then the command leads me to the team room
+        assertThat(actual, not(containsStringIgnoringCase("What???")));
     }
 }
