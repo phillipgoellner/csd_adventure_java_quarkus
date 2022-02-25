@@ -19,6 +19,6 @@ public class TeamOffice implements Room {
 
     @Override
     public String getHelp() {
-        return null;
+        return "Try to 'look around' or 'use door to hallway'. Might help.";
     }
 }

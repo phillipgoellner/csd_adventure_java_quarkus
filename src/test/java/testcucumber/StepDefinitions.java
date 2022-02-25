@@ -74,7 +74,16 @@ public class StepDefinitions {
         lastResponse = adventure.tell("use door to team office");
     }
 
-    @Then("I am in now the team office")
+    @Given("I am in the team office")
+    public void i_am_in_the_team_office() {
+        i_am_playing_the_game();
+
+        lastResponse = adventure.tell("use door to team office");
+
+        i_am_now_in_the_team_office();
+    }
+
+    @Then("I am now in the team office")
     public void i_am_now_in_the_team_office() {
         assertThat(lastResponse, containsStringIgnoringCase("stinky room"));
     }

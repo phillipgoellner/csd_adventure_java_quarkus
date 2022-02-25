@@ -29,6 +29,6 @@ public class Loo implements Room {
     }
 
     public String getHelp() {
-        return null;
+        return "Try to 'look around', 'look at magazines' (better get your gloves) or just 'go through door' to escape the smell.";
     }
 }

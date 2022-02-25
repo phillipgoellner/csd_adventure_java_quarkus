@@ -12,3 +12,19 @@ Feature: We want help
     Given I am in the washroom
     When I ask for help
     Then I see "look around"
+    And I see "use door to hallway"
+
+  Scenario: help in the team office
+    Given I am in the team office
+    When I ask for help
+    Then I see "look around"
+    And I see "use door to hallway"
+
+  Scenario: help in the Hallway
+    Given I am in the hallway
+    When I ask for help
+    Then I see "look around"
+    And I see "use door to team office"
+    And I see "go through door"
+
+  
