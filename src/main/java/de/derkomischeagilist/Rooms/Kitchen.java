@@ -8,6 +8,13 @@ public class Kitchen implements Room {
     private Dishwasher dishwasher;
     private Shower shower;
 
+
+    private final SomeClassForDoingSomething peanuts;
+
+    public Kitchen() {
+        peanuts = new SomeClassForDoingSomething();
+    }
+
     @Override
     public String getDescription() {
         return "the kitchen";
@@ -24,7 +31,7 @@ public class Kitchen implements Room {
             return "you are very funny";
         }
         if("look at colleague".equals(command)) {
-            return new PizzaTheHut().developAProgram();
+            return peanuts.developAProgram();
         }
         return "öhm...";
     }
@@ -34,13 +41,46 @@ public class Kitchen implements Room {
         return "help in the kitchen is useless";
     }
 
-    class PizzaTheHut {
+    class SomeClassForDoingSomething {
+        PointsAndStuff h = new PointsAndStuff();
         String developAProgram() {
             return "Pizza The Hut is greeting you friendly:" + this.removeKommasAndDots();
         }
 
         private String removeKommasAndDots() {
-            return "'disugfls omnseeaähxx kjshhyyyk!'";
+            return h.thing() + b() +  h.thing() + a() + z() + new PointsAndStuff().punkt() + h.thing();
+        }
+
+        private String b () {
+            return "d" + x() + "sugfls";
+        }
+
+        private String a () {
+            return "omnse" + x() + "aähxx" + " ";
+        }
+
+        private String z () {
+            return "kjshhyy" + x() + "k";
+        }
+
+        private String x () {
+            return "i";
+        }
+
+    }
+
+    class PointsAndStuff {
+        private int counter = 1;
+
+        public String punkt() {
+            return "!";
+        }
+
+        public String thing() {
+            if (counter++ % 2 == 0) {
+                return " ";
+            }
+            return "'";
         }
     }
 }

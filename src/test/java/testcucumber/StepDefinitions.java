@@ -87,4 +87,28 @@ public class StepDefinitions {
     public void i_am_now_in_the_team_office() {
         assertThat(lastResponse, containsStringIgnoringCase("stinky room"));
     }
+
+    @Given("we are in the kitchen")
+    public void we_are_in_the_kitchen() {
+        i_am_playing_the_game();
+
+        lastResponse = adventure.tell("use door to kitchen");
+
+        we_am_now_in_the_kitchen();
+    }
+
+    @Then("we am now in the kitchen")
+    public void we_am_now_in_the_kitchen() {
+        assertThat(lastResponse, containsStringIgnoringCase("kitchen"));
+    }
+
+    @When("we look at the colleague")
+    public void we_look_at_the_colleague() {
+        lastResponse = adventure.tell("look at colleague");
+    }
+
+    @Then("he will greet us with {string}")
+    public void he_will_greet_us_with(String greeting) {
+        assertThat(lastResponse, containsStringIgnoringCase(greeting));
+    }
 }
