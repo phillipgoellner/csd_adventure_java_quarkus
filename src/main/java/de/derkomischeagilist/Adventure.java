@@ -12,6 +12,7 @@ public class Adventure {
     private Room washroom;
     private Room hallway;
     private Room teamOffice;
+    private Room kitchen;
     private String lastResponse;
 
     public Adventure() {
@@ -19,6 +20,7 @@ public class Adventure {
         washroom = new WashRoom();
         hallway = new Hallway();
         teamOffice = new TeamOffice();
+        kitchen = new Kitchen();
         currentRoom = loo;
         counter = 0;
         lastResponse = "";
@@ -44,6 +46,10 @@ public class Adventure {
                 break;
             case "use door to team office":
                 currentRoom = teamOffice;
+                response = currentRoom.getDescription();
+                break;
+            case "use door to kitchen":
+                currentRoom = kitchen;
                 response = currentRoom.getDescription();
                 break;
             case "help":

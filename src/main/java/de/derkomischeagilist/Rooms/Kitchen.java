@@ -16,7 +16,7 @@ public class Kitchen implements Room {
         if ("clean kitchen".equals(command)) {
             return "you are very funny";
         }
-        return " ";
+        return "öhm...";
     }
 
     @Override
