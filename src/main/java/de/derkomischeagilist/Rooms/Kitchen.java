@@ -1,5 +1,6 @@
 package de.derkomischeagilist.Rooms;
 
+import de.derkomischeagilist.Items.CoffeeMaker;
 import de.derkomischeagilist.Items.Cutlery;
 import de.derkomischeagilist.Items.Dishwasher;
 import de.derkomischeagilist.Items.Shower;
@@ -9,6 +10,7 @@ public class Kitchen implements Room {
     private Dishwasher dishwasher;
     private Shower shower;
     private int attemptsToShower;
+    private CoffeeMaker coffeeMaker;
 
     private Cutlery cutlery;
     private final SomeClassForDoingSomething peanuts;
@@ -18,6 +20,8 @@ public class Kitchen implements Room {
         this.shower = new Shower(Shower.CONDITION_DEFECT);
         this.dishwasher = new Dishwasher();
         this.attemptsToShower = 0;
+        this.coffeeMaker = new CoffeeMaker();
+
         this.cutlery = new Cutlery(20);
     }
 
@@ -28,7 +32,7 @@ public class Kitchen implements Room {
 
     @Override
     public String getDetailedDescription() {
-        return "The room is very unclean. It might be the kitchen. It reminds you of home. There is a colleague standing in the corner on top of some pizza boxes. You see " + Integer.toString(this.cutlery.theTotalAmountOfKnivesThatAreInTheKitchenDisregardingTheirState) + " knives throughout the room. On the left side of the room you see a dishwasher in an awesome condition. On the other side of the room you can see the ancient remains of a shower. It's definitely the worst shower you've ever seen and you refuse to inspect it more in details. Something might be alive over there...";
+        return "The room is very unclean. It might be the kitchen. It reminds you of home. There is a colleague standing in the corner on top of some pizza boxes. You see " + Integer.toString(this.cutlery.theTotalAmountOfKnivesThatAreInTheKitchenDisregardingTheirState) + " knives throughout the room. In a corner is a coffee maker that might still be working. On the left side of the room you see a dishwasher in an awesome condition. On the other side of the room you can see the ancient remains of a shower. It's definitely the worst shower you've ever seen and you refuse to inspect it more in details. Something might be alive over there...";
     }
 
     @Override
@@ -48,6 +52,10 @@ public class Kitchen implements Room {
             }
             attemptsToShower += 1;
             return "It smells like something is rotten down in the sewer...";
+        }
+        String message;
+        if ((message = coffeeMaker.handle(command)) != null) {
+            return message;
         }
         return "öhm...";
     }

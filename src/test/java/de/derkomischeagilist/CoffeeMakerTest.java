@@ -3,6 +3,7 @@ package de.derkomischeagilist;
 import de.derkomischeagilist.Items.CoffeeMaker;
 import org.junit.jupiter.api.Test;
 
+
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 
@@ -52,5 +53,15 @@ public class CoffeeMakerTest {
         assertThat( coffeeMaker.makeCoffee(), is(true));
     }
 
+    @Test
+    void testCommandHandlerAddBeans() {
+        coffeeMaker = new CoffeeMaker();
+        assertThat(coffeeMaker.handle("add beans"), containsStringIgnoringCase("beans have been added"));
+    }
 
+    @Test
+    void testCommandHandlerAddWater() {
+        coffeeMaker = new CoffeeMaker();
+        assertThat(coffeeMaker.handle("add water"), containsStringIgnoringCase("water has been added"));
+    }
 }

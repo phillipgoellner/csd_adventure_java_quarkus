@@ -39,6 +39,10 @@ public class StepDefinitions {
 
         assertThat(lastResponse, containsStringIgnoringCase("looks like a wash room"));
     }
+    @When("I say {string}")
+    public void i_say(String string) {
+        lastResponse = adventure.tell(string);
+    }
 
     @When("I ask for help")
     public void i_ask_for_help() {
@@ -97,6 +101,11 @@ public class StepDefinitions {
         we_am_now_in_the_kitchen();
     }
 
+    @When("I look around")
+    public void i_look_around() {
+        lastResponse = adventure.tell("look around");
+    }
+
     @Then("we am now in the kitchen")
     public void we_am_now_in_the_kitchen() {
         assertThat(lastResponse, containsStringIgnoringCase("kitchen"));
@@ -110,5 +119,18 @@ public class StepDefinitions {
     @Then("he will greet us with {string}")
     public void he_will_greet_us_with(String greeting) {
         assertThat(lastResponse, containsStringIgnoringCase(greeting));
+    }
+
+    @Then("I can see the coffee maker")
+    public void i_can_see_the_coffee_maker() {
+        assertThat(lastResponse, containsStringIgnoringCase("a coffee maker"));
+    }
+
+    @Given("I added all necessary components to the coffee machine")
+    public void i_added_all_necessary_components_to_the_coffee_machine() {
+        adventure.tell("add beans");
+        adventure.tell("add water");
+        adventure.tell("connect power");
+        adventure.tell("put in cup");
     }
 }
