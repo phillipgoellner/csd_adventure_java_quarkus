@@ -9,3 +9,8 @@ Feature: Shower
     Given I got a shower from a friend
     When I check the condition
     Then I should see that the shower is used
+
+  Scenario: A broken shower
+    Given I bought a shower at the flea market
+    When I check the condition
+    Then I should realize that the shower is broken

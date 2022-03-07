@@ -41,4 +41,14 @@ public class ShowerStepDefinitions {
     public void i_should_see_that_the_shower_is_used() {
         assertThat(this.showerCondition, equalTo(Shower.CONDITION_USED));
     }
+
+    @Given("I bought a shower at the flea market")
+    public void i_bought_a_shower_at_the_flea_market() {
+        this.shower = new Shower(Shower.CONDITION_DEFECT);
+    }
+
+    @Then("I should realize that the shower is broken")
+    public void i_should_realize_that_the_shower_is_broken() {
+        assertThat(this.showerCondition, equalTo(Shower.CONDITION_DEFECT));
+    }
 }
