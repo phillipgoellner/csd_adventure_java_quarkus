@@ -52,7 +52,6 @@ public class Kitchen implements Room {
         return "öhm...";
     }
 
-    @Override
     private void attemptToShower() {
         attemptsToShower += 1;
         this.shower.notifyAll();
