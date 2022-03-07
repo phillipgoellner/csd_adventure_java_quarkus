@@ -57,6 +57,10 @@ public class Dishwasher {
         return currentNumberOfDirtyKnivesLoaded;
     }
 
+    public Boolean couldLoadCutlery(Cutlery cutlery) {
+        return (this.currentNumberOfDirtyKnivesLoaded += cutlery.theTotalAmountOfKnivesThatAreInTheKitchenDisregardingTheirState) <= this.maxNumberOfKnives;
+    }
+
     public Dishwasher() {
         this.brand = "ACME";
         this.model = "Superswoosh 9000XR";
