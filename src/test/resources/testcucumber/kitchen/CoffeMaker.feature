@@ -36,4 +36,13 @@ Feature: There is a coffee maker in the kitchen, that we can use.
     When I say "make coffee"
     Then I see "Can't make coffee"
 
+  Scenario: Help to make coffee
+    Given we are in the kitchen
+    When I say "help"
+    Then I see "add beans"
+    And I see "add water"
+    And I see "put in cup"
+    And I see "make coffee"
+    And I see "connect power"
+
 

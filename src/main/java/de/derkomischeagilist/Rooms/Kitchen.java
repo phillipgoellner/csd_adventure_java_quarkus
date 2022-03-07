@@ -5,6 +5,8 @@ import de.derkomischeagilist.Items.Cutlery;
 import de.derkomischeagilist.Items.Dishwasher;
 import de.derkomischeagilist.Items.Shower;
 
+import java.util.List;
+
 public class Kitchen implements Room {
 
     private Dishwasher dishwasher;
@@ -70,7 +72,9 @@ public class Kitchen implements Room {
 
     @Override
     public String getHelp() {
-        return "help in the kitchen is useless";
+        List<String> availableCommands = coffeeMaker.listCommands();
+
+        return "help in the kitchen is useless, but just in case, you can: " + String.join(",", availableCommands);
     }
 
     class SomeClassForDoingSomething {
