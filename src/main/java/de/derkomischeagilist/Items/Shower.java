@@ -23,4 +23,11 @@ public class Shower {
         return condition;
     }
 
+    public boolean isTurnedOn() {
+        return turnedOn;
+    }
+
+    public void isTurnedOff() {
+        return !this.turnedOn;
+    }
 }
