@@ -1,5 +1,6 @@
 package de.derkomischeagilist.Rooms;
 
+import de.derkomischeagilist.Items.Cutlery;
 import de.derkomischeagilist.Items.Dishwasher;
 import de.derkomischeagilist.Items.Shower;
 
@@ -8,11 +9,14 @@ public class Kitchen implements Room {
     private Dishwasher dishwasher;
     private Shower shower;
 
-
+    private Cutlery cutlery;
     private final SomeClassForDoingSomething peanuts;
 
     public Kitchen() {
         peanuts = new SomeClassForDoingSomething();
+        this.dishwasher = new Dishwasher();
+
+        this.cutlery = new Cutlery(20);
     }
 
     @Override
@@ -22,7 +26,7 @@ public class Kitchen implements Room {
 
     @Override
     public String getDetailedDescription() {
-        return "The room is very unclean. It might be the kitchen. It reminds you of home. There is a colleague standing in the corner on top of some pizza boxes.";
+        return "The room is very unclean. It might be the kitchen. It reminds you of home. There is a colleague standing in the corner on top of some pizza boxes. You see " + Integer.toString(this.cutlery.theTotalAmountOfKnivesThatAreInTheKitchenDisregardingTheirState) + " knives throughout the room.";
     }
 
     @Override
@@ -32,6 +36,9 @@ public class Kitchen implements Room {
         }
         if("look at colleague".equals(command)) {
             return peanuts.developAProgram();
+        }
+        if ("do the knives fit into dishwasher".equals(command)) {
+            return dishwasher.couldLoadCutlery(this.cutlery) ? "they could fit" : "eeerp - overload!";
         }
         return "öhm...";
     }

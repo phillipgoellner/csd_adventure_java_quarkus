@@ -1,5 +1,6 @@
 package testcucumber;
 
+import de.derkomischeagilist.Items.Cutlery;
 import de.derkomischeagilist.Items.Dishwasher;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -65,6 +66,15 @@ public class DishwasherStepDefinitions {
         Integer n = this.dishwasher.getCurrentNumberOfCleanKnivesLoaded();
 
         assertThat(n, equalTo(int1));
+    }
+
+    @Then("I could {int} dirty knives.")
+    public void i_could_dirty_knives(Integer int1) {
+        Cutlery c = new Cutlery(int1);
+
+        Boolean b = this.dishwasher.couldLoadCutlery(c);
+
+        assertThat(b, equalTo(true));
     }
 
 }
