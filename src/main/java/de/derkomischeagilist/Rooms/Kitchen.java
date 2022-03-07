@@ -15,7 +15,7 @@ public class Kitchen implements Room {
 
     @Override
     public String getDetailedDescription() {
-        return "the very unclean kitchen";
+        return "The room is very unclean. It might be the kitchen. It reminds you of home. There is a colleague standing in the corner on top of some pizza boxes.";
     }
 
     @Override
@@ -23,11 +23,24 @@ public class Kitchen implements Room {
         if ("clean kitchen".equals(command)) {
             return "you are very funny";
         }
+        if("look at colleague".equals(command)) {
+            return new PizzaTheHut().developAProgram();
+        }
         return "öhm...";
     }
 
     @Override
     public String getHelp() {
         return "help in the kitchen is useless";
+    }
+
+    class PizzaTheHut {
+        String developAProgram() {
+            return "Pizza The Hut is greeting you friendly:" + this.removeKommasAndDots();
+        }
+
+        private String removeKommasAndDots() {
+            return "'disugfls omnseeaähxx kjshhyyyk!'";
+        }
     }
 }
