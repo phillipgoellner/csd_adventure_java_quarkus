@@ -28,7 +28,17 @@ public class ShowerStepDefinitions {
     }
 
     @Then("I should see that the shower is new")
-    public void i_should_see_that_the_shower_is_new(){
+    public void i_should_see_that_the_shower_is_new() {
         assertThat(this.showerCondition, equalTo(Shower.CONDITION_NEW));
+    }
+
+    @Given("I got a shower from a friend")
+    public void i_got_a_shower_from_a_friend() {
+        this.shower = new Shower(Shower.CONDITION_USED);
+    }
+
+    @Then("I should see that the shower is used")
+    public void i_should_see_that_the_shower_is_used() {
+        assertThat(this.showerCondition, equalTo(Shower.CONDITION_USED));
     }
 }
