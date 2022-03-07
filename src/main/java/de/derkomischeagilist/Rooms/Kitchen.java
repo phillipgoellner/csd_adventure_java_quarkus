@@ -1,0 +1,26 @@
+package de.derkomischeagilist.Rooms;
+
+public class Kitchen implements Room {
+    @Override
+    public String getDescription() {
+        return "the kitchen";
+    }
+
+    @Override
+    public String getDetailedDescription() {
+        return "the very unclean kitchen";
+    }
+
+    @Override
+    public String handleCommand(String command) {
+        if ("clean kitchen".equals(command)) {
+            return "you are very funny";
+        }
+        return " ";
+    }
+
+    @Override
+    public String getHelp() {
+        return "help in the kitchen is useless";
+    }
+}
