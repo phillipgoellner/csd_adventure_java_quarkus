@@ -1,10 +1,12 @@
 package de.derkomischeagilist.Rooms;
 
 import de.derkomischeagilist.Items.Dishwasher;
+import de.derkomischeagilist.Items.Shower;
 
 public class Kitchen implements Room {
 
     private Dishwasher dishwasher;
+    private Shower shower;
 
     @Override
     public String getDescription() {
