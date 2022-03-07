@@ -160,8 +160,11 @@ public class CoffeeMaker {
         @Override
         public String handle(String command) {
             if (command.matches("make coffee")) {
-                coffeeMaker.putCupIn();
-                return "You brewed a very nice looking cup of hot coffee.";
+                if(coffeeMaker.makeCoffee()) {
+                    return "You brewed a very nice looking cup of hot coffee.";
+                } else {
+                    return "Can't make coffee! " + coffeeMaker.whatsWrong();
+                }
             }
             return null;
         }

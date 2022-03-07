@@ -31,4 +31,9 @@ Feature: There is a coffee maker in the kitchen, that we can use.
     When I say "make coffee"
     Then I see "you brewed a very nice looking cup of hot coffee"
 
+  Scenario: Making coffee fails
+    Given we are in the kitchen
+    When I say "make coffee"
+    Then I see "Can't make coffee"
+
 
