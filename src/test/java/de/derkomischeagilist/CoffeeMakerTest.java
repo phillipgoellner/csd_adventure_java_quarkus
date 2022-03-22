@@ -64,4 +64,10 @@ public class CoffeeMakerTest {
         coffeeMaker = new CoffeeMaker();
         assertThat(coffeeMaker.handle("add water"), containsStringIgnoringCase("water has been added"));
     }
+
+    @Test
+    void testCommandListerFindsCommands() {
+        coffeeMaker = new CoffeeMaker();
+        assertThat(coffeeMaker.listCommands(), hasItem("add beans"));
+    }
 }

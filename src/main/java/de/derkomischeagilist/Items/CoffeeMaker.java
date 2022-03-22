@@ -1,6 +1,9 @@
 package de.derkomischeagilist.Items;
 
-public class CoffeeMaker {
+import java.util.ArrayList;
+import java.util.List;
+
+public class CoffeeMaker implements CommandLister {
 
     private Command[] commands;
     private boolean powerAvailable;
@@ -78,11 +81,25 @@ public class CoffeeMaker {
         return null;
     }
 
+    @Override
+    public List<String> listCommands() {
+        List<String> availableCommands = new ArrayList<>();
+        
+        for(Object command: commands) {
+            if (command instanceof CommandLister) {
+                availableCommands.addAll(((CommandLister) command).listCommands());
+            }
+        }
+        return availableCommands;
+    }
+
     interface Command {
         String handle(String command);
     }
 
-    private class AddBeans implements Command {
+
+
+    private class AddBeans implements Command, CommandLister {
         private final CoffeeMaker coffeeMaker;
 
         public AddBeans(CoffeeMaker coffeeMaker) {
@@ -97,9 +114,14 @@ public class CoffeeMaker {
             }
             return null;
         }
+
+        @Override
+        public List<String> listCommands() {
+            return List.of("add beans");
+        }
     }
 
-    private class AddWater implements Command {
+    private class AddWater implements Command, CommandLister {
         private final CoffeeMaker coffeeMaker;
 
         public AddWater(CoffeeMaker coffeeMaker) {
@@ -114,9 +136,14 @@ public class CoffeeMaker {
             }
             return null;
         }
+
+        @Override
+        public List<String> listCommands() {
+            return List.of("add water");
+        }
     }
 
-    private class ConnectPower implements Command {
+    private class ConnectPower implements Command, CommandLister {
         private final CoffeeMaker coffeeMaker;
 
         public ConnectPower(CoffeeMaker coffeeMaker) {
@@ -131,9 +158,14 @@ public class CoffeeMaker {
             }
             return null;
         }
+
+        @Override
+        public List<String> listCommands() {
+            return List.of("connect power");
+        }
     }
 
-    private class PutInCup implements Command {
+    private class PutInCup implements Command, CommandLister {
         private final CoffeeMaker coffeeMaker;
 
         public PutInCup(CoffeeMaker coffeeMaker) {
@@ -148,9 +180,14 @@ public class CoffeeMaker {
             }
             return null;
         }
+
+        @Override
+        public List<String> listCommands() {
+            return List.of("put in cup");
+        }
     }
 
-    private class MakeCoffee implements Command {
+    private class MakeCoffee implements Command, CommandLister {
         private final CoffeeMaker coffeeMaker;
 
         public MakeCoffee(CoffeeMaker coffeeMaker) {
@@ -168,6 +205,16 @@ public class CoffeeMaker {
             }
             return null;
         }
+
+        @Override
+        public List<String> listCommands() {
+            return List.of("make coffee");
+        }
     }
+
+}
+
+interface CommandLister {
+    List<String> listCommands();
 }
 
