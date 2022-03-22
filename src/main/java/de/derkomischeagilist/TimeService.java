@@ -9,7 +9,17 @@ import java.util.regex.Pattern;
 
 public class TimeService {
 
-    public static Integer currentTimeInEuropeBerlin() {
+    private String tz;
+
+    public TimeService() {
+        this.tz = "Europe/Berlin";
+    }
+
+    public Integer currentTime() {
+        return currentTime(this.tz);
+    }
+
+    public static Integer currentTime(String tz) {
         Pattern pattern = Pattern.compile("\"unixtime\":.*?(\\d+)", Pattern.MULTILINE);
 
         try {
@@ -17,7 +27,7 @@ public class TimeService {
             HttpResponse<String> response = client.send(
                     HttpRequest.newBuilder()
                             .GET()
-                            .uri(new URI("http://worldtimeapi.org/api/timezone/Europe/Berlin"))
+                            .uri(new URI("http://worldtimeapi.org/api/timezone/" + tz))
                             .build(),
                     HttpResponse.BodyHandlers.ofString()
             );

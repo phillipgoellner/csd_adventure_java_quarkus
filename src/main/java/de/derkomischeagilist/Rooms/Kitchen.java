@@ -4,6 +4,12 @@ import de.derkomischeagilist.Items.CoffeeMaker;
 import de.derkomischeagilist.Items.Cutlery;
 import de.derkomischeagilist.Items.Dishwasher;
 import de.derkomischeagilist.Items.Shower;
+import de.derkomischeagilist.TimeService;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 public class Kitchen implements Room {
 
@@ -11,6 +17,7 @@ public class Kitchen implements Room {
     private Shower shower;
     private int attemptsToShower;
     private CoffeeMaker coffeeMaker;
+    private Clock wallClock;
 
     private Cutlery cutlery;
     private final SomeClassForDoingSomething peanuts;
@@ -21,6 +28,7 @@ public class Kitchen implements Room {
         this.dishwasher = new Dishwasher();
         this.attemptsToShower = 0;
         this.coffeeMaker = new CoffeeMaker();
+        this.wallClock = new Clock();
 
         this.cutlery = new Cutlery(20);
     }
@@ -32,7 +40,7 @@ public class Kitchen implements Room {
 
     @Override
     public String getDetailedDescription() {
-        return "The room is very unclean. It might be the kitchen. It reminds you of home. There is a colleague standing in the corner on top of some pizza boxes. You see " + Integer.toString(this.cutlery.theTotalAmountOfKnivesThatAreInTheKitchenDisregardingTheirState) + " knives throughout the room. In a corner is a coffee maker that might still be working. On the left side of the room you see a dishwasher in an awesome condition. On the other side of the room you can see the ancient remains of a shower. It's definitely the worst shower you've ever seen and you refuse to inspect it more in details. Something might be alive over there...";
+        return "The room is very unclean. It might be the kitchen. It reminds you of home. There is a colleague standing in the corner on top of some pizza boxes. You see " + Integer.toString(this.cutlery.theTotalAmountOfKnivesThatAreInTheKitchenDisregardingTheirState) + " knives throughout the room. In a corner is a coffee maker that might still be working. On the left side of the room you see a dishwasher in an awesome condition. On the other side of the room you can see the ancient remains of a shower. It's definitely the worst shower you've ever seen and you refuse to inspect it more in details. The wallclock is one of the few remains in mint condition. Something might be alive over there...";
     }
 
     @Override
@@ -52,6 +60,9 @@ public class Kitchen implements Room {
             }
             attemptsToShower += 1;
             return "It smells like something is rotten down in the sewer...";
+        }
+        if ("time?".equals(command)) {
+            return "The wallclock says: " + this.wallClock.tellHhMm();
         }
         String message;
         if ((message = coffeeMaker.handle(command)) != null) {
@@ -113,6 +124,43 @@ public class Kitchen implements Room {
                 return " ";
             }
             return "'";
+        }
+    }
+
+    class Clock {
+        private TimeService timeService;
+
+        Clock() {
+            this.timeService = new TimeService();
+        }
+
+        public String tellHhMm() {
+            try {
+                Date d = new Date(this.timeService.currentTime().longValue() * 1000);
+                DateFormat df = new SimpleDateFormat("hh:mm");
+                String ret = df.format(d);
+                int h = d.getHours();
+                if (h < 6) {
+                    ret += " ... waaaaaay too early!";
+                }
+                else if (h < 12) {
+                    ret += " ... yawn!";
+                }
+                else if (h < 18) {
+                    ret += " ... lunch? food?";
+                }
+                else if (h < 24) {
+                    ret +=" ... pizza?";
+                }
+                else {
+                    ret += " ... I see ghosts!";
+                }
+
+                return ret;
+            }
+            catch (Exception e) {
+                return "dunno";
+            }
         }
     }
 }
