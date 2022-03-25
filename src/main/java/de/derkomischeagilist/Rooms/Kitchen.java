@@ -1,5 +1,6 @@
 package de.derkomischeagilist.Rooms;
 
+import de.derkomischeagilist.Colleagues.PizzaTheHut;
 import de.derkomischeagilist.Items.CoffeeMaker;
 import de.derkomischeagilist.Items.Cutlery;
 import de.derkomischeagilist.Items.Dishwasher;
@@ -8,9 +9,7 @@ import de.derkomischeagilist.TimeService;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
-
 import java.util.List;
 
 public class Kitchen implements Room {
@@ -22,10 +21,10 @@ public class Kitchen implements Room {
     private Clock wallClock;
 
     private Cutlery cutlery;
-    private final SomeClassForDoingSomething peanuts;
+    private final PizzaTheHut pizzaTheHut;
 
     public Kitchen() {
-        peanuts = new SomeClassForDoingSomething();
+        this.pizzaTheHut = new PizzaTheHut();
         this.shower = new Shower(Shower.CONDITION_DEFECT);
         this.dishwasher = new Dishwasher();
         this.attemptsToShower = 0;
@@ -50,15 +49,15 @@ public class Kitchen implements Room {
         if ("clean kitchen".equals(command)) {
             return "you are very funny";
         }
-        if("look at colleague".equals(command)) {
-            return peanuts.developAProgram();
+        if ("look at colleague".equals(command)) {
+            return pizzaTheHut.greet();
         }
         if ("do the knives fit into dishwasher".equals(command)) {
             return dishwasher.couldLoadCutlery(this.cutlery) ? "they could fit" : "eeerp - overload!";
         }
         if ("turn on the shower".equals(command)) {
             if (attemptsToShower > 0) {
-             return "NO WAY! OTHERWISE I WILL VOMIT OUT MY SOUL...THIS ROTTEN STENCH...";
+                return "NO WAY! OTHERWISE I WILL VOMIT OUT MY SOUL...THIS ROTTEN STENCH...";
             }
             attemptsToShower += 1;
             return "It smells like something is rotten down in the sewer...";
@@ -88,49 +87,6 @@ public class Kitchen implements Room {
         return "help in the kitchen is useless, but just in case, you can: " + String.join(",", availableCommands);
     }
 
-    class SomeClassForDoingSomething {
-        PointsAndStuff h = new PointsAndStuff();
-        String developAProgram() {
-            return "Pizza The Hut is greeting you friendly:" + this.removeKommasAndDots();
-        }
-
-        private String removeKommasAndDots() {
-            return h.thing() + b() +  h.thing() + a() + z() + new PointsAndStuff().punkt() + h.thing();
-        }
-
-        private String b () {
-            return "d" + x() + "sugfls";
-        }
-
-        private String a () {
-            return "omnse" + x() + "aähxx" + " ";
-        }
-
-        private String z () {
-            return "kjshhyy" + x() + "k";
-        }
-
-        private String x () {
-            return "i";
-        }
-
-    }
-
-    class PointsAndStuff {
-        private int counter = 1;
-
-        public String punkt() {
-            return "!";
-        }
-
-        public String thing() {
-            if (counter++ % 2 == 0) {
-                return " ";
-            }
-            return "'";
-        }
-    }
-
     class Clock {
         private TimeService timeService;
 
@@ -146,23 +102,18 @@ public class Kitchen implements Room {
                 int h = d.getHours();
                 if (h < 6) {
                     ret += " ... waaaaaay too early!";
-                }
-                else if (h < 12) {
+                } else if (h < 12) {
                     ret += " ... yawn!";
-                }
-                else if (h < 18) {
+                } else if (h < 18) {
                     ret += " ... lunch? food?";
-                }
-                else if (h < 24) {
-                    ret +=" ... pizza?";
-                }
-                else {
+                } else if (h < 24) {
+                    ret += " ... pizza?";
+                } else {
                     ret += " ... I see ghosts!";
                 }
 
                 return ret;
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
                 return "dunno";
             }
         }
