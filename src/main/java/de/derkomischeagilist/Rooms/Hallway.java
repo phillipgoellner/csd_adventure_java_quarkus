@@ -18,6 +18,6 @@ public class Hallway implements Room {
 
     @Override
     public String getHelp() {
-        return "Try to 'look around' or 'use door to team office'. You can also 'go through door' to go to the washroom.";
+        return "Try to 'look around' or 'use door to team office'. You can also 'go through door' to go to the washroom or 'use door to kitchen' to visit pizza the hut.";
     }
 }

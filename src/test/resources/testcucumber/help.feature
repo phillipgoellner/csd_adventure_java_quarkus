@@ -24,7 +24,9 @@ Feature: We want help
     Given I am in the hallway
     When I ask for help
     Then I see "look around"
-    And I see "use door to team office"
     And I see "go through door"
+    And I see "use door to kitchen"
+    And I see "use door to team office"
+
 
   
