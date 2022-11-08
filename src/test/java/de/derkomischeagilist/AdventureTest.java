@@ -75,8 +75,36 @@ public class AdventureTest {
         //When i look around
         String actual = adventure.tell("Do something stupid");
         //Then i can see magazines
-        assertThat(actual, containsStringIgnoringCase("invalid command"));
+        assertThat(actual, not(containsStringIgnoringCase("invalid command")));
         assertThat(actual, containsStringIgnoringCase("please enter 'help' to get a list of available commands"));
+    }
+
+    @Test
+    void enteringAnInvalidCommandResultsInFunnyResponse() {
+        //given i am on the loo
+        assertThat(adventure.Begin(), containsStringIgnoringCase("you wake up on the Loo"));
+        //When i look around
+        String command = "Do something stupid";
+        String actual = adventure.tell(command);
+        //Then i can see funny response
+        assertThat(actual, containsStringIgnoringCase(String.format("Did you just ask me to '%s'?", command)));
+        assertThat(actual, containsStringIgnoringCase("please enter 'help' to get a list of available commands"));
+    }
+
+
+    @Test
+    void EnteringHelpInWashroomGivesHintForDod() {
+        //given i am in the washroom
+        assertThat(adventure.Begin(), containsStringIgnoringCase("you wake up on the Loo"));
+        adventure.currentRoom = adventure.washroom;
+
+        //When i ask for help
+        String actual = adventure.tell("help");
+
+        //Then i see dod response
+        assertThat(actual, containsStringIgnoringCase("read DoD"));
+
+
     }
 
     @Test
