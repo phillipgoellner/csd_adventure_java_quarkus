@@ -7,9 +7,9 @@ import java.util.Locale;
 public class Adventure {
 
     private int counter;
-    private Room currentRoom;
+    protected Room currentRoom;
     private Room loo;
-    private Room washroom;
+    protected Room washroom;
     private Room hallway;
     private Room teamOffice;
     private Room kitchen;

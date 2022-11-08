@@ -12,7 +12,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-public class Kitchen implements Room {
+public class Kitchen extends AbstractRoom {
 
     private Dishwasher dishwasher;
     private Shower shower;
@@ -69,7 +69,8 @@ public class Kitchen implements Room {
         if ((message = coffeeMaker.handle(command)) != null) {
             return message;
         }
-        return "öhm...";
+
+        return super.handleCommand(command);
     }
 
     private void attemptToShower() {

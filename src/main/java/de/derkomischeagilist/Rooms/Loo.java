@@ -1,6 +1,6 @@
 package de.derkomischeagilist.Rooms;
 
-public class Loo implements Room {
+public class Loo extends AbstractRoom {
 
     public String getDescription() {
         return "You wake up on the loo. You have no idea where or who you are.";
@@ -22,8 +22,7 @@ public class Loo implements Room {
                 return
                    "you wake up on the Loo"
                    + "\n"
-                   + "What???"
-                   ;
+                   + super.handleCommand(command);
         }
 
     }

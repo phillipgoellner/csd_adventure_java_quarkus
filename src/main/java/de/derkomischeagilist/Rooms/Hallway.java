@@ -1,6 +1,6 @@
 package de.derkomischeagilist.Rooms;
 
-public class Hallway implements Room {
+public class Hallway extends AbstractRoom {
     @Override
     public String getDescription() {
         return "Welcome to the hallway to hell.";
@@ -13,7 +13,7 @@ public class Hallway implements Room {
 
     @Override
     public String handleCommand(String command) {
-        return null;
+        return super.handleCommand(command);
     }
 
     @Override

@@ -69,13 +69,14 @@ public class AdventureTest {
     }
 
     @Test
-    void EnteringAnInvalidCommandResultsInWhatResponse() {
+    void EnteringAnInvalidCommandResultsInHelpfulResponse() {
         //given i am on the loo
         assertThat(adventure.Begin(), containsStringIgnoringCase("you wake up on the Loo"));
         //When i look around
         String actual = adventure.tell("Do something stupid");
         //Then i can see magazines
-        assertThat(actual, endsWithIgnoringCase("What???"));
+        assertThat(actual, containsStringIgnoringCase("invalid command"));
+        assertThat(actual, containsStringIgnoringCase("please enter 'help' to get a list of available commands"));
     }
 
     @Test
@@ -139,6 +140,31 @@ public class AdventureTest {
         //When I go into the Team Office
         String actual = adventure.tell("uSe DoOr tO tEaM oFfIcE");
         //Then the command leads me to the team room
-        assertThat(actual, not(containsStringIgnoringCase("What???")));
+        assertThat(actual, not(containsStringIgnoringCase("invalid command")));
     }
+
+    @Test
+    void lookAroundShowsDodOnTheDoor() {
+        //given I am on the washroom
+        assertThat(adventure.Begin(), containsStringIgnoringCase("you wake up on the Loo"));
+        adventure.currentRoom = adventure.washroom;
+        //When I look around
+        String actual = adventure.tell("look around");
+        //Then I find the DoD
+        assertThat(actual, containsStringIgnoringCase("you notice a dod on the door"));
+    }
+
+    @Test
+    void readDodShowsDodDetails() {
+        //given I am on the washroom
+        assertThat(adventure.Begin(), containsStringIgnoringCase("you wake up on the Loo"));
+        adventure.currentRoom = adventure.washroom;
+        //When I read the DoD
+        String actual = adventure.tell("read dod");
+        //Then I find the DoD
+        assertThat(actual, containsStringIgnoringCase("hands washed"));
+        assertThat(actual, containsStringIgnoringCase("paper towels in bin"));
+        assertThat(actual, containsStringIgnoringCase("toilet flushed"));
+    }
+
 }

@@ -1,6 +1,6 @@
 package de.derkomischeagilist.Rooms;
 
-public class TeamOffice implements Room {
+public class TeamOffice extends AbstractRoom {
     @Override
     public String getDescription() {
         return "This is a very stinky room. Smells like real work. \n" +
@@ -14,7 +14,8 @@ public class TeamOffice implements Room {
 
     @Override
     public String handleCommand(String command) {
-        return null;
+
+        return super.handleCommand(command);
     }
 
     @Override
