@@ -160,7 +160,7 @@ public class AdventureTest {
         assertThat(adventure.Begin(), containsStringIgnoringCase("you wake up on the Loo"));
         adventure.currentRoom = adventure.washroom;
         //When I read the DoD
-        String actual = adventure.tell("read dod");
+        String actual = adventure.tell("read DoD");
         //Then I find the DoD
         assertThat(actual, containsStringIgnoringCase("hands washed"));
         assertThat(actual, containsStringIgnoringCase("paper towels in bin"));

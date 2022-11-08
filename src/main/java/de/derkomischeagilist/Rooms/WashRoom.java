@@ -9,19 +9,19 @@ public class WashRoom extends AbstractRoom {
     public String getDetailedDescription() {
         return "You see an incredibly nasty sink with an undefinable substance in it. Ew!"
                 + "<br/>"
-                + "You notice a DoD on the door "
+                + "You notice a DoD on the door."
                 + "</br>"
-                + "On the other side of the room you see another door";
+                + "On the other side of the room you see another door.";
     }
 
     public String handleCommand(String command) {
         switch (command) {
-            case "read dod":
-                return "hands washed" +
+            case "read DoD":
+                return "hands washed?" +
                         "</br>" +
-                        "paper towels in bin" +
+                        "paper towels in bin?" +
                         "</br>" +
-                        "toilet flushed";
+                        "toilet flushed?";
             default:
                 return super.handleCommand(command);
         }
@@ -29,6 +29,6 @@ public class WashRoom extends AbstractRoom {
 
     @Override
     public String getHelp() {
-        return "Try to 'look around' or 'use door to hallway'. Might help.";
+        return "Try to 'look around', 'read DoD' or 'use door to hallway'. Might help.";
     }
 }
