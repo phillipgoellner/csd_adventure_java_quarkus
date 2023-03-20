@@ -78,7 +78,7 @@ public class AdventureTest {
         String actual = adventure.tell("Do something stupid");
         //Then i can see magazines
         assertThat(actual, not(containsStringIgnoringCase("invalid command")));
-        assertThat(actual, containsStringIgnoringCase("please enter 'help' to get a list of available commands"));
+        assertThat(actual, containsStringIgnoringCase("Try to 'look around', 'look at magazines' (better get your gloves), 'examine toilet paper' or just 'go through door' to escape the smell."));
     }
 
     @Test
@@ -90,7 +90,7 @@ public class AdventureTest {
         String actual = adventure.tell(command);
         //Then i can see funny response
         assertThat(actual, containsStringIgnoringCase(String.format("Did you just ask me to '%s'?", command)));
-        assertThat(actual, containsStringIgnoringCase("please enter 'help' to get a list of available commands"));
+        assertThat(actual, containsStringIgnoringCase("Try to 'look around', 'look at magazines' (better get your gloves), 'examine toilet paper' or just 'go through door' to escape the smell."));
     }
 
 
@@ -195,6 +195,16 @@ public class AdventureTest {
         assertThat(actual, containsStringIgnoringCase("hands washed"));
         assertThat(actual, containsStringIgnoringCase("paper towels in bin"));
         assertThat(actual, containsStringIgnoringCase("toilet flushed"));
+    }
+
+    @Test
+    void examineToiletPaperShowsToiletPaperDetails() {
+        //given I am on the loo
+        assertThat(adventure.Begin(), containsStringIgnoringCase("you wake up on the Loo"));
+        //When I examine the toilet paper
+        String actual = adventure.tell("examine toilet paper");
+        //Then I see the toilet paper details
+        assertThat(actual, containsStringIgnoringCase("printed onto it is the complete agile manifesto for software development."));
     }
 
     @Test
