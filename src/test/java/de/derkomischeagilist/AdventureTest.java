@@ -196,6 +196,17 @@ public class AdventureTest {
     }
 
     @Test
+    void examineToiletPaperShowsToiletPaperDetails() {
+        //given I am on the washroom
+        assertThat(adventure.Begin(), containsStringIgnoringCase("you wake up on the Loo"));
+        adventure.currentRoom = adventure.washroom;
+        //When I examine the toilet paper
+        String actual = adventure.tell("examine toilet paper");
+        //Then I see the toilet paper details
+        assertThat(actual, containsStringIgnoringCase("printed onto it is the complete agile manifesto for software development."));
+    }
+
+    @Test
     void readAJokeOnLooSuccessful(){
         //given I am on the loo
         assertThat(adventure.Begin(), containsStringIgnoringCase("you wake up on the Loo"));
