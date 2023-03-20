@@ -97,7 +97,7 @@ public class Kitchen extends AbstractRoom {
 
         public String tellHhMm() {
             try {
-                Date d = new Date(this.timeService.currentTime().longValue() * 1000);
+                Date d = new Date(this.timeService.currentTime() * 1000);
                 DateFormat df = new SimpleDateFormat("hh:mm");
                 String ret = df.format(d);
                 int h = d.getHours();
