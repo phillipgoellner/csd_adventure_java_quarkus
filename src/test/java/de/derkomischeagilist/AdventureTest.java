@@ -16,6 +16,8 @@ public class AdventureTest {
         adventure = new Adventure();
     }
 
+
+
     @Test
     void currentTimeLooksGood() {
         assertThat("timestamp", TimeService.currentTime(), greaterThan(-1L));
@@ -210,5 +212,33 @@ public class AdventureTest {
         adventure.currentRoom = adventure.washroom;
         String actual = adventure.tell("read a joke");
         assertThat(actual, containsStringIgnoringCase("There is no joke in this room."));
+    }
+
+    @Test
+    void commitSuicideInLoo(){
+        //given I am on the loo
+        assertThat(adventure.Begin(), containsStringIgnoringCase("you wake up on the Loo"));
+        String actual = adventure.tell("commit suicide");
+        assertThat(actual, containsStringIgnoringCase("you wake up on the Loo"));
+    }
+
+    @Test
+    void readAJokeOnLooAndCommitSuicide(){
+        //given I am on the loo
+        assertThat(adventure.Begin(), containsStringIgnoringCase("you wake up on the Loo"));
+        String actual = adventure.tell("read a joke");
+        assertThat(actual, containsStringIgnoringCase("Why do we tell actors to 'break a leg?' - Because every play has a cast ;)"));
+        actual = adventure.tell("commit suicide");
+        assertThat(actual, containsStringIgnoringCase("you wake up on the Loo"));
+    }
+
+    @Test
+    void moveToHallwayAndCommitSuicide(){
+        //given I am on the loo
+        assertThat(adventure.Begin(), containsStringIgnoringCase("you wake up on the Loo"));
+        String actual = adventure.tell("go through door");
+        assertThat(actual, containsStringIgnoringCase("You enter a room that looks like a wash room."));
+        actual = adventure.tell("commit suicide");
+        assertThat(actual, containsStringIgnoringCase("you wake up on the Loo"));
     }
 }

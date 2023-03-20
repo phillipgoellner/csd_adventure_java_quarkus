@@ -7,4 +7,9 @@ public abstract class AbstractRoom implements Room {
                 "<br /><br />" +
                 "404 - command not found. Please enter 'help' to get a list of available commands.", command);
     }
+
+    @Override
+    public String getHelp() {
+        return "If you want to restart, just try to 'commit suicide' or ";
+    }
 }

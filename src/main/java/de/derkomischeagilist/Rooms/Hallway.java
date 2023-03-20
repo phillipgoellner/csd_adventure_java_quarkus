@@ -18,6 +18,6 @@ public class Hallway extends AbstractRoom {
 
     @Override
     public String getHelp() {
-        return "Try to 'look around' or 'use door to team office'. You can also 'go through door' to go to the washroom or 'use door to kitchen' to visit pizza the hut.";
+        return super.getHelp()+ "Try to 'look around' or 'use door to team office'. You can also 'go through door' to go to the washroom or 'use door to kitchen' to visit pizza the hut.";
     }
 }

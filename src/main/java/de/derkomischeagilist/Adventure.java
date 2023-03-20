@@ -29,9 +29,12 @@ public class Adventure {
     public String tell(String command) {
         String response = "";
         switch (command.toLowerCase()) {
+            case "commit suicide":
+                currentRoom = loo;
+                response = currentRoom.getDescription();
+                break;
             case "read a joke":
                 if (currentRoom == loo) {
-                    // TODO Array with possible other jokes
                     response = "Why do we tell actors to 'break a leg?' - Because every play has a cast ;)";
                 } else {
                     response = "There is no joke in this room.";
