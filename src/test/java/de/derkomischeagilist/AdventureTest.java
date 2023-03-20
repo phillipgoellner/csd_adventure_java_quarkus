@@ -18,7 +18,7 @@ public class AdventureTest {
 
     @Test
     void currentTimeLooksGood() {
-        assertThat("timestamp", TimeService.currentTime("Europe/Berlin"), greaterThan(-1));
+        assertThat("timestamp", TimeService.currentTime(), greaterThan(-1L));
     }
 
     @Test
@@ -195,4 +195,20 @@ public class AdventureTest {
         assertThat(actual, containsStringIgnoringCase("toilet flushed"));
     }
 
+    @Test
+    void readAJokeOnLooSuccessful(){
+        //given I am on the loo
+        assertThat(adventure.Begin(), containsStringIgnoringCase("you wake up on the Loo"));
+        String actual = adventure.tell("read a joke");
+        assertThat(actual, containsStringIgnoringCase("Why do we tell actors to 'break a leg?' - Because every play has a cast ;)"));
+    }
+
+    @Test
+    void readAJokeInWashroomUnsuccesfull(){
+        //given I am on the loo
+        assertThat(adventure.Begin(), containsStringIgnoringCase("you wake up on the Loo"));
+        adventure.currentRoom = adventure.washroom;
+        String actual = adventure.tell("read a joke");
+        assertThat(actual, containsStringIgnoringCase("There is no joke in this room."));
+    }
 }
