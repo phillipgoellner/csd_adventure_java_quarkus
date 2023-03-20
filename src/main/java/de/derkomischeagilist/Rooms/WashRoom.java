@@ -22,8 +22,6 @@ public class WashRoom extends AbstractRoom {
                         "paper towels in bin?" +
                         "</br>" +
                         "toilet flushed?";
-            case "examine toilet paper":
-                return "printed onto it is the complete agile manifesto for software development.";
             default:
                 return super.handleCommand(command);
         }

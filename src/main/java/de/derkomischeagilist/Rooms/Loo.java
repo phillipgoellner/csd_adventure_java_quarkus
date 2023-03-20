@@ -16,7 +16,9 @@ public class Loo extends AbstractRoom {
         switch(command) {
             case "look at magazines":
                 return "You see a very much used Micky Mouse magazine, a very old and unusable playboy and what seems to be a scrum guide 2009 in mint condition.";
-            case "go through door":
+            case "examine toilet paper":
+                return "printed onto it is the complete agile manifesto for software development.";
+                case "go through door":
 
             default:
                 return
@@ -28,6 +30,6 @@ public class Loo extends AbstractRoom {
     }
 
     public String getHelp() {
-        return "Try to 'look around', 'look at magazines' (better get your gloves) or just 'go through door' to escape the smell.";
+        return "Try to 'look around', 'look at magazines' (better get your gloves), 'examine toilet paper' or just 'go through door' to escape the smell.";
     }
 }
