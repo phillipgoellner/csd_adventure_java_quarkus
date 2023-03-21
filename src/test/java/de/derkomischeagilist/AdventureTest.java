@@ -79,7 +79,7 @@ public class AdventureTest {
         String actual = adventure.tell("Do something stupid");
         //Then i can see magazines
         assertThat(actual, not(containsStringIgnoringCase("invalid command")));
-        assertThat(actual, containsStringIgnoringCase("Try to 'look around', 'look at magazines' (better get your gloves), 'examine toilet paper' or just 'go through door' to escape the smell."));
+        assertThat(actual, containsStringIgnoringCase("Try to 'look around', 'look at magazines' (better get your gloves), 'look at toilet paper' or just 'go through door' to escape the smell."));
     }
 
     @Test
@@ -91,7 +91,7 @@ public class AdventureTest {
         String actual = adventure.tell(command);
         //Then i can see funny response
         assertThat(actual, containsStringIgnoringCase(String.format("Did you just ask me to '%s'?", command)));
-        assertThat(actual, containsStringIgnoringCase("Try to 'look around', 'look at magazines' (better get your gloves), 'examine toilet paper' or just 'go through door' to escape the smell."));
+        assertThat(actual, containsStringIgnoringCase("Try to 'look around', 'look at magazines' (better get your gloves), 'look at toilet paper' or just 'go through door' to escape the smell."));
     }
 
 
@@ -202,10 +202,24 @@ public class AdventureTest {
     void examineToiletPaperShowsToiletPaperDetails() {
         //given I am on the loo
         assertThat(adventure.Begin(), containsStringIgnoringCase("you wake up on the Loo"));
-        //When I examine the toilet paper
-        String actual = adventure.tell("examine toilet paper");
+        //When I examine the toilet paper for the first time
+        String actual = adventure.tell("look at toilet paper");
         //Then I see the toilet paper details
-        assertThat(actual, containsStringIgnoringCase("printed onto it is the complete agile manifesto for software development."));
+        assertThat(actual, containsStringIgnoringCase("On the first piece is written: \"Scrum Master:"));
+        assertThat(actual, containsStringIgnoringCase("There are more pieces"));
+        //When I examine the toilet paper for the second time
+        actual = adventure.tell("look at toilet paper");
+        //Then I see the toilet paper details
+        assertThat(actual, containsStringIgnoringCase("On the second piece is written: \"Product Owner:"));
+        //When I examine the toilet paper for the third time
+        actual = adventure.tell("look at toilet paper");
+        //Then I see the toilet paper details
+        assertThat(actual, containsStringIgnoringCase("On the last piece is written: \"Developers:"));
+        assertThat(actual, containsStringIgnoringCase("I remember. I need to find my Scrum team"));
+        //When I examine the toilet paper for the fourth time
+        actual = adventure.tell("look at toilet paper");
+        //Then I see the toilet paper details
+        assertThat(actual, containsStringIgnoringCase("On the first piece is written: \"Scrum Master:"));
     }
 
     @Test
