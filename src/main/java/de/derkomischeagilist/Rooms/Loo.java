@@ -2,12 +2,22 @@ package de.derkomischeagilist.Rooms;
 
 public class Loo extends AbstractRoom {
 
+    private int toiletPaperCount;
+
+    public Loo() {
+        toiletPaperCount = 0;
+    }
+
+    public void resetCounter() {
+        toiletPaperCount = 0;
+    }
+
     public String getDescription() {
         return "You wake up on the loo. You have no idea where or who you are.";
     }
 
     public String getDetailedDescription() {
-        return "You see a pretty dirty door, with some nasty jokes on it. Next to you is some toilet paper, a coin and a few magazines."
+        return "You see a pretty dirty door, with some nasty jokes on it. There are three pieces of toilet paper on the ground. Next to you are a coin and a few magazines."
           + "<br/>"
           + "In your pocket you find a card that says you are a certified scrum developer";
     }
@@ -16,8 +26,15 @@ public class Loo extends AbstractRoom {
         switch(command.toLowerCase()) {
             case "look at magazines":
                 return "You see a very much used Micky Mouse magazine, a very old and unusable playboy and what seems to be a scrum guide 2009 in mint condition.";
-            case "examine toilet paper":
-                return "printed onto it is the complete agile manifesto for software development.";
+            case "look at toilet paper":
+                toiletPaperCount++;
+                switch (toiletPaperCount) {
+                    case 1: return "On the first piece is written: \"Scrum Master: Nobody ever comes to my retros... I need to get out of here.\" There are more pieces on the ground.";
+                    case 2: return "On the second piece is written: \"Product Owner: My developers are way too slow.\" There is one more piece on the ground.";
+                    case 3:
+                        toiletPaperCount = 0;
+                        return "On the last piece is written: \"Developers: We have too many meetings.\" I remember. I need to find my Scrum team to help them get out of here.";
+                }
                 case "go through door":
 
             default:
@@ -30,6 +47,6 @@ public class Loo extends AbstractRoom {
     }
 
     public String getHelp() {
-        return super.getHelp()+ "Try to 'look around', 'look at magazines' (better get your gloves), 'examine toilet paper' or just 'go through door' to escape the smell.";
+        return super.getHelp()+ "Try to 'look around', 'look at magazines' (better get your gloves), 'look at toilet paper' or just 'use door to washroom' to escape the smell.";
     }
 }

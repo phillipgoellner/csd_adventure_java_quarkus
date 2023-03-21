@@ -8,7 +8,7 @@ public class Adventure {
 
     private int counter;
     protected Room currentRoom;
-    private Room loo;
+    private Loo loo;
     protected Room washroom;
     private Room hallway;
     private Room teamOffice;
@@ -30,6 +30,7 @@ public class Adventure {
         String response = "";
         switch (command.toLowerCase()) {
             case "commit suicide":
+                loo.resetCounter();
                 currentRoom = loo;
                 response = currentRoom.getDescription();
                 break;
@@ -47,7 +48,7 @@ public class Adventure {
                 counter++;
                 response = "The counter is at " + counter;
                 break;
-            case "go through door":
+            case "use door to washroom":
                 currentRoom = washroom;
                 response = currentRoom.getDescription();
                 break;
@@ -56,6 +57,7 @@ public class Adventure {
                 response = currentRoom.getDescription();
                 break;
             case "use door to loo":
+                loo.resetCounter();
                 currentRoom = loo;
                 response = "You are on the loo again. Still smelly.";
                 break;

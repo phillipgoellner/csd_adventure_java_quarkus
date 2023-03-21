@@ -35,7 +35,7 @@ public class StepDefinitions {
     public void i_am_in_the_washroom() {
         i_am_playing_the_game();
 
-        lastResponse = adventure.tell("go through door");
+        lastResponse = adventure.tell("use door to washroom");
 
         assertThat(lastResponse, containsStringIgnoringCase("looks like a wash room"));
     }
