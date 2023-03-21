@@ -13,7 +13,7 @@ public class Hallway extends AbstractRoom {
 
     @Override
     public String handleCommand(String command) {
-        switch (command) {
+        switch (command.toLowerCase()) {
             case "inspect the spooky door":
                 return "You see a rugged and sturdy steel door with cryptic symbols on it. The door is covered in cobweb and next to it is a rusty keypad. If you feel brave enough you could 'open the spooky door'?";
             case "open the spooky door":

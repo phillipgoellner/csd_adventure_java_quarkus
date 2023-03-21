@@ -275,4 +275,16 @@ public class AdventureTest {
         assertThat(actual, containsStringIgnoringCase("You are on the loo again. Still smelly."));
     }
 
+    @Test
+    void commandsInCaps(){
+        //given I am on the loo
+        assertThat(adventure.Begin(), containsStringIgnoringCase("you wake up on the Loo"));
+        // Commands shall work, regardless if written in lower or uppercase
+        String actual = adventure.tell("gO thROugh dOOR");
+        assertThat(actual, containsStringIgnoringCase("You enter a room that looks like a wash room."));
+        actual = adventure.tell("USE DOOR TO HALLWAY");
+        assertThat(actual, containsStringIgnoringCase("Welcome to the hallway to hell."));
+        actual = adventure.tell("USE DOOR TO LOO");
+        assertThat(actual, containsStringIgnoringCase("You are on the loo again. Still smelly."));
+    }
 }

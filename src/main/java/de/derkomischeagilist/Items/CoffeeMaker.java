@@ -73,7 +73,7 @@ public class CoffeeMaker implements CommandLister {
 
     public String handle(String incomingCommand) {
         for (Command command : commands) {
-            String message = command.handle(incomingCommand);
+            String message = command.handle(incomingCommand.toLowerCase());
             if (message != null) {
                 return message;
             }

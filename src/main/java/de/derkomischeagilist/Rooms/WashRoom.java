@@ -15,8 +15,8 @@ public class WashRoom extends AbstractRoom {
     }
 
     public String handleCommand(String command) {
-        switch (command) {
-            case "read DoD":
+        switch (command.toLowerCase()) {
+            case "read dod":
                 return "hands washed?" +
                         "</br>" +
                         "paper towels in bin?" +

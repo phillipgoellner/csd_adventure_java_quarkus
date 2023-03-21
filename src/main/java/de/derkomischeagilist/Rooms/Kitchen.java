@@ -46,31 +46,30 @@ public class Kitchen extends AbstractRoom {
 
     @Override
     public String handleCommand(String command) {
-        if ("clean kitchen".equals(command)) {
-            return "you are very funny";
-        }
-        if ("look at colleague".equals(command)) {
-            return pizzaTheHut.greet();
-        }
-        if ("do the knives fit into dishwasher".equals(command)) {
-            return dishwasher.couldLoadCutlery(this.cutlery) ? "they could fit" : "eeerp - overload!";
-        }
-        if ("turn on the shower".equals(command)) {
-            if (attemptsToShower > 0) {
-                return "NO WAY! OTHERWISE I WILL VOMIT OUT MY SOUL...THIS ROTTEN STENCH...";
+        switch (command.toLowerCase()) {
+            case "clean kitchen":
+                return "you are very funny";
+            case "look at colleague":
+                return pizzaTheHut.greet();
+            case "do the knives fit into dishwasher":
+                return dishwasher.couldLoadCutlery(this.cutlery) ? "they could fit" : "eeerp - overload!";
+            case "turn on the shower":{
+                if (attemptsToShower > 0) {
+                    return "NO WAY! OTHERWISE I WILL VOMIT OUT MY SOUL...THIS ROTTEN STENCH...";
+                }
+                attemptsToShower += 1;
+                return "It smells like something is rotten down in the sewer...";
             }
-            attemptsToShower += 1;
-            return "It smells like something is rotten down in the sewer...";
-        }
-        if ("time?".equals(command)) {
-            return "The wallclock says: " + this.wallClock.tellHhMm();
+            case "time?":
+                return "The wallclock says: " + this.wallClock.tellHhMm();
+
         }
         String message;
-        if ((message = coffeeMaker.handle(command)) != null) {
+        if ((message = coffeeMaker.handle(command.toLowerCase())) != null) {
             return message;
         }
 
-        return super.handleCommand(command);
+        return super.handleCommand(command.toLowerCase());
     }
 
     private void attemptToShower() {
