@@ -1,5 +1,6 @@
 package de.derkomischeagilist;
 
+import org.junit.Assert;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -251,4 +252,27 @@ public class AdventureTest {
         actual = adventure.tell("commit suicide");
         assertThat(actual, containsStringIgnoringCase("you wake up on the Loo"));
     }
+
+    @Test
+    void moveFromLooToWashroomAndBackToLoo(){
+        //given I am on the loo
+        assertThat(adventure.Begin(), containsStringIgnoringCase("you wake up on the Loo"));
+        String actual = adventure.tell("go through door");
+        assertThat(actual, containsStringIgnoringCase("You enter a room that looks like a wash room."));
+        actual = adventure.tell("use door to loo");
+        assertThat(actual, containsStringIgnoringCase("You are on the loo again. Still smelly."));
+    }
+
+    @Test
+    void moveFromLooToWashroomAndTooHallwayAndBackToLoo(){
+        //given I am on the loo
+        assertThat(adventure.Begin(), containsStringIgnoringCase("you wake up on the Loo"));
+        String actual = adventure.tell("go through door");
+        assertThat(actual, containsStringIgnoringCase("You enter a room that looks like a wash room."));
+        actual = adventure.tell("use door to hallway");
+        assertThat(actual, containsStringIgnoringCase("Welcome to the hallway to hell."));
+        actual = adventure.tell("use door to loo");
+        assertThat(actual, containsStringIgnoringCase("You are on the loo again. Still smelly."));
+    }
+
 }

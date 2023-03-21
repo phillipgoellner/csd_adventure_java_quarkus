@@ -55,6 +55,10 @@ public class Adventure {
                 currentRoom = hallway;
                 response = currentRoom.getDescription();
                 break;
+            case "use door to loo":
+                currentRoom = loo;
+                response = "You are on the loo again. Still smelly.";
+                break;
             case "use door to team office":
                 currentRoom = teamOffice;
                 response = currentRoom.getDescription();
