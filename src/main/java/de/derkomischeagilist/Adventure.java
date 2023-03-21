@@ -48,7 +48,7 @@ public class Adventure {
                 counter++;
                 response = "The counter is at " + counter;
                 break;
-            case "go through door":
+            case "use door to washroom":
                 currentRoom = washroom;
                 response = currentRoom.getDescription();
                 break;
