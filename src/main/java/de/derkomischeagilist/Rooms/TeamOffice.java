@@ -20,6 +20,6 @@ public class TeamOffice extends AbstractRoom {
 
     @Override
     public String getHelp() {
-        return super.getHelp()+ "Try to 'look around' or 'use door to hallway'. Might help.";
+        return super.getHelp()+ "try to 'look around' or 'use door to hallway'. Might help.";
     }
 }
