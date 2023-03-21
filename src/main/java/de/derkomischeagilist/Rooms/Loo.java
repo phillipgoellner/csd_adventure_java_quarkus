@@ -30,7 +30,7 @@ public class Loo extends AbstractRoom {
                 toiletPaperCount++;
                 switch (toiletPaperCount) {
                     case 1: return "On the first piece is written: \"Scrum Master: Nobody ever comes to my retros... I need to get out of here.\" There are more pieces on the ground.";
-                    case 2: return "On the second piece is written: \"Product Owner: My developers are way too slow. There is one more piece on the ground.";
+                    case 2: return "On the second piece is written: \"Product Owner: My developers are way too slow.\" There is one more piece on the ground.";
                     case 3:
                         toiletPaperCount = 0;
                         return "On the last piece is written: \"Developers: We have too many meetings.\" I remember. I need to find my Scrum team to help them get out of here.";
