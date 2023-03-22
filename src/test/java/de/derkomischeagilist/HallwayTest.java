@@ -25,18 +25,12 @@ public class HallwayTest {
     @Test
     void HelpInHallwayContainsCommandToInspectSpookyDoor() {
         String hallwayHelp = hallway.getHelp();
-        assertThat(hallwayHelp, containsStringIgnoringCase("try to 'inspect the spooky door'"));
+        assertThat(hallwayHelp, containsStringIgnoringCase("try to 'use spooky door'"));
     }
 
     @Test
     void InspectingTheSpookyDoorRevealsTheKeypad() {
         String commandResult = hallway.handleCommand("inspect the spooky door");
         assertThat(commandResult, containsStringIgnoringCase("You see a rugged and sturdy steel door with cryptic symbols on it. The door is covered in cobweb and next to it is a rusty keypad. If you feel brave enough you could 'open the spooky door'?"));
-    }
-
-    @Test
-    void TryingToOpenTheSpookyDoorRevealsItIsLocked() {
-        String commandResult = hallway.handleCommand("open the spooky door");
-        assertThat(commandResult, containsStringIgnoringCase("It seems locked and doesn't budge."));
     }
 }
