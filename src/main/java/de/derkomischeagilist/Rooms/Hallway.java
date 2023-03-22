@@ -21,9 +21,13 @@ public class Hallway extends AbstractRoom {
     public String handleCommand(String command) {
         switch (command.toLowerCase()) {
             case "inspect the spooky door":
-                return "You see a rugged and sturdy steel door with cryptic symbols on it. The door is covered in cobweb and next to it is a rusty keypad. If you feel brave enough you could 'open the spooky door'?";
+                return "You see a rugged and sturdy steel door with cryptic symbols on it. The door is covered in cobweb and next to it is a rusty keypad. If you feel brave enough you could 'open the spooky door' or 'use keypad'";
             case "open the spooky door":
                 return "It seems locked and doesn't budge.";
+            case "use keypad":
+            case "use rusty keypad":
+                keypadIsActive = true;
+                return "You need to enter three digits";
             default: return super.handleCommand(command);
         }
     }

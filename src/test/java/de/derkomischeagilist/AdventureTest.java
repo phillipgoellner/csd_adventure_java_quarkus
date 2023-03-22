@@ -301,4 +301,15 @@ public class AdventureTest {
         actual = adventure.tell("USE DOOR TO LOO");
         assertThat(actual, containsStringIgnoringCase("You are on the loo again. Still smelly."));
     }
+
+    @Test
+    void useKeypadInHallway(){
+        //given I enter the hallway
+        assertThat(adventure.Begin(), containsStringIgnoringCase("you wake up on the Loo"));
+        adventure.tell("use door to hallway");
+        // when I use the keypad
+        String actual = adventure.tell("use keypad");
+        // i see the description of the keypad
+        assertThat(actual, containsStringIgnoringCase("You need to enter three digits"));
+    }
 }

@@ -10,7 +10,7 @@ public class Adventure {
     protected Room currentRoom;
     private Loo loo;
     protected Room washroom;
-    private Room hallway;
+    private Hallway hallway;
     private Room teamOffice;
     private Room kitchen;
     private String lastResponse;
@@ -53,6 +53,7 @@ public class Adventure {
                 response = currentRoom.getDescription();
                 break;
             case "use door to hallway":
+                hallway.resetKeypad();
                 currentRoom = hallway;
                 response = currentRoom.getDescription();
                 break;
