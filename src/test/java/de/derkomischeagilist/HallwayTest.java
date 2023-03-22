@@ -38,7 +38,7 @@ public class HallwayTest {
     void InputIsInterpretedAsKeypadCodeWhenFlagSet() {
         hallway.setActive();
         String commandResult = hallway.handleCommand("533");
-        assertThat(commandResult, containsStringIgnoringCase("Passcode was correct"));
+        assertThat(commandResult, containsStringIgnoringCase("You made it"));
     }
 
     @Test

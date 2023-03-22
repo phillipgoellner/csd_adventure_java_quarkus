@@ -46,7 +46,7 @@ public class Hallway extends AbstractRoom {
         if (keypadIsActive) {
             keypadIsActive = false;
             if (command.equalsIgnoreCase("533")) {
-                return "Passcode was correct";
+                return handleCommand("use spooky door");
             } else {
                 return "You hear a \"beep\", but nothing happens...";
             }
