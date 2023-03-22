@@ -1,6 +1,8 @@
 package de.derkomischeagilist.Rooms;
 
 public class Hallway extends AbstractRoom {
+    private boolean keypadIsActive = false;
+
     @Override
     public String getDescription() {
         return "Welcome to the hallway to hell.";
