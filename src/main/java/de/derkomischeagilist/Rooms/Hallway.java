@@ -7,6 +7,10 @@ public class Hallway extends AbstractRoom {
         keypadIsActive = false;
     }
 
+    public void setActive() {
+        keypadIsActive = true;
+    }
+
     @Override
     public String getDescription() {
         return "Welcome to the hallway to hell.";
@@ -32,7 +36,17 @@ public class Hallway extends AbstractRoom {
             case "use rusty keypad":
                 keypadIsActive = true;
                 return "You need to enter three digits";
-            default: return super.handleCommand(command);
+            default: {
+                if (keypadIsActive) {
+                    keypadIsActive = false;
+                    if (command.equalsIgnoreCase("533")) {
+                        return "Passcode was correct";
+                    } else {
+                        return "You hear a \"beep\", but nothing happens...";
+                    }
+                }
+                return super.handleCommand(command);
+            }
         }
     }
 

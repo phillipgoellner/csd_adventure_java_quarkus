@@ -33,4 +33,26 @@ public class HallwayTest {
         String commandResult = hallway.handleCommand("inspect the spooky door");
         assertThat(commandResult, containsStringIgnoringCase("You see a rugged and sturdy steel door with cryptic symbols on it. The door is covered in cobweb and next to it is a rusty keypad. If you feel brave enough you could 'open the spooky door'"));
     }
+
+    @Test
+    void InputIsInterpretedAsKeypadCodeWhenFlagSet() {
+        hallway.setActive();
+        String commandResult = hallway.handleCommand("533");
+        assertThat(commandResult, containsStringIgnoringCase("Passcode was correct"));
+    }
+
+    @Test
+    void UsingTheKeypadOnceReturnsToNormalCommandInterpretation() {
+        hallway.setActive();
+        hallway.handleCommand("888");
+        String commandResult = hallway.handleCommand("inspect the spooky door");
+        assertThat(commandResult, containsStringIgnoringCase("You see a rugged and sturdy steel door with cryptic symbols on it."));
+    }
+
+    @Test
+    void WrongKeypadCodeReturnsErrorMessage() {
+        hallway.setActive();
+        String commandResult = hallway.handleCommand("345");
+        assertThat(commandResult, containsStringIgnoringCase("nothing happens"));
+    }
 }
