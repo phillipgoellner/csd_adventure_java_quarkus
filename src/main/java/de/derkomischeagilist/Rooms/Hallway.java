@@ -37,17 +37,21 @@ public class Hallway extends AbstractRoom {
                 keypadIsActive = true;
                 return "You need to enter three digits";
             default: {
-                if (keypadIsActive) {
-                    keypadIsActive = false;
-                    if (command.equalsIgnoreCase("533")) {
-                        return "Passcode was correct";
-                    } else {
-                        return "You hear a \"beep\", but nothing happens...";
-                    }
-                }
-                return super.handleCommand(command);
+                return handleDefaultCase(command);
             }
         }
+    }
+
+    private String handleDefaultCase(String command) {
+        if (keypadIsActive) {
+            keypadIsActive = false;
+            if (command.equalsIgnoreCase("533")) {
+                return "Passcode was correct";
+            } else {
+                return "You hear a \"beep\", but nothing happens...";
+            }
+        }
+        return super.handleCommand(command);
     }
 
     @Override
