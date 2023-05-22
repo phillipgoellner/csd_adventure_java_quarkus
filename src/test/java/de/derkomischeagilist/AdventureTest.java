@@ -206,11 +206,15 @@ public class AdventureTest {
         String actual = adventure.tell("look at toilet paper");
         //Then I see the toilet paper details
         assertThat(actual, containsStringIgnoringCase("On the first piece is written: \"Scrum Master:"));
-        assertThat(actual, containsStringIgnoringCase("There are more pieces"));
+        assertThat(actual, containsStringIgnoringCase("There are more pieces on the ground"));
         //When I examine the toilet paper for the second time
         actual = adventure.tell("look at toilet paper");
         //Then I see the toilet paper details
-        assertThat(actual, containsStringIgnoringCase("On the second piece is written: \"Product Owner:"));
+        assertThat(actual, containsStringIgnoringCase("Another one states:"));
+        //When I examine the toilet paper for the third time
+        actual = adventure.tell("look at toilet paper");
+        //Then I see the toilet paper details
+        assertThat(actual, containsStringIgnoringCase("Next pices says: \"Product Owner:"));
         //When I examine the toilet paper for the third time
         actual = adventure.tell("look at toilet paper");
         //Then I see the toilet paper details
