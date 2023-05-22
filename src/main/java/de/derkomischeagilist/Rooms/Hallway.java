@@ -18,7 +18,7 @@ public class Hallway extends AbstractRoom {
 
     @Override
     public String getDetailedDescription() {
-        return "Welcome to the very dark hallway to hell. At the end you see a spooky looking door.";
+        return "Welcome to the very dark hallway to hell. You see 4 doors. One door leads to the kitchen, one to the team room and to the washroom. At the end you see a spooky looking door.";
     }
 
     @Override
