@@ -1,21 +1,28 @@
 body {
     background: black;
-    color: forestgreen;
+    color: white;
     font-family: "Space Mono", monospace;
     padding: 30px;
+
 }
+
+.container {
+    width: 50%;
+    margin-left: 25%;
+  }
 
 input {
     background: #333333;
-    caret-color: forestgreen;
+    caret-color: white;
     caret-shape: underscore;
-    border: none;
-    color: forestgreen;
+    border: 1px solid gray;
+    color: lightblue;
     font-family: "Space Mono", monospace;
     font-size: 1.2em;
     margin: 1em 0;
-
-}
+    border-radius: 10px;
+    padding-left: 10px;
+  }
 
 input:focus,
 select:focus,
