@@ -48,6 +48,6 @@ public class Loo extends AbstractRoom {
     }
 
     public String getHelp() {
-        return super.getHelp()+ "try to 'look around', 'look at magazines' (better get your gloves), 'look at toilet paper' or just 'use door to washroom' to escape the smell.";
+        return "Try to 'look around', 'look at magazines' (better get your gloves), 'look at toilet paper' or just 'use door to washroom' to escape the smell." + super.getHelp();
     }
 }

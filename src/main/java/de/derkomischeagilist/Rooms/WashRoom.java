@@ -29,6 +29,6 @@ public class WashRoom extends AbstractRoom {
 
     @Override
     public String getHelp() {
-        return super.getHelp()+ "try to 'look around', 'read DoD', or 'use door to hallway', or 'use door to loo'. Might help.";
+        return "Try to type 'look around', 'read DoD', or 'use door to hallway', or 'use door to loo'." + super.getHelp();
     }
 }
