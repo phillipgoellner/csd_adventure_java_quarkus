@@ -21,7 +21,7 @@ public class AdventureTest {
 
     @Test
     void currentTimeLooksGood() {
-        assertThat("timestamp", TimeService.currentTime(), greaterThan(-1L));
+        assertThat("timestamp", TimeService.currentTime("Europe/Berlin"), greaterThan(-1));
     }
 
     @Test
