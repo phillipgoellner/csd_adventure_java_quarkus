@@ -3,9 +3,9 @@ package de.derkomischeagilist.Rooms;
 public abstract class AbstractRoom implements Room {
     @Override
     public String handleCommand(String command) {
-        return String.format("Did you just ask me to '%s'?" +
+        return String.format("Sorry, I don't understand '%s'" +
                 "<br /><br />" +
-                "404 - command not found. %s", command, this.getHelp());
+                "%s", command, this.getHelp());
     }
 
     @Override
