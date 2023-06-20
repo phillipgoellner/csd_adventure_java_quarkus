@@ -1,6 +1,5 @@
 package de.derkomischeagilist;
 
-import org.junit.Assert;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -90,7 +89,7 @@ public class AdventureTest {
         String command = "Do something stupid";
         String actual = adventure.tell(command);
         //Then i can see funny response
-        assertThat(actual, containsStringIgnoringCase(String.format("Did you just ask me to '%s'?", command)));
+        assertThat(actual, containsStringIgnoringCase(String.format("Sorry, I don't understand '%s'", command)));
         assertThat(actual, containsStringIgnoringCase("Try to 'look around', 'look at magazines' (better get your gloves), 'look at toilet paper' or just 'use door to washroom' to escape the smell."));
     }
 
