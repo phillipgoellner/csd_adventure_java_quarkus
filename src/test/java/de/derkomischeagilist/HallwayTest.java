@@ -58,14 +58,14 @@ public class HallwayTest {
 
     @Test
     void InputIsInterpretedAsKeypadCodeWhenFlagSet() {
-        hallway.setActive();
+        hallway.activateKeypad();
         String commandResult = hallway.handleCommand("5");
         assertThat(commandResult, containsStringIgnoringCase("You made it"));
     }
 
     @Test
     void UsingTheKeypadOnceReturnsToNormalCommandInterpretation() {
-        hallway.setActive();
+        hallway.activateKeypad();
         hallway.handleCommand("888");
         String commandResult = hallway.handleCommand("inspect the spooky door");
         assertThat(commandResult, containsStringIgnoringCase("You see a rugged and sturdy steel door with cryptic symbols on it."));
@@ -73,7 +73,7 @@ public class HallwayTest {
 
     @Test
     void WrongKeypadCodeReturnsErrorMessage() {
-        hallway.setActive();
+        hallway.activateKeypad();
         String commandResult = hallway.handleCommand("345");
         assertThat(commandResult, containsStringIgnoringCase("nothing happens"));
     }
