@@ -28,6 +28,8 @@ public class Hallway extends AbstractRoom {
                 return "You see a rugged and sturdy steel door with cryptic symbols on it. Above the door is a sign saying \"EXIT\". "
                 		+ "The door is covered in cobweb and next to it is a rusty keypad. The keypad has a post-it attached to saying \"Please enter number of Scrum values.\". "
                 		+ "You could try to unlock the door with 'use keypad'.";
+            case "inspect the poster":
+                return "The mighty Scrum Values are commitment, courage, focus, openness, and respect";
             case "use spooky door":
                 return "You made it! In front of you are a lot of people, who start clapping as they see you. " +
                         "You realize, that you are standing on a podium. " +

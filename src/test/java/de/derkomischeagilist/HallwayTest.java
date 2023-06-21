@@ -45,6 +45,12 @@ public class HallwayTest {
     }
 
     @Test
+    void InspectingThePosterRevealsScrumValues() {
+        String commandResult = hallway.handleCommand("inspect the poster");
+        assertThat(commandResult, containsStringIgnoringCase("commitment, courage, focus, openness, and respect"));
+    }
+
+    @Test
     void InputIsInterpretedAsKeypadCodeWhenFlagSet() {
         hallway.setActive();
         String commandResult = hallway.handleCommand("533");
