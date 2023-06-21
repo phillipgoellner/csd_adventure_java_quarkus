@@ -7,7 +7,7 @@ public class Hallway extends AbstractRoom {
         keypadIsActive = false;
     }
 
-    public void setActive() {
+    public void activateKeypad() {
         keypadIsActive = true;
     }
 
@@ -32,7 +32,7 @@ public class Hallway extends AbstractRoom {
                 return "The mighty Scrum Values are commitment, courage, focus, openness, and respect";
             case "use keypad":
             case "use rusty keypad":
-                keypadIsActive = true;
+                activateKeypad();
                 return "You need to enter the number of the scrum values. If you have no clue, take a look around.";
             default: {
                 return handleDefaultCase(command);
@@ -42,7 +42,7 @@ public class Hallway extends AbstractRoom {
 
     private String handleDefaultCase(String command) {
         if (keypadIsActive) {
-            keypadIsActive = false;
+            resetKeypad();
             if (command.equalsIgnoreCase("5")) {
                 return "You made it! In front of you are a lot of people, who start clapping as they see you. " +
                         "You realize, that you are standing on a podium. " +
