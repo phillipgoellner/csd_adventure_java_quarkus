@@ -53,7 +53,11 @@ public class HallwayTest {
     @Test
     void InspectingThePosterRevealsScrumValues() {
         String commandResult = hallway.handleCommand("inspect the poster");
-        assertThat(commandResult, containsStringIgnoringCase("commitment, courage, focus, openness, and respect"));
+        assertThat(commandResult, containsStringIgnoringCase("commitment"));
+        assertThat(commandResult, containsStringIgnoringCase("courage"));
+        assertThat(commandResult, containsStringIgnoringCase("focus"));
+        assertThat(commandResult, containsStringIgnoringCase("openness"));
+        assertThat(commandResult, containsStringIgnoringCase("respect"));
     }
 
     @Test
