@@ -23,6 +23,12 @@ public class HallwayTest {
     }
 
     @Test
+    void LookingAroundLetsYouSeePoster() {
+        String actualDescription = hallway.getDetailedDescription();
+        assertThat(actualDescription, containsStringIgnoringCase("poster"));
+    }
+
+    @Test
     void HelpInHallwayContainsCommandToUseDoors() {
         String hallwayHelp = hallway.getHelp();
         assertThat(hallwayHelp, containsStringIgnoringCase("try to 'inspect the spooky door'"));
@@ -30,12 +36,24 @@ public class HallwayTest {
         assertThat(hallwayHelp, containsStringIgnoringCase("use door to washroom"));
     }
 
+
+    @Test
+    void HelpInHallwayContainsHintToPoster() {
+        String hallwayHelp = hallway.getHelp();
+        assertThat(hallwayHelp, containsStringIgnoringCase("'inspect the poster'"));
+    }
     @Test
     void InspectingTheSpookyDoorRevealsTheKeypad() {
         String commandResult = hallway.handleCommand("inspect the spooky door");
         assertThat(commandResult, containsStringIgnoringCase("You see a rugged and sturdy steel door with cryptic symbols on it. Above the door is a sign saying \"EXIT\". "
         		+ "The door is covered in cobweb and next to it is a rusty keypad. The keypad has a post-it attached to saying \"Please enter number of Scrum values.\". "
         		+ "You could try to unlock the door with 'use keypad'."));
+    }
+
+    @Test
+    void InspectingThePosterRevealsScrumValues() {
+        String commandResult = hallway.handleCommand("inspect the poster");
+        assertThat(commandResult, containsStringIgnoringCase("commitment, courage, focus, openness, and respect"));
     }
 
     @Test
