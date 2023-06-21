@@ -25,7 +25,7 @@ public class HallwayTest {
     @Test
     void HelpInHallwayContainsCommandToUseDoors() {
         String hallwayHelp = hallway.getHelp();
-        assertThat(hallwayHelp, containsStringIgnoringCase("try to 'use spooky door'"));
+        assertThat(hallwayHelp, containsStringIgnoringCase("try to 'inspect the spooky door'"));
         assertThat(hallwayHelp, containsStringIgnoringCase("use door to kitchen"));
         assertThat(hallwayHelp, containsStringIgnoringCase("use door to washroom"));
     }
@@ -39,7 +39,7 @@ public class HallwayTest {
     @Test
     void InputIsInterpretedAsKeypadCodeWhenFlagSet() {
         hallway.setActive();
-        String commandResult = hallway.handleCommand("533");
+        String commandResult = hallway.handleCommand("5");
         assertThat(commandResult, containsStringIgnoringCase("You made it"));
     }
 
