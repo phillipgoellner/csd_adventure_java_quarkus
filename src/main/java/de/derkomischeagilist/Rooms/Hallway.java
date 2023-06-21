@@ -51,7 +51,8 @@ public class Hallway extends AbstractRoom {
                         "Congratulations!!!";
             }
 
-            return "You hear a \"beep\", but nothing happens...";
+            return "You hear a \"beep\", but nothing happens. " +
+                    "If you want to retry, please enter the command 'use keypad' again.";
         }
         return super.handleCommand(command);
     }
