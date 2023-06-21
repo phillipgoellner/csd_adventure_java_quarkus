@@ -27,7 +27,7 @@ public class Hallway extends AbstractRoom {
             case "inspect the spooky door":
                 return "You see a rugged and sturdy steel door with cryptic symbols on it. Above the door is a sign saying \"EXIT\". "
                 		+ "The door is covered in cobweb and next to it is a rusty keypad. The keypad has a post-it attached to saying \"Please enter number of Scrum values.\". "
-                		+ "If you feel brave enough you could 'open the spooky door'.";
+                		+ "You could try to unlock the door with 'use keypad'.";
             case "use spooky door":
                 return "You made it! In front of you are a lot of people, who start clapping as they see you. " +
                         "You realize, that you are standing on a podium. " +
