@@ -13,28 +13,28 @@ public class Dishwasher {
     Date dateWhenWarrantyEnds;
 
     Integer maxNumberOfPlates = 12;
-    Integer currentNumberOfCleanPlatesLoaded = 0;
-    Integer currentNumberOfDirtyPlatesLoaded = 0;
+    Integer cleanPlatesLoaded = 0;
+    Integer dirtyPlatesLoaded = 0;
 
     Integer maxNumberOfCups = 12;
-    Integer currentNumberOfCleanCupsLoaded = 0;
-    Integer currentNumberOfDirtyCupsLoaded = 0;
+    Integer cleanCupsLoaded = 0;
+    Integer dirtyCupsLoaded = 0;
 
     Integer maxNumberOfForks = 12;
-    Integer currentNumberOfCleanForksLoaded = 0;
-    Integer currentNumberOfDirtyForksLoaded = 0;
+    Integer cleanForksLoaded = 0;
+    Integer dirtyForksLoaded = 0;
 
     Integer maxNumberOfKnives = 12;
-    Integer currentNumberOfCleanKnivesLoaded = 0;
-    Integer currentNumberOfDirtyKnivesLoaded = 0;
+    Integer cleanKnivesLoaded = 0;
+    Integer dirtyKnivesLoaded = 0;
 
     Integer maxNumberOfSpoons = 12;
-    Integer currentNumberOfCleanSpoonsLoaded = 0;
-    Integer currentNumberOfDirtySpoonsLoaded = 0;
+    Integer cleanSpoonsLoaded = 0;
+    Integer dirtySpoonsLoaded = 0;
 
     Integer maxNumberOfTeaspoons = 12;
-    Integer currentNumberOfCleanTeaspoonsLoaded = 0;
-    Integer currentNumberOfDirtyTeaspoonsLoaded = 0;
+    Integer cleanTeaspoonsLoaded = 0;
+    Integer dirtyTeaspoonsLoaded = 0;
 
     public Integer getMaxNumberOfPlates() {
         return maxNumberOfPlates;
@@ -48,17 +48,17 @@ public class Dishwasher {
         return model;
     }
 
-    public Integer getCurrentNumberOfCleanKnivesLoaded() {
-        return currentNumberOfCleanKnivesLoaded;
+    public Integer getcleanKnivesLoaded() {
+        return cleanKnivesLoaded;
     }
 
     public Integer loadDirtyKnives(Integer numberOfDirtyKnives) {
-        currentNumberOfDirtyKnivesLoaded += numberOfDirtyKnives;
-        return currentNumberOfDirtyKnivesLoaded;
+        dirtyKnivesLoaded += numberOfDirtyKnives;
+        return dirtyKnivesLoaded;
     }
 
     public Boolean couldLoadCutlery(Cutlery cutlery) {
-        return (this.currentNumberOfDirtyKnivesLoaded += cutlery.theTotalAmountOfKnivesThatAreInTheKitchenDisregardingTheirState) <= this.maxNumberOfKnives;
+        return (this.dirtyKnivesLoaded += cutlery.totalAmtKnives) <= this.maxNumberOfKnives;
     }
 
     public Dishwasher() {
@@ -73,23 +73,23 @@ public class Dishwasher {
         this.dateWhenWarrantyEnds = c.getTime();
     }
 
-    public void startCleaningAllLoadedDirtyPlatesAndCupsAndForksAndKnivesAndSpoonsAndTeaspoons() {
-        this.currentNumberOfCleanPlatesLoaded = this.currentNumberOfDirtyPlatesLoaded;
-        this.currentNumberOfDirtyPlatesLoaded = 0;
+    public void startCleaning() {
+        this.cleanPlatesLoaded = this.dirtyPlatesLoaded;
+        this.dirtyPlatesLoaded = 0;
 
-        this.currentNumberOfCleanCupsLoaded = this.currentNumberOfDirtyCupsLoaded;
-        this.currentNumberOfDirtyCupsLoaded = 0;
+        this.cleanCupsLoaded = this.dirtyCupsLoaded;
+        this.dirtyCupsLoaded = 0;
 
-        this.currentNumberOfCleanForksLoaded = this.currentNumberOfDirtyForksLoaded;
-        this.currentNumberOfDirtyForksLoaded = 0;
+        this.cleanForksLoaded = this.dirtyForksLoaded;
+        this.dirtyForksLoaded = 0;
 
-        this.currentNumberOfCleanKnivesLoaded = this.currentNumberOfDirtyKnivesLoaded;
-        this.currentNumberOfDirtyKnivesLoaded = 0;
+        this.cleanKnivesLoaded = this.dirtyKnivesLoaded;
+        this.dirtyKnivesLoaded = 0;
 
-        this.currentNumberOfCleanSpoonsLoaded = this.currentNumberOfDirtySpoonsLoaded;
-        this.currentNumberOfDirtySpoonsLoaded = 0;
+        this.cleanSpoonsLoaded = this.dirtySpoonsLoaded;
+        this.dirtySpoonsLoaded = 0;
 
-        this.currentNumberOfCleanTeaspoonsLoaded = this.currentNumberOfDirtyTeaspoonsLoaded;
-        this.currentNumberOfDirtyTeaspoonsLoaded = 0;
+        this.cleanTeaspoonsLoaded = this.dirtyTeaspoonsLoaded;
+        this.dirtyTeaspoonsLoaded = 0;
     }
 }

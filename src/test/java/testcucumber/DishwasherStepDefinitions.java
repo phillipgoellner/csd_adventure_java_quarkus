@@ -58,12 +58,12 @@ public class DishwasherStepDefinitions {
 
     @When("Start the cleaning.")
     public void start_the_cleaning() {
-        this.dishwasher.startCleaningAllLoadedDirtyPlatesAndCupsAndForksAndKnivesAndSpoonsAndTeaspoons();
+        this.dishwasher.startCleaning();
     }
 
     @Then("I get {int} clean knives.")
     public void i_get_clean_knives(Integer int1) {
-        Integer n = this.dishwasher.getCurrentNumberOfCleanKnivesLoaded();
+        Integer n = this.dishwasher.getcleanKnivesLoaded();
 
         assertThat(n, equalTo(int1));
     }

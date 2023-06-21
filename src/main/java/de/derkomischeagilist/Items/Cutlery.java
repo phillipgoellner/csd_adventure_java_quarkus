@@ -1,9 +1,9 @@
 package de.derkomischeagilist.Items;
 
 public class Cutlery {
-    public Integer theTotalAmountOfKnivesThatAreInTheKitchenDisregardingTheirState = 0;
+    public Integer totalAmtKnives = 0;
 
-    public Cutlery(Integer theTotalAmountOfKnivesThatAreInTheKitchenDisregardingTheirState) {
-        this.theTotalAmountOfKnivesThatAreInTheKitchenDisregardingTheirState = theTotalAmountOfKnivesThatAreInTheKitchenDisregardingTheirState;
+    public Cutlery(Integer totalAmtKnives) {
+        this.totalAmtKnives = totalAmtKnives;
     }
 }
