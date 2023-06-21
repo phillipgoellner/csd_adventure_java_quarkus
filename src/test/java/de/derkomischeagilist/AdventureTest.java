@@ -323,18 +323,24 @@ public class AdventureTest {
         assertThat(actual, containsStringIgnoringCase("You enter a room that looks like a wash room."));
         actual = adventure.tell("use door to hallway");
         assertThat(actual, containsStringIgnoringCase("Welcome to the hallway to hell."));
-        actual = adventure.tell("use spooky door");
-        assertThat(actual, containsStringIgnoringCase("You made it! "));
+        actual = adventure.tell("inspect the spooky door");
+        assertThat(actual, containsStringIgnoringCase("number of Scrum values"));
+        actual = adventure.tell("use keypad");
+        assertThat(actual, containsStringIgnoringCase("number of the scrum values"));
+        actual = adventure.tell("5");
+        assertThat(actual, containsStringIgnoringCase("You made it"));
     }
 
     @Test
-    void useKeypadInHallway(){
+    void useKeypadInHallwayWithInvalidKey(){
         //given I enter the hallway
         assertThat(adventure.Begin(), containsStringIgnoringCase("you wake up on the Loo"));
         adventure.tell("use door to hallway");
         // when I use the keypad
         String actual = adventure.tell("use keypad");
         // i see the description of the keypad
-        assertThat(actual, containsStringIgnoringCase("You need to enter three digits"));
+        assertThat(actual, containsStringIgnoringCase("number of the scrum values"));
+        actual = adventure.tell("10");
+        assertThat(actual, containsStringIgnoringCase("but nothing happens"));
     }
 }
