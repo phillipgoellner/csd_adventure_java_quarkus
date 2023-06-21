@@ -29,6 +29,7 @@ java -jar target/quarkus-app/quarkus-run.jar
 ## On the remote machine
 ```
 ssh csd@csd.idiot.games
+#Das Passwort steht auf dem miro board
 cd csd_adventure_java_quarkus/
 git pull
 ./mvnw test
