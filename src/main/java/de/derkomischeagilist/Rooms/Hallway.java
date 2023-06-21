@@ -25,11 +25,19 @@ public class Hallway extends AbstractRoom {
     public String handleCommand(String command) {
         switch (command.toLowerCase()) {
             case "inspect the spooky door":
-                return "You see a rugged and sturdy steel door with cryptic symbols on it. The door is covered in cobweb and next to it is a rusty keypad. If you feel brave enough you could 'open the spooky door'?";
+                return "You see a rugged and sturdy steel door with cryptic symbols on it. Above the door is a sign saying \"EXIT\". "
+                		+ "The door is covered in cobweb and next to it is a rusty keypad. The keypad has a post-it attached to saying \"Please enter number of Scrum values.\". "
+                		+ "You could try to unlock the door with 'use keypad'.";
+            case "use spooky door":
+                return "You made it! In front of you are a lot of people, who start clapping as they see you. " +
+                        "You realize, that you are standing on a podium. " +
+                        "Some guy hurries over and hands over a certificate, which says that you are now a " +
+                        "'Certified Scrum Developer'. " +
+                        "Congratulations!!!";
             case "use keypad":
             case "use rusty keypad":
                 keypadIsActive = true;
-                return "You need to enter the number of the scrum values. If you have no clue, take a look around.";
+                return "You need to enter three digits";
             default: {
                 return handleDefaultCase(command);
             }
@@ -37,15 +45,10 @@ public class Hallway extends AbstractRoom {
     }
 
     private String handleDefaultCase(String command) {
-        // this is the case for entering the number on the keypad
         if (keypadIsActive) {
             keypadIsActive = false;
-            if (command.equalsIgnoreCase("5")) {
-                return "You made it! In front of you are a lot of people, who start clapping as they see you. " +
-                        "You realize, that you are standing on a podium. " +
-                        "Some guy hurries over and hands over a certificate, which says that you are now a " +
-                        "'Certified Scrum Developer'. " +
-                        "Congratulations!!!";
+            if (command.equalsIgnoreCase("533")) {
+                return handleCommand("use spooky door");
             } else {
                 return "You hear a \"beep\", but nothing happens...";
             }
@@ -55,6 +58,6 @@ public class Hallway extends AbstractRoom {
 
     @Override
     public String getHelp() {
-        return "Try to 'look around' or 'use door to team office'. You can also 'use door to washroom' to go to the washroom or 'use door to kitchen' to visit pizza the hut or maybe try to 'inspect the spooky door'." + super.getHelp();
+        return "Try to 'look around' or 'use door to team office'. You can also 'use door to washroom' to go to the washroom or 'use door to kitchen' to visit pizza the hut or maybe try to 'use spooky door'." + super.getHelp();
     }
 }
