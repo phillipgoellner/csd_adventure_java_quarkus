@@ -49,9 +49,9 @@ public class Hallway extends AbstractRoom {
                         "Some guy hurries over and hands over a certificate, which says that you are now a " +
                         "'Certified Scrum Developer'. " +
                         "Congratulations!!!";
-            } else {
-                return "You hear a \"beep\", but nothing happens...";
             }
+
+            return "You hear a \"beep\", but nothing happens...";
         }
         return super.handleCommand(command);
     }
