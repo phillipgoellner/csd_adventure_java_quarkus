@@ -36,6 +36,12 @@ public class HallwayTest {
         assertThat(hallwayHelp, containsStringIgnoringCase("use door to washroom"));
     }
 
+
+    @Test
+    void HelpInHallwayContainsHintToPoster() {
+        String hallwayHelp = hallway.getHelp();
+        assertThat(hallwayHelp, containsStringIgnoringCase("'inspect the poster'"));
+    }
     @Test
     void InspectingTheSpookyDoorRevealsTheKeypad() {
         String commandResult = hallway.handleCommand("inspect the spooky door");
