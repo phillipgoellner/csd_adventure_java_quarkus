@@ -33,7 +33,9 @@ public class HallwayTest {
     @Test
     void InspectingTheSpookyDoorRevealsTheKeypad() {
         String commandResult = hallway.handleCommand("inspect the spooky door");
-        assertThat(commandResult, containsStringIgnoringCase("You see a rugged and sturdy steel door with cryptic symbols on it. The door is covered in cobweb and next to it is a rusty keypad. If you feel brave enough you could 'open the spooky door'"));
+        assertThat(commandResult, containsStringIgnoringCase("You see a rugged and sturdy steel door with cryptic symbols on it. Above the door is a sign saying \"EXIT\". "
+        		+ "The door is covered in cobweb and next to it is a rusty keypad. The keypad has a post-it attached to saying \"Please enter number of Scrum values.\". "
+        		+ "If you feel brave enough you could 'open the spooky door'."));
     }
 
     @Test
