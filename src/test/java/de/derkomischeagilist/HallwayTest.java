@@ -23,6 +23,12 @@ public class HallwayTest {
     }
 
     @Test
+    void LookingAroundLetsYouSeePoster() {
+        String actualDescription = hallway.getDetailedDescription();
+        assertThat(actualDescription, containsStringIgnoringCase("poster"));
+    }
+
+    @Test
     void HelpInHallwayContainsCommandToUseDoors() {
         String hallwayHelp = hallway.getHelp();
         assertThat(hallwayHelp, containsStringIgnoringCase("try to 'use spooky door'"));
