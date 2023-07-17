@@ -198,12 +198,21 @@ public class CoffeeMaker implements CommandLister {
         public String handle(String command) {
             if (command.matches("make coffee")) {
                 if(coffeeMaker.makeCoffee()) {
+                    waitForCoffeeToBrew();
                     return "You brewed a very nice looking cup of hot coffee.";
                 } else {
                     return "Can't make coffee! " + coffeeMaker.whatsWrong();
                 }
             }
             return null;
+        }
+
+        private void waitForCoffeeToBrew() {
+            try {
+                Thread.sleep(60_000);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
         }
 
         @Override
