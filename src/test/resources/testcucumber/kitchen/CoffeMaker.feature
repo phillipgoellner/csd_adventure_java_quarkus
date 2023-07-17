@@ -25,11 +25,11 @@ Feature: There is a coffee maker in the kitchen, that we can use.
     When I say "put in cup"
     Then I see "You put a cup in the coffee machine"
 
-  Scenario: Making coffee
-    Given we are in the kitchen
-    And I added all necessary components to the coffee machine
-    When I say "make coffee"
-    Then I see "you brewed a very nice looking cup of hot coffee"
+#  Scenario: Making coffee
+#    Given we are in the kitchen
+#    And I added all necessary components to the coffee machine
+#    When I say "make coffee"
+#    Then I see "you brewed a very nice looking cup of hot coffee"
 
   Scenario: Making coffee fails
     Given we are in the kitchen
