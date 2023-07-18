@@ -1,5 +1,12 @@
 # csd-java-quarkus Project
 
+## Vorbereitungen A-CSD 25./26. Juli
+
+Um bestens auf den bevorstehenden Kurs vorbereitet zu sein, kannst du folgendes tun:
+1. Klone dieses Projekt und prüfe, ob du das Projekt bauen und ausführen kannst (s. [run dev server with hot reload for development](#run dev server with hot reload for development))
+2. Gib uns Bescheid, damit wir dich zum GitHub-Projekt hinzufügen können (kontaktiere uns dafür über E-Mail z.B. [Phillip](mailto:phillip.goellner@colenet.de))
+3. Trage dich in die Datei ./participants_25_26_july.txt ein und pushe deine Änderungen
+
 ## On your machine
 ### build 
 ```shell script
