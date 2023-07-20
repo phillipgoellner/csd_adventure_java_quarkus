@@ -1,5 +1,7 @@
 package de.derkomischeagilist;
 
+import io.vertx.core.cli.InvalidValueException;
+
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -15,33 +17,36 @@ public class TimeService {
         this.tz = "Europe/Berlin";
     }
 
-    public Integer currentTime() {
+    public Long currentTime() {
         return currentTime(this.tz);
     }
 
-    public static Integer currentTime(String tz) {
-        Pattern pattern = Pattern.compile("\"unixtime\":.*?(\\d+)", Pattern.MULTILINE);
+    public static Long currentTime(String tz) {
+        Pattern pattern = Pattern.compile("(\\d+)", Pattern.MULTILINE);
 
         try {
             HttpClient client = HttpClient.newHttpClient();
             HttpResponse<String> response = client.send(
                     HttpRequest.newBuilder()
                             .GET()
-                            .uri(new URI("http://worldtimeapi.org/api/timezone/" + tz))
+                            .uri(new URI("https://csd-timeservice.idiot.games/"))
                             .build(),
                     HttpResponse.BodyHandlers.ofString()
             );
+            if (response.statusCode() != 200) {
+                throw new Exception("Wrong status: " + response.statusCode());
+            }
 
             Matcher matcher = pattern.matcher(response.body());
 
             if (matcher.find()) {
-                return Integer.parseInt(matcher.group(1));
+                return Long.parseLong(matcher.group(1));
             }
         }
         catch (Exception e) {
             System.out.println(e.toString());
         }
 
-        return -1;
+        return -1L;
     }
 }

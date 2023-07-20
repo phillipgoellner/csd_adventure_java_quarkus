@@ -1,5 +1,6 @@
 package de.derkomischeagilist;
 
+import org.junit.Ignore;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -17,10 +18,9 @@ public class AdventureTest {
     }
 
 
-
     @Test
     void currentTimeLooksGood() {
-        assertThat("timestamp", TimeService.currentTime("Europe/Berlin"), greaterThan(-1));
+        assertThat("timestamp", TimeService.currentTime("Europe/Berlin"), greaterThan(-1L));
     }
 
     @Test
