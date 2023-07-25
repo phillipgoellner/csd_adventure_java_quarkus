@@ -359,4 +359,14 @@ public class AdventureTest {
         // then
         assertThat(adventure.whereAreWe(), equalTo(Location.LOO));
     }
+
+    @Test
+    void afterUsingDoorToWashroomWeAreInTheWashroom() {
+        // when
+        adventure.Begin();
+        adventure.tell("use door to washroom");
+
+        // then
+        assertThat(adventure.whereAreWe(), equalTo(Location.WASHROOM));
+    }
 }

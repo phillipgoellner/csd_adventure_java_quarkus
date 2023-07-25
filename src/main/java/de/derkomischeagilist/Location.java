@@ -1,5 +1,6 @@
 package de.derkomischeagilist;
 
 public enum Location {
-    LOO
+    LOO,
+    WASHROOM
 }

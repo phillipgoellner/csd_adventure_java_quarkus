@@ -91,6 +91,9 @@ public class Adventure {
     }
 
     public Location whereAreWe() {
+        if(currentRoom.getDescription().equals("You enter a room that looks like a wash room.")){
+            return Location.WASHROOM;
+        }
         return Location.LOO;
     }
 }
