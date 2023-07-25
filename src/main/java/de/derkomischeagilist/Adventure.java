@@ -89,4 +89,8 @@ public class Adventure {
         lastResponse += "\nIf you want to play the game, enter commands into the textbox. If you're feeling lost use the command 'help'";
         return lastResponse;
     }
+
+    public Location whereAreWe() {
+        return Location.LOO;
+    }
 }

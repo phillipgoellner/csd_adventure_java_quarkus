@@ -350,4 +350,13 @@ public class AdventureTest {
         actual = adventure.tell("10");
         assertThat(actual, containsStringIgnoringCase("but nothing happens"));
     }
+
+    @Test
+    void checkStartingRoom() {
+        // when
+        adventure.Begin();
+
+        // then
+        assertThat(adventure.whereAreWe(), equalTo(Location.LOO));
+    }
 }
