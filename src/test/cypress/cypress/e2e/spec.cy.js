@@ -1,13 +1,3 @@
-describe('e2e test', () => {
-  it('passes', () => {
-    cy.visit('/')
-    cy.contains('here').click()
-    cy.get('body').contains('Hello Gamers')
-    cy.get('#command').type('help{enter}')
-  })
-})
-
-
 describe('e2e test with mocked server response', () => {
   it('passes', () => {
 
@@ -18,4 +8,16 @@ describe('e2e test with mocked server response', () => {
     cy.wait('@getCommand')
     cy.get('body').contains('some txt')
   })
+})
+
+describe('breadcrumbs', () => {
+  it('says "you are in the loo" in the first room', () => {
+    cy.visit('/game')
+    cy.get('h1').contains('you are in the loo')
+  })
+  it('says "you are in the washroom" in the second room', () => {
+      cy.visit('/game')
+      cy.get('#command').type('use door to washroom{enter}')
+      cy.get('h1').contains('you are in the washroom')
+    })
 })
