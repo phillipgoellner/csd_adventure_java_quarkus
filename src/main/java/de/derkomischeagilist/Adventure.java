@@ -78,7 +78,7 @@ public class Adventure {
 
                 break;
             default:
-                return currentRoom.handleCommand(command);
+                return String.format("Sorry, don't understand %1$s.", command);
         }
         lastResponse = response;
         return response;
@@ -91,7 +91,7 @@ public class Adventure {
     }
 
     public Location whereAreWe() {
-        if(currentRoom.getDescription().equals("You enter a room that looks like a wash room.")){
+        if (currentRoom.getDescription().equals("You enter a room that looks like a wash room.")) {
             return Location.WASHROOM;
         }
         return Location.LOO;
