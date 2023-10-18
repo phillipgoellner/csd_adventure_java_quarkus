@@ -36,7 +36,7 @@ public class Adventure {
                 break;
             case "read a joke":
                 if (currentRoom == loo) {
-                    response = "Why do we tell actors to 'break a leg?' - Because every play has a cast ;)";
+                    response = "Why do we tell actors to 'break a leg?' - Because every play has a cast ;) ";
                 } else {
                     response = "There is no joke in this room.";
                 }
