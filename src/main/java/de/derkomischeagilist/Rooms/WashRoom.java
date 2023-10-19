@@ -22,6 +22,8 @@ public class WashRoom extends AbstractRoom {
                         "paper towels in bin?" +
                         "</br>" +
                         "toilet flushed?";
+            case "wash hands":
+                return "Unfortunately the soap dispenser is empty :( So you wash your hands only with hot water.";
             case "put paper towels in the bin":
                 return "Bin has been filled with used paper towels.";
             default:
@@ -31,6 +33,6 @@ public class WashRoom extends AbstractRoom {
 
     @Override
     public String getHelp() {
-        return "Try to type 'look around', 'read DoD', or 'use door to hallway', or 'use door to loo'." + super.getHelp();
+        return "Try to type 'look around', 'read DoD', 'use door to hallway', 'use door to loo' or 'wash hands'." + super.getHelp();
     }
 }

@@ -225,6 +225,17 @@ public class AdventureTest {
     }
 
     @Test
+    void executeCommandWashHandsInWashRoom() {
+        //given I am on the washroom
+        assertThat(adventure.Begin(), containsStringIgnoringCase("you wake up on the Loo"));
+        adventure.currentRoom = adventure.washroom;
+        //When I wash my hands
+        String actual = adventure.tell("wash hands");
+        //Then I am washing my hands
+        assertThat(actual, containsStringIgnoringCase("Unfortunately the soap dispenser is empty :( So you wash your hands only with hot water."));
+    }
+
+    @Test
     void examineToiletPaperShowsToiletPaperDetails() {
         //given I am on the loo
         assertThat(adventure.Begin(), containsStringIgnoringCase("you wake up on the Loo"));
