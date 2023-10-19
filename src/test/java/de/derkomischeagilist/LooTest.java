@@ -18,6 +18,6 @@ public class LooTest {
     @Test
     void flushTheToilet() {
         String commandResult = loo.handleCommand("flush toilet");
-        assertThat(commandResult, containsStringIgnoringCase("The toilet is clean for the next person."));
+        assertThat(commandResult, containsStringIgnoringCase("Hsh, the stench has decreased drastically! You can breathe again :)"));
     }
 }
