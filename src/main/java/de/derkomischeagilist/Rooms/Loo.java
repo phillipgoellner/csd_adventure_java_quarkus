@@ -17,7 +17,7 @@ public class Loo extends AbstractRoom {
     }
 
     public String getDetailedDescription() {
-        return "You see a pretty dirty door, with some nasty jokes on it. There are three pieces of toilet paper on the ground. Next to you are a few magazines."
+        return "You see a pretty dirty door, with some nasty jokes on it. There is a toilet in front of you. There are three pieces of toilet paper on the ground. Next to you are a few magazines."
           + "<br/>"
           + "In your pocket you find a card that says you are a Pathetic Scrum Developer (PSD)";
     }
@@ -37,7 +37,8 @@ public class Loo extends AbstractRoom {
                         return "On the last piece is written: \"Developers: We have too many meetings.\" I remember. I need to find my Scrum team to help them get out of here.";
                 }
                 case "go through door":
-
+            case "flush toilet":
+                return "The toilet is clean for the next person.";
             default:
                 return
                    "you wake up on the Loo"
@@ -48,6 +49,6 @@ public class Loo extends AbstractRoom {
     }
 
     public String getHelp() {
-        return "Try to 'look around', 'look at magazines' (better get your gloves), 'look at toilet paper' or just 'use door to washroom' to escape the smell." + super.getHelp();
+        return "Try to 'look around', 'look at magazines' (better get your gloves), 'look at toilet paper', 'flush toilet' or just 'use door to washroom' to escape the smell." + super.getHelp();
     }
 }
