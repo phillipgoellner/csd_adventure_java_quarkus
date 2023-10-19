@@ -25,7 +25,7 @@ public class WashRoom extends AbstractRoom {
             case "wash hands":
                 return "Unfortunately the soap dispenser is empty :( So you wash your hands only with hot water.";
             case "put paper towels in the bin":
-                return "Bin has been filled with used paper towels.";
+                return "Bin has been filled with used paper towels. Now the bin is overflowing with even more dirty paper towels.";
             default:
                 return super.handleCommand(command);
         }
@@ -33,6 +33,6 @@ public class WashRoom extends AbstractRoom {
 
     @Override
     public String getHelp() {
-        return "Try to type 'look around', 'read DoD', 'use door to hallway', 'use door to loo' or 'wash hands'." + super.getHelp();
+        return "Try to type 'look around', 'read DoD', 'use door to hallway', 'use door to loo', 'put paper towels in the bin' or 'wash hands'." + super.getHelp();
     }
 }

@@ -109,7 +109,16 @@ public class AdventureTest {
         assertThat(actual, containsStringIgnoringCase(String.format("Sorry, I don't understand '%s'", command)));
         assertThat(actual, containsStringIgnoringCase("Try to 'look around', 'look at magazines' (better get your gloves), 'look at toilet paper', 'flush toilet' or just 'use door to washroom' to escape the smell."));
     }
-
+    @Test
+    void PuttingPaperTowelsInTheBinInTheWashRoom() {
+        //given I am on the washroom
+        assertThat(adventure.Begin(), containsStringIgnoringCase("you wake up on the Loo"));
+        adventure.currentRoom = adventure.washroom;
+        //When I put paper towels in the bin
+        String actual = adventure.tell("put paper towels in the bin");
+        //Then the bin gets filled with used paper towels
+        assertThat(actual, containsStringIgnoringCase("Bin has been filled with used paper towels. Now the bin is overflowing with even more dirty paper towels."));
+    }
 
     @Test
     void EnteringHelpInWashroomGivesHintForDod() {
