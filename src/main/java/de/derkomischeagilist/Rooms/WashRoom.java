@@ -22,6 +22,8 @@ public class WashRoom extends AbstractRoom {
                         "paper towels in bin?" +
                         "</br>" +
                         "toilet flushed?";
+            case "put paper towels in the bin":
+                return "Bin has been filled with used paper towels.";
             default:
                 return super.handleCommand(command);
         }
