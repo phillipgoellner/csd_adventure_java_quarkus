@@ -34,7 +34,7 @@ public class Adventure {
                 currentRoom = loo;
                 response = currentRoom.getDescription();
                 break;
-            case "read joke":
+            case "read a joke":
                 if (currentRoom == loo) {
                     response = "Why do we tell actors to 'break a leg?' - Because every play has a cast ;)";
                 } else {
@@ -78,7 +78,7 @@ public class Adventure {
 
                 break;
             default:
-                return String.format("Sorry, don't understand %1$s.", command);
+                return currentRoom.handleCommand(command);
         }
         lastResponse = response;
         return response;
@@ -91,7 +91,7 @@ public class Adventure {
     }
 
     public Location whereAreWe() {
-        if (currentRoom.getDescription().equals("You enter a room that looks like a wash room.")) {
+        if(currentRoom.getDescription().equals("You enter a room that looks like a wash room.")){
             return Location.WASHROOM;
         }
         return Location.LOO;
