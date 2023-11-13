@@ -46,7 +46,7 @@ git pull
 #Deployment:
 pgrep -f quarkus.http.port=80 | xargs kill -9
 java -Dquarkus.http.port=80 -jar target/quarkus-app/quarkus-run.jar &
-#Deployte Versio: https://csd.idiot.games:4711
+#Deployed Version: https://csd.colenet.org:80
 ```
 
 ---

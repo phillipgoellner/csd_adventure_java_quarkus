@@ -29,7 +29,7 @@ public class TimeService {
             HttpResponse<String> response = client.send(
                     HttpRequest.newBuilder()
                             .GET()
-                            .uri(new URI("https://csd-timeservice.idiot.games/"))
+                            .uri(new URI("https://europe-west3-fantastic-guacamole.cloudfunctions.net/csd-time-service"))
                             .build(),
                     HttpResponse.BodyHandlers.ofString()
             );
