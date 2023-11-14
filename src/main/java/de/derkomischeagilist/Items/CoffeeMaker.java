@@ -5,6 +5,14 @@ import java.util.List;
 
 public class CoffeeMaker implements CommandLister {
 
+    private int getTimeToBrewInMillis() {
+        var env = System.getProperty("TIME_TO_BREW_COFFEE_IN_MILLIS");
+        if (env == null) {
+            return 60_000;
+        }
+        return Integer.parseInt(env); // TODO try
+    }
+
     private Command[] commands;
     private boolean powerAvailable;
     private boolean coffeeInTheMachine;
@@ -14,11 +22,11 @@ public class CoffeeMaker implements CommandLister {
 
     public CoffeeMaker() {
         commands = new Command[]{
-            new AddBeans(this),
-            new AddWater(this),
-            new ConnectPower(this),
-            new PutInCup(this),
-            new MakeCoffee(this)
+                new AddBeans(this),
+                new AddWater(this),
+                new ConnectPower(this),
+                new PutInCup(this),
+                new MakeCoffee(this)
         };
     }
 
@@ -84,8 +92,8 @@ public class CoffeeMaker implements CommandLister {
     @Override
     public List<String> listCommands() {
         List<String> availableCommands = new ArrayList<>();
-        
-        for(Object command: commands) {
+
+        for (Object command : commands) {
             if (command instanceof CommandLister) {
                 availableCommands.addAll(((CommandLister) command).listCommands());
             }
@@ -96,7 +104,6 @@ public class CoffeeMaker implements CommandLister {
     interface Command {
         String handle(String command);
     }
-
 
 
     private class AddBeans implements Command, CommandLister {
@@ -197,7 +204,7 @@ public class CoffeeMaker implements CommandLister {
         @Override
         public String handle(String command) {
             if (command.matches("make coffee")) {
-                if(coffeeMaker.makeCoffee()) {
+                if (coffeeMaker.makeCoffee()) {
                     waitForCoffeeToBrew();
                     return "You brewed a very nice looking cup of hot coffee.";
                 } else {
@@ -209,7 +216,7 @@ public class CoffeeMaker implements CommandLister {
 
         private void waitForCoffeeToBrew() {
             try {
-                Thread.sleep(60_000);
+                Thread.sleep(getTimeToBrewInMillis());
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }

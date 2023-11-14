@@ -3,3 +3,7 @@ TODO goes here
 - Write feature test for other Scenarios in help.feature
 - command in hallway is shitty: washroom = door -> unclear
 - door back to loo (initial game starting point) required
+- Fix typos in CoffeMaker.feature
+- Kaffee kann nur getrunken werden, sofern er gekocht wurde
+- we durch I ersetzen
+- Technische Schuld: Unit tests für kitchen

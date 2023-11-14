@@ -62,7 +62,8 @@ public class Kitchen extends AbstractRoom {
             }
             case "time?":
                 return "The wallclock says: " + this.wallClock.tellHhMm();
-
+            case "drink coffee":
+                return  "you feel great";
         }
         String message;
         if ((message = coffeeMaker.handle(command.toLowerCase())) != null) {

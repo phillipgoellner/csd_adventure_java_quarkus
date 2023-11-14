@@ -1,6 +1,6 @@
 Feature: There is a coffee maker in the kitchen, that we can use.
 
-  Scenario: Making coffee
+  Scenario: Finding the coffee maker
     Given we are in the kitchen
     When I look around
     Then I can see the coffee maker
@@ -25,11 +25,11 @@ Feature: There is a coffee maker in the kitchen, that we can use.
     When I say "put in cup"
     Then I see "You put a cup in the coffee machine"
 
-#  Scenario: Making coffee
-#    Given we are in the kitchen
-#    And I added all necessary components to the coffee machine
-#    When I say "make coffee"
-#    Then I see "you brewed a very nice looking cup of hot coffee"
+  Scenario: Making coffee
+    Given we are in the kitchen
+    And I added all necessary components to the coffee machine
+    When I say "make coffee"
+    Then I see "you brewed a very nice looking cup of hot coffee"
 
   Scenario: Making coffee fails
     Given we are in the kitchen
@@ -45,4 +45,9 @@ Feature: There is a coffee maker in the kitchen, that we can use.
     And I see "make coffee"
     And I see "connect power"
 
+  Scenario: Drink coffee
+    Given we are in the kitchen
+    And we have brewed coffee
+    When I say "drink coffee"
+    Then I see "you feel great"
 

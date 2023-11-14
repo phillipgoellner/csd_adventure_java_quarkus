@@ -1,6 +1,7 @@
 package testcucumber;
 
 import de.derkomischeagilist.Adventure;
+import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -12,6 +13,11 @@ public class StepDefinitions {
 
     private Adventure adventure;
     private String lastResponse;
+
+    @Before
+    public void setUp() {
+        System.setProperty("TIME_TO_BREW_COFFEE_IN_MILLIS", "1000");
+    }
 
     private void assertThatTheLooIsTheInitialRoom() {
         assertThat(lastResponse, containsStringIgnoringCase("on the loo"));
@@ -39,6 +45,7 @@ public class StepDefinitions {
 
         assertThat(lastResponse, containsStringIgnoringCase("looks like a wash room"));
     }
+
     @When("I say {string}")
     public void i_say(String string) {
         lastResponse = adventure.tell(string);
@@ -132,5 +139,11 @@ public class StepDefinitions {
         adventure.tell("add water");
         adventure.tell("connect power");
         adventure.tell("put in cup");
+    }
+
+    @Given("we have brewed coffee")
+    public void we_have_brewed_coffee() {
+        i_added_all_necessary_components_to_the_coffee_machine();
+        lastResponse = adventure.tell("make coffee");
     }
 }
