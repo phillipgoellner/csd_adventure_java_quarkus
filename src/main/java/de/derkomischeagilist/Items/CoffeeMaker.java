@@ -5,15 +5,7 @@ import java.util.List;
 
 public class CoffeeMaker implements CommandLister {
 
-    private int getTimeToBrewInMillis() {
-        var env = System.getProperty("TIME_TO_BREW_COFFEE_IN_MILLIS");
-        if (env == null) {
-            return 60_000;
-        }
-        return Integer.parseInt(env); // TODO try
-    }
-
-    private Command[] commands;
+    private final Command[] commands;
     private boolean powerAvailable;
     private boolean coffeeInTheMachine;
     private boolean cupInTheMachine;
@@ -30,7 +22,7 @@ public class CoffeeMaker implements CommandLister {
         };
     }
 
-    public boolean makeCoffee() {
+    public boolean canMakeCoffee() {
         error = "";
         if (powerAvailable) {
             if (coffeeInTheMachine) {
@@ -204,7 +196,7 @@ public class CoffeeMaker implements CommandLister {
         @Override
         public String handle(String command) {
             if (command.matches("make coffee")) {
-                if (coffeeMaker.makeCoffee()) {
+                if (coffeeMaker.canMakeCoffee()) {
                     waitForCoffeeToBrew();
                     return "You brewed a very nice looking cup of hot coffee.";
                 } else {

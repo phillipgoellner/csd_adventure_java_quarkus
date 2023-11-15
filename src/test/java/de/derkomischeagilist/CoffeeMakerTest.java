@@ -15,7 +15,7 @@ public class CoffeeMakerTest {
     @Test
     void testCoffeCanNotBeMadeWithoutPower() {
         coffeeMaker = new CoffeeMaker();
-        assertThat(coffeeMaker.makeCoffee(), is(false));
+        assertThat(coffeeMaker.canMakeCoffee(), is(false));
         assertThat(coffeeMaker.whatsWrong(), containsString("There is no power connected"));
     }
 
@@ -23,7 +23,7 @@ public class CoffeeMakerTest {
     void testCoffeCanNotBeMadeWithoutCoffeeBeans() {
         coffeeMaker = new CoffeeMaker();
         coffeeMaker.connectPower();
-        assertThat(coffeeMaker.makeCoffee(), is(false));
+        assertThat(coffeeMaker.canMakeCoffee(), is(false));
         assertThat(coffeeMaker.whatsWrong(), containsString("There are no coffee beans in the machine"));
     }
 
@@ -32,7 +32,7 @@ public class CoffeeMakerTest {
         coffeeMaker = new CoffeeMaker();
         coffeeMaker.connectPower();
         coffeeMaker.addCoffeeBeans();
-        assertThat(coffeeMaker.makeCoffee(), is(false));
+        assertThat(coffeeMaker.canMakeCoffee(), is(false));
         assertThat(coffeeMaker.whatsWrong(), containsString("There is no cup the machine"));
     }
 
@@ -42,7 +42,7 @@ public class CoffeeMakerTest {
         coffeeMaker.connectPower();
         coffeeMaker.addCoffeeBeans();
         coffeeMaker.putCupIn();
-        assertThat(coffeeMaker.makeCoffee(), is(false));
+        assertThat(coffeeMaker.canMakeCoffee(), is(false));
         assertThat(coffeeMaker.whatsWrong(), containsString("There is no water in the machine"));
     }
 
@@ -53,7 +53,7 @@ public class CoffeeMakerTest {
         coffeeMaker.addCoffeeBeans();
         coffeeMaker.putCupIn();
         coffeeMaker.addWater();
-        assertThat(coffeeMaker.makeCoffee(), is(true));
+        assertThat(coffeeMaker.canMakeCoffee(), is(true));
     }
 
     @Test()
