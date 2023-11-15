@@ -24,30 +24,24 @@ public class CoffeeMaker implements CommandLister {
 
     public boolean canMakeCoffee() {
         error = "";
-        if (powerAvailable) {
-            if (coffeeInTheMachine) {
-                if (cupInTheMachine) {
-                    if (waterInTheMachine) {
-                        return brew();
-                    } else {
-                        error = "There is no water in the machine";
-                        return false;
-                    }
-                } else {
-                    error = "There is no cup the machine";
-                    return false;
-                }
-            } else {
-                error = "There are no coffee beans in the machine";
-                return false;
-            }
-        } else {
+
+        if (!powerAvailable) {
             error = "There is no power connected";
             return false;
         }
-    }
+        if (!coffeeInTheMachine) {
+            error = "There are no coffee beans in the machine";
+            return false;
+        }
+        if (!cupInTheMachine) {
+            error = "There is no cup the machine";
+            return false;
+        }
+        if (!waterInTheMachine) {
+            error = "There is no water in the machine";
+            return false;
+        }
 
-    private boolean brew() {
         return true;
     }
 
@@ -92,6 +86,8 @@ public class CoffeeMaker implements CommandLister {
         }
         return availableCommands;
     }
+
+
 
     interface Command {
         String handle(String command);
@@ -206,6 +202,11 @@ public class CoffeeMaker implements CommandLister {
             return null;
         }
 
+        @Override
+        public List<String> listCommands() {
+            return List.of("make coffee");
+        }
+
         private void waitForCoffeeToBrew() {
             try {
                 Thread.sleep(getTimeToBrewInMillis());
@@ -214,9 +215,12 @@ public class CoffeeMaker implements CommandLister {
             }
         }
 
-        @Override
-        public List<String> listCommands() {
-            return List.of("make coffee");
+        private int getTimeToBrewInMillis() {
+            var env = System.getProperty("TIME_TO_BREW_COFFEE_IN_MILLIS");
+            if (env == null) {
+                return 60_000;
+            }
+            return Integer.parseInt(env); // TODO try
         }
     }
 
