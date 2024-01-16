@@ -29,14 +29,14 @@ public class Hallway extends AbstractRoom {
                 		+ "The door is covered in cobweb and next to it is a rusty keypad. The keypad has a post-it attached to it saying \"Please enter number of Scrum values.\". "
                 		+ "You could try to unlock the door with 'use keypad'.";
             case "inspect the poster":
-                return "---------------------------------\n" +
+                return "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
                         "The mighty Scrum Values are: \n" +
                         "   • Commitment\n" +
                         "   • Courage\n" +
                         "   • Focus\n" +
                         "   • Openness\n" +
                         "   • Respect\n" +
-                        "--------------------------------";
+                        "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
             case "use keypad":
             case "use rusty keypad":
                 activateKeypad();
