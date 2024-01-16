@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsStringIgnoringCase;
+import static org.hamcrest.Matchers.endsWithIgnoringCase;
 
 public class LooTest {
     private Loo loo;
@@ -19,5 +20,11 @@ public class LooTest {
     void flushTheToilet() {
         String commandResult = loo.handleCommand("flush toilet");
         assertThat(commandResult, containsStringIgnoringCase("Hsh, the stench has decreased drastically! You can breathe again :)"));
+    }
+
+    @Test
+    void lookDown() {
+        String commandResult = loo.getDetailedDescription();
+        assertThat(commandResult, endsWithIgnoringCase("When you look down, you see your dropped pants."));
     }
 }
