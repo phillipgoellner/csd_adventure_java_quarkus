@@ -30,12 +30,12 @@ public class Hallway extends AbstractRoom {
                 		+ "You could try to unlock the door with 'use keypad'.";
             case "inspect the poster":
                 return "---------------------------------\n" +
-                        "| The mighty Scrum Values are \n" +
-                        "| commitment\n" +
-                        "| courage\n" +
-                        "| focus\n" +
-                        "| openness\n" +
-                        "| respect\n" +
+                        "The mighty Scrum Values are: \n" +
+                        "   • Commitment\n" +
+                        "   • Courage\n" +
+                        "   • Focus\n" +
+                        "   • Openness\n" +
+                        "   • Respect\n" +
                         "--------------------------------";
             case "use keypad":
             case "use rusty keypad":
