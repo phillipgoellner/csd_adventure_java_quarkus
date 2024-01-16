@@ -31,10 +31,10 @@ public class Hallway extends AbstractRoom {
             case "inspect the poster":
                 return "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
                         "The mighty Scrum Values are: \n" +
-                        "   • Commitment\n" +
-                        "   • Courage\n" +
+                        "  <span style=\"margin-left:200px\"> • Commitment</span>\n" +
+                        "  <sapn style=\"margin-left:40px\"> • Courage</sapn>\n" +
                         "   • Focus\n" +
-                        "   • Openness\n" +
+                        "  <span style=\"margin-left:160px\"> • Openness</span>\n" +
                         "   • Respect\n" +
                         "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
             case "use keypad":
