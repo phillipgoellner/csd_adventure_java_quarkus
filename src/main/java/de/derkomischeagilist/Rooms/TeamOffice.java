@@ -14,8 +14,10 @@ public class TeamOffice extends AbstractRoom {
 
     @Override
     public String handleCommand(String command) {
-
-        return super.handleCommand(command);
+    	if(command.equals("look around")) {
+    		return "You see a sticky with what I hated about the last sprint review.";
+    	}
+    	else return super.handleCommand(command);
     }
 
     @Override
