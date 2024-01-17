@@ -36,7 +36,7 @@ java -jar target/quarkus-app/quarkus-run.jar
 ## On the remote machine
 ```
 ssh csd@csd.colenet.org
-pw: magic
+pw: strenggeheim
 
 cd csd_adventure_java_quarkus/
 git pull
