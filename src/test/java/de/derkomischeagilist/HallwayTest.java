@@ -53,11 +53,14 @@ public class HallwayTest {
     @Test
     void InspectingThePosterRevealsScrumValues() {
         String commandResult = hallway.handleCommand("inspect the poster");
-        assertThat(commandResult, containsStringIgnoringCase("commitment"));
-        assertThat(commandResult, containsStringIgnoringCase("courage"));
-        assertThat(commandResult, containsStringIgnoringCase("focus"));
-        assertThat(commandResult, containsStringIgnoringCase("openness"));
-        assertThat(commandResult, containsStringIgnoringCase("respect"));
+        assertThat(commandResult, containsStringIgnoringCase("<span>~~^^~~~~ ~~~~~^^^^~~~ ~~~~~^^^~~</span>\n"));
+        assertThat(commandResult, containsStringIgnoringCase("We pinned the 5&#65039;&#8419 mighty Scrum \n"));
+        assertThat(commandResult, containsStringIgnoringCase("Values, they are : \n"));
+        assertThat(commandResult, containsStringIgnoringCase("  <span style=\"margin-left:200px\"> • Commitment</span>\n"));
+        assertThat(commandResult, containsStringIgnoringCase("  <span style=\"margin-left:40px\"> • Courage</span>\n"));
+        assertThat(commandResult, containsStringIgnoringCase("   • Focus\n"));
+        assertThat(commandResult, containsStringIgnoringCase("  <span style=\"margin-left:160px\"> • Openness</span>\n"));
+        assertThat(commandResult, containsStringIgnoringCase("   • Respect\n"));
     }
 
     @Test
