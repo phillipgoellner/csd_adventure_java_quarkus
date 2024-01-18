@@ -361,7 +361,7 @@ public class AdventureTest {
         actual = adventure.tell("use door to hallway");
         assertThat(actual, containsStringIgnoringCase("Welcome to the hallway to hell."));
         actual = adventure.tell("inspect the spooky door");
-        assertThat(actual, containsStringIgnoringCase("number of Scrum values"));
+        assertThat(actual, containsStringIgnoringCase("and next to it is a rusty keypad"));
         actual = adventure.tell("use keypad");
         assertThat(actual, containsStringIgnoringCase("number of the scrum values"));
         actual = adventure.tell("5");

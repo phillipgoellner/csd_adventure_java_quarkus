@@ -46,18 +46,21 @@ public class HallwayTest {
     void InspectingTheSpookyDoorRevealsTheKeypad() {
         String commandResult = hallway.handleCommand("inspect the spooky door");
         assertThat(commandResult, containsStringIgnoringCase("You see a rugged and sturdy steel door with cryptic symbols on it. Above the door is a sign saying \"EXIT\". "
-        		+ "The door is covered in cobweb and next to it is a rusty keypad. The keypad has a post-it attached to it saying \"Please enter number of Scrum values.\". "
+        		+ "The door is covered in cobweb and next to it is a rusty keypad."
         		+ "You could try to unlock the door with 'use keypad'."));
     }
 
     @Test
     void InspectingThePosterRevealsScrumValues() {
         String commandResult = hallway.handleCommand("inspect the poster");
-        assertThat(commandResult, containsStringIgnoringCase("commitment"));
-        assertThat(commandResult, containsStringIgnoringCase("courage"));
-        assertThat(commandResult, containsStringIgnoringCase("focus"));
-        assertThat(commandResult, containsStringIgnoringCase("openness"));
-        assertThat(commandResult, containsStringIgnoringCase("respect"));
+        assertThat(commandResult, containsStringIgnoringCase("<span>~~^^~~~~ ~~~~~^^^^~~~ ~~~~~^^^~~</span>\n"));
+        assertThat(commandResult, containsStringIgnoringCase("We pinned the 5&#65039;&#8419 mighty Scrum \n"));
+        assertThat(commandResult, containsStringIgnoringCase("Values, they are : \n"));
+        assertThat(commandResult, containsStringIgnoringCase("  <span style=\"margin-left:200px\"> • Commitment</span>\n"));
+        assertThat(commandResult, containsStringIgnoringCase("  <span style=\"margin-left:40px\"> • Courage</span>\n"));
+        assertThat(commandResult, containsStringIgnoringCase("   • Focus\n"));
+        assertThat(commandResult, containsStringIgnoringCase("  <span style=\"margin-left:160px\"> • Openness</span>\n"));
+        assertThat(commandResult, containsStringIgnoringCase("   • Respect\n"));
     }
 
     @Test
