@@ -26,11 +26,12 @@ public class Hallway extends AbstractRoom {
         switch (command.toLowerCase()) {
             case "inspect the spooky door":
                 return "You see a rugged and sturdy steel door with cryptic symbols on it. Above the door is a sign saying \"EXIT\". "
-                		+ "The door is covered in cobweb and next to it is a rusty keypad. The keypad has a post-it attached to it saying \"Please enter number of Scrum values.\". "
+                		+ "The door is covered in cobweb and next to it is a rusty keypad."
                 		+ "You could try to unlock the door with 'use keypad'.";
             case "inspect the poster":
                 return  "<span>~~^^~~~~ ~~~~~^^^^~~~ ~~~~~^^^~~</span>\n" +
-                        "The mighty Scrum Values are: \n" +
+                        "We pinned the 5&#65039;&#8419 mighty Scrum \n" +
+                        "Values, they are : \n" +
                         "  <span style=\"margin-left:200px\"> • Commitment</span>\n" +
                         "  <span style=\"margin-left:40px\"> • Courage</span>\n" +
                         "   • Focus\n" +
