@@ -9,7 +9,7 @@ public class TeamOffice extends AbstractRoom {
 
     @Override
     public String getDetailedDescription() {  
-        return "You see many flip charts, sticky notes and other things on the walls.";
+        return "You see many flip charts, sticky notes and other things on the walls. In the middle of the room there are several dirty old cubicles. Nearly each one of the cubicles has a worker in front of it staring directly at the computer screen.";
     }
 
     @Override

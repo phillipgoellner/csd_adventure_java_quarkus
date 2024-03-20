@@ -176,6 +176,18 @@ public class AdventureTest {
         //Then i can see a sink and a door
         assertThat(actual, containsStringIgnoringCase("nasty sink"));
     }
+    
+    @Test
+    void LookingAroundInTheTeamOfficeThenIWillFindCubiclesAndWorkers() {
+    	//given i am on the loo
+    	assertThat(adventure.Begin(), containsStringIgnoringCase("you wake up on the Loo"));
+    	//When I go into the team office
+        adventure.tell("use door to team office");
+        //When I look around
+        String actual = adventure.tell("look around");
+        //Then i can see cubicles and workers
+        assertThat(actual, containsStringIgnoringCase("You see many flip charts, sticky notes and other things on the walls. In the middle of the room there are several dirty old cubicles. Nearly each one of the cubicles has a worker in front of it staring directly at the computer screen."));
+    }
 
     @Test
     void GoingThroughDoorInTheTeamRoomThenIAmGreetedByMyTeammates() {
