@@ -1,5 +1,7 @@
 package de.derkomischeagilist.Rooms;
 
+import de.derkomischeagilist.Location;
+
 public class Hallway extends AbstractRoom {
     private boolean keypadIsActive = false;
 
@@ -9,6 +11,11 @@ public class Hallway extends AbstractRoom {
 
     public void activateKeypad() {
         keypadIsActive = true;
+    }
+
+    @Override
+    public Location getLocation() {
+        return Location.HALLWAY;
     }
 
     @Override

@@ -2,5 +2,8 @@ package de.derkomischeagilist;
 
 public enum Location {
     LOO,
-    WASHROOM
+    WASHROOM,
+    HALLWAY,
+    TEAM_OFFICE,
+    KITCHEN
 }

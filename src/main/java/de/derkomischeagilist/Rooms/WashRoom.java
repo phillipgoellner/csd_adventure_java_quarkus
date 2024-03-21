@@ -1,6 +1,13 @@
 package de.derkomischeagilist.Rooms;
 
+import de.derkomischeagilist.Location;
+
 public class WashRoom extends AbstractRoom {
+
+    @Override
+    public Location getLocation() {
+        return Location.WASHROOM;
+    }
 
     public String getDescription() {
         return "You enter a room that looks like a wash room.";

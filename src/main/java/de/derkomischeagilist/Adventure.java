@@ -90,10 +90,20 @@ public class Adventure {
         return lastResponse;
     }
 
-    public Location whereAreWe() {
-        if(currentRoom.getDescription().equals("You enter a room that looks like a wash room.")){
-            return Location.WASHROOM;
+    public String whereAreWe() {
+        switch (currentRoom.getLocation()) {
+            case LOO:
+                return "Loo";
+            case WASHROOM:
+                return "Washroom";
+            case HALLWAY:
+                return "Hallway";
+            case TEAM_OFFICE:
+                return "Team Office";
+            case KITCHEN:
+                return "Kitchen";
+            default:
+                return "Unknown";
         }
-        return Location.LOO;
     }
 }

@@ -1,5 +1,7 @@
 package de.derkomischeagilist.Rooms;
 
+import de.derkomischeagilist.Location;
+
 public class Loo extends AbstractRoom {
 
     private int toiletPaperCount;
@@ -12,10 +14,17 @@ public class Loo extends AbstractRoom {
         toiletPaperCount = 0;
     }
 
+    @Override
+    public Location getLocation() {
+        return Location.LOO;
+    }
+
+    @Override
     public String getDescription() {
         return "You wake up on the loo. You have no idea where or who you are.";
     }
 
+    @Override
     public String getDetailedDescription() {
         return "You see a pretty dirty door, with some nasty jokes on it. You're sitting on a toilet. There are three pieces of toilet paper on the ground. Next to you are a few magazines."
           + "<br/>"
@@ -24,6 +33,7 @@ public class Loo extends AbstractRoom {
           + "When you look down, you see your dropped pants.";
     }
 
+    @Override
     public String handleCommand(String command){
         switch(command.toLowerCase()) {
             case "look at magazines":
@@ -50,6 +60,7 @@ public class Loo extends AbstractRoom {
 
     }
 
+    @Override
     public String getHelp() {
         return "Try to 'look around', 'look at magazines' (better get your gloves), 'look at toilet paper', 'flush toilet' or just 'use door to washroom' to escape the smell." + super.getHelp();
     }

@@ -1,6 +1,14 @@
 package de.derkomischeagilist.Rooms;
 
+import de.derkomischeagilist.Location;
+
 public class TeamOffice extends AbstractRoom {
+
+    @Override
+    public Location getLocation() {
+        return Location.TEAM_OFFICE;
+    }
+
     @Override
     public String getDescription() {
         return "This is a very stinky room. Smells like real work. \n" +

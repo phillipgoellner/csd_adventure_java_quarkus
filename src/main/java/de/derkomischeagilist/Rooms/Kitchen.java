@@ -5,6 +5,7 @@ import de.derkomischeagilist.Items.CoffeeMaker;
 import de.derkomischeagilist.Items.Cutlery;
 import de.derkomischeagilist.Items.Dishwasher;
 import de.derkomischeagilist.Items.Shower;
+import de.derkomischeagilist.Location;
 import de.derkomischeagilist.TimeService;
 
 import java.text.DateFormat;
@@ -119,4 +120,9 @@ public class Kitchen extends AbstractRoom {
             }
         }
     }
+
+	@Override
+	public Location getLocation() {
+        return Location.KITCHEN;
+	}
 }

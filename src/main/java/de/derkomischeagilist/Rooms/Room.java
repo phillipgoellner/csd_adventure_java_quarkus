@@ -1,6 +1,10 @@
 package de.derkomischeagilist.Rooms;
 
+import de.derkomischeagilist.Location;
+
 public interface Room {
+
+    Location getLocation();
 
     String getDescription();
 
