@@ -187,6 +187,8 @@ public class AdventureTest {
         String actual = adventure.tell("look around");
         //Then i can see cubicles and workers
         assertThat(actual, containsStringIgnoringCase("You see many flip charts, sticky notes and other things on the walls. In the middle of the room there are several dirty old cubicles. Nearly each one of the cubicles has a worker in front of it staring directly at the computer screen."));
+        //Then i can see a burndown chart
+        assertThat(actual, containsStringIgnoringCase("One wall holds a burndown chart. Its line is horizontal! Seems that the team does not finish anything ;) -> Close your PBI´s"));
     }
 
     @Test
