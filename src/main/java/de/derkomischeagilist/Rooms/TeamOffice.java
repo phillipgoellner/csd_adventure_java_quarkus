@@ -29,7 +29,7 @@ public class TeamOffice extends AbstractRoom {
     		return "You see a sticky with what I hated about the last sprint review. \n Took endless time. \n Technical problems. \n Customer requirements not met.";
     	}
         if(command.equals("look at first cubicle")) {
-            return "Hey! I am Nick!";
+            return "Hey! I am Homer!";
         }
     	else return super.handleCommand(command);
     }
