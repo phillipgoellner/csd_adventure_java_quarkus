@@ -1,5 +1,4 @@
 package de.derkomischeagilist;
-
 import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -21,10 +20,11 @@ public class CommandResource {
     }
 
     @GET
-    @Produces(MediaType.TEXT_PLAIN)
+    @Produces(MediaType.APPLICATION_JSON)
     @QueryParam("command")
     public String game(@QueryParam("command") String command) {
-        var description = adventure.tell(command).replace("\r\n", "<br />").replace("\n", "<br />");
-        return "<h1>you are in the " + adventure.whereAreWe().toLowerCase() + "</h1>" + description;
+        var description =  "<h1>you are in the " + adventure.whereAreWe().toLowerCase() + "</h1>" + adventure.tell(command).replace("\r\n", "<br />").replace("\n", "<br />");
+
+        return String.format("{\"gameInfo\": \"%s\", \"actions\": \"%s\"}", description, adventure.getActions());
     }
 }

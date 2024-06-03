@@ -10,8 +10,9 @@ $( document ).ready(function() {
                 if ( console && console.log ) {
                     console.log( "Sample of data--:", data.slice( 0, 100 ) );
                 }
-                $("#gameInfo").html(data);
+                $("#gameInfo").html(data.gameInfo);
                 $('#command').val("");
+                $('#actions').html(data.actions);
             });
     });
 
