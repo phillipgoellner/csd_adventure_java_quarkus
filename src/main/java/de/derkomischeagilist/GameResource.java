@@ -36,7 +36,9 @@ public class GameResource {
                 adventure.Begin() +
                 "</p></div><form id=\"commandForm\" ><input id=\"command\" type=\"text\"/></form>" +
                 "</div>"+
-                "<div class=\"container\"><div id=\"actions\"></div></div>" +
+                "<div class=\"container\"><div id=\"actions\">"+
+                adventure.currentRoom.getHelp() +
+                "</div></div>" +
                 "</body></html>";
     }
 }
