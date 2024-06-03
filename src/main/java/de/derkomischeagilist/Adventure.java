@@ -87,10 +87,14 @@ public class Adventure {
     private String getBothDescriptions(Room room) {
         return room.getDescription() + "\n" + room.getDetailedDescription();
     }
+   
+    public String getActions() {
+        return currentRoom.getHelp();
+    }
 
     public String Begin() {
-        lastResponse = this.getBothDescriptions(currentRoom);
-        lastResponse += "\nIf you want to play the game, enter commands into the textbox. If you're feeling lost, use the command 'help'.";
+        lastResponse = currentRoom.getDescription();
+        lastResponse += "\nIf you want to play the game, enter commands into the textbox.";
         return lastResponse;
     }
 
