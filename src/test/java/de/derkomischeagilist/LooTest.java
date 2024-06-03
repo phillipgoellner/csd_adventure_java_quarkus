@@ -25,6 +25,6 @@ public class LooTest {
     @Test
     void lookDown() {
         String commandResult = loo.getDetailedDescription();
-        assertThat(commandResult, endsWithIgnoringCase("When you look down, you see your dropped pants."));
+        assertThat(commandResult, endsWithIgnoringCase("... this room smells disgusting."));
     }
 }
