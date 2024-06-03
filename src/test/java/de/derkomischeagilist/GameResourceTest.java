@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.containsString;
-import static org.hamcrest.CoreMatchers.is;
 
 @QuarkusTest
 public class GameResourceTest {
@@ -16,7 +15,7 @@ public class GameResourceTest {
                 .when().get("/game")
                 .then()
                 .statusCode(200)
-                .body(containsString("You wake up on the loo"));
+                .body(containsString("Hangover"));
     }
 
 }

@@ -21,7 +21,7 @@ public class Loo extends AbstractRoom {
 
     @Override
     public String getDescription() {
-        return "You wake up on the loo. You have no idea where or who you are.";
+        return "You <b>wake up</b> on the loo. You have <b>no idea where or who you are</b>.";
     }
 
     @Override
