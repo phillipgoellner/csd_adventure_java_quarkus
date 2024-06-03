@@ -32,7 +32,7 @@ public class Adventure {
             case "commit suicide":
                 loo.resetCounter();
                 currentRoom = loo;
-                response = currentRoom.getDescription();
+                response = this.getBothDescriptions(currentRoom);
                 break;
             case "read a joke":
                 if (currentRoom == loo) {
@@ -50,12 +50,12 @@ public class Adventure {
                 break;
             case "use door to washroom":
                 currentRoom = washroom;
-                response = currentRoom.getDescription();
+                response = this.getBothDescriptions(currentRoom);
                 break;
             case "use door to hallway":
                 hallway.resetKeypad();
                 currentRoom = hallway;
-                response = currentRoom.getDescription();
+                response = this.getBothDescriptions(currentRoom);
                 break;
             case "use door to loo":
                 loo.resetCounter();
@@ -64,11 +64,11 @@ public class Adventure {
                 break;
             case "use door to team office":
                 currentRoom = teamOffice;
-                response = currentRoom.getDescription();
+                response = this.getBothDescriptions(currentRoom);
                 break;
             case "use door to kitchen":
                 currentRoom = kitchen;
-                response = currentRoom.getDescription();
+                response = this.getBothDescriptions(currentRoom);
                 break;
             case "help":
                 response = currentRoom.getHelp();
@@ -84,9 +84,17 @@ public class Adventure {
         return response;
     }
 
+    private String getBothDescriptions(Room room) {
+        return room.getDescription() + "\n" + room.getDetailedDescription();
+    }
+   
+    public String getActions() {
+        return currentRoom.getHelp();
+    }
+
     public String Begin() {
         lastResponse = currentRoom.getDescription();
-        lastResponse += "\nIf you want to play the game, enter commands into the textbox. <br/><br/>If you're feeling lost, use the command 'help'.";
+        lastResponse += "\nIf you want to play the game, enter commands into the textbox.";
         return lastResponse;
     }
 
