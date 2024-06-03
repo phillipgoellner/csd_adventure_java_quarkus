@@ -19,7 +19,8 @@ public class TeamOffice extends AbstractRoom {
     @Override
     public String getDetailedDescription() {  
         return "You see many flip charts, sticky notes and other things on the walls. \n" +
-                "One wall holds a burndown chart. Its line is horizontal! Seems that the team does not finish anything ;) -> Close your PBI´s";
+                "One wall holds a burndown chart. Its line is horizontal! Seems that the team does not finish anything ;) -> Close your PBI´s \n \n" +
+                "Try 'look at first cubicle'.";
     }
 
     @Override
@@ -27,6 +28,9 @@ public class TeamOffice extends AbstractRoom {
     	if(command.equals("look at stickies")) {
     		return "You see a sticky with what I hated about the last sprint review. \n Took endless time. \n Technical problems. \n Customer requirements not met.";
     	}
+        if(command.equals("look at first cubicle")) {
+            return "Hey! I am Homer!";
+        }
     	else return super.handleCommand(command);
     }
 
