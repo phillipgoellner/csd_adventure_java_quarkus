@@ -42,6 +42,13 @@ public class HallwayTest {
         String hallwayHelp = hallway.getHelp();
         assertThat(hallwayHelp, containsStringIgnoringCase("'inspect the poster'"));
     }
+
+    @Test
+    void testHelpLineBreak() {
+        String helpText = hallway.getHelp();
+        assertThat(helpText, containsStringIgnoringCase("<br/>If you want to restart, just try to 'commit suicide'."));
+    }
+
     @Test
     void InspectingTheSpookyDoorRevealsTheKeypad() {
         String commandResult = hallway.handleCommand("inspect the spooky door");
