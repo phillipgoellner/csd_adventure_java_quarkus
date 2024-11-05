@@ -78,7 +78,11 @@ public class Adventure {
 
                 break;
             default:
-                return currentRoom.handleCommand(command);
+                if(command.isBlank()) {
+                    response = lastResponse;
+                    break;
+                }
+                response = currentRoom.handleCommand(command);
         }
         lastResponse = response;
         return response;
