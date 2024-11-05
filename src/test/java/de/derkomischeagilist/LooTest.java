@@ -27,4 +27,13 @@ public class LooTest {
         String commandResult = loo.getDetailedDescription();
         assertThat(commandResult, endsWithIgnoringCase("When you look down, you see your dropped pants."));
     }
+
+    @Test
+    void testHelp() {
+        String helpText = loo.getHelp();
+        assertThat(helpText, containsStringIgnoringCase("Try to 'look around', 'look at magazines' "
+                + "(better get your gloves), 'look at toilet paper', 'flush toilet' or just 'use door to washroom' "
+                + "to escape the smell.<br/>"
+                + "If you want to restart, just try to 'commit suicide'."));
+    }
 }
