@@ -86,7 +86,7 @@ public class Kitchen extends AbstractRoom {
     public String getHelp() {
         List<String> availableCommands = coffeeMaker.listCommands();
 
-         return "Help in the kitchen is useless, but just in case, you can: " + String.join(",", availableCommands) + super.getHelp();
+         return "Help in the kitchen is useless, but just in case, you can: " + String.join(",", availableCommands) + "<br/>" + super.getHelp();
     }
 
     class Clock {
