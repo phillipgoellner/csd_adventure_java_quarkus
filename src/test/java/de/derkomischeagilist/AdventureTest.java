@@ -105,6 +105,17 @@ public class AdventureTest {
     }
 
     @Test
+    void enteringBlankComamndResultsInEmptyResponse() {
+        // given i am on the loo
+        assertThat(adventure.Begin(), containsStringIgnoringCase("you <b>wake up</b> on the Loo"));
+        // When i look around
+        String command = "";
+        String actual = adventure.tell(command);
+        // Then i can see funny response
+        assertThat(actual, containsStringIgnoringCase(""));
+    }
+
+    @Test
     void PuttingPaperTowelsInTheBinInTheWashRoom() {
         // given I am on the washroom
         assertThat(adventure.Begin(), containsStringIgnoringCase("you <b>wake up</b> on the Loo"));

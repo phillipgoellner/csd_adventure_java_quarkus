@@ -3,6 +3,10 @@ package de.derkomischeagilist.Rooms;
 public abstract class AbstractRoom implements Room {
     @Override
     public String handleCommand(String command) {
+        if(command.isBlank()) {
+            return "";
+        }
+
         return String.format("Sorry, I don't understand '%s'" +
                 "<br /><br />", command);
     }
