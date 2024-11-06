@@ -9,10 +9,10 @@ public class Adventure {
     private int counter;
     protected Room currentRoom;
     private Loo loo;
-    protected Room washroom;
+    protected WashRoom washroom;
     private Hallway hallway;
-    private Room teamOffice;
-    private Room kitchen;
+    private TeamOffice teamOffice;
+    private Kitchen kitchen;
     private String lastResponse;
 
     public Adventure() {
@@ -32,7 +32,7 @@ public class Adventure {
             case "commit suicide":
                 loo.resetCounter();
                 currentRoom = loo;
-                response = this.getBothDescriptions(currentRoom);
+                response = currentRoom.getBothDescriptions();
                 break;
             case "read a joke":
                 if (currentRoom == loo) {
@@ -50,12 +50,12 @@ public class Adventure {
                 break;
             case "use door to washroom":
                 currentRoom = washroom;
-                response = this.getBothDescriptions(currentRoom);
+                response = currentRoom.getBothDescriptions();
                 break;
             case "use door to hallway":
                 hallway.resetKeypad();
                 currentRoom = hallway;
-                response = this.getBothDescriptions(currentRoom);
+                response = currentRoom.getBothDescriptions();
                 break;
             case "use door to loo":
                 loo.resetCounter();
@@ -64,11 +64,11 @@ public class Adventure {
                 break;
             case "use door to team office":
                 currentRoom = teamOffice;
-                response = this.getBothDescriptions(currentRoom);
+                response = currentRoom.getBothDescriptions();
                 break;
             case "use door to kitchen":
                 currentRoom = kitchen;
-                response = this.getBothDescriptions(currentRoom);
+                response = currentRoom.getBothDescriptions();
                 break;
             case "help":
                 response = currentRoom.getHelp();
@@ -87,10 +87,6 @@ public class Adventure {
         lastResponse = response;
         return response;
     }
-
-    private String getBothDescriptions(Room room) {
-        return room.getDescription() + "\n" + room.getDetailedDescription();
-    }
    
     public String getActions() {
         return currentRoom.getHelp();
@@ -103,19 +99,12 @@ public class Adventure {
     }
 
     public String whereAreWe() {
-        switch (currentRoom.getLocation()) {
-            case LOO:
-                return "Loo";
-            case WASHROOM:
-                return "Washroom";
-            case HALLWAY:
-                return "Hallway";
-            case TEAM_OFFICE:
-                return "Team Office";
-            case KITCHEN:
-                return "Kitchen";
-            default:
-                return "Unknown";
+        Location location = currentRoom.getLocation();
+
+        if (location != null) {
+            return location.getName();
+        } else {
+            return "Unknown";
         }
     }
 }
