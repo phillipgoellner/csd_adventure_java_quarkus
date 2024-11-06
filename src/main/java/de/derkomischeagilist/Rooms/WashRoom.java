@@ -9,6 +9,8 @@ public class WashRoom extends AbstractRoom {
         return Location.WASHROOM;
     }
 
+    private boolean areHandsWashed = false;
+
     public String getDescription() {
         return "You enter a room that looks like a wash room.";
     }
@@ -30,6 +32,7 @@ public class WashRoom extends AbstractRoom {
                         "</br>" +
                         "toilet flushed?";
             case "wash hands":
+                areHandsWashed = true;
                 return "Oh WOW!!! The soap dispenser is full :) So you happily wash your hands with hot water and soap.";
             case "put paper towels in the bin":
                 return "The bin is as always overflowing... Somehow you manage to stuff the dirty paper towels in the bin.";
@@ -41,5 +44,13 @@ public class WashRoom extends AbstractRoom {
     @Override
     public String getHelp() {
         return "Try to type 'look around', 'read DoD', 'use door to hallway', 'use door to loo', 'put paper towels in the bin' or 'wash hands'." + "<br/>"+ super.getHelp();
+    }
+
+    public boolean getAreHandsWashed() {
+        return areHandsWashed;
+    }
+
+    public void setAreHandsWashed(boolean areHandsWashed) {
+        this.areHandsWashed = areHandsWashed;
     }
 }
