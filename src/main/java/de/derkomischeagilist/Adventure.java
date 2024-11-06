@@ -32,7 +32,7 @@ public class Adventure {
             case "commit suicide":
                 loo.resetCounter();
                 currentRoom = loo;
-                response = this.getBothDescriptions(currentRoom);
+                response = currentRoom.getBothDescriptions();
                 break;
             case "read a joke":
                 if (currentRoom == loo) {
@@ -50,12 +50,12 @@ public class Adventure {
                 break;
             case "use door to washroom":
                 currentRoom = washroom;
-                response = this.getBothDescriptions(currentRoom);
+                response = currentRoom.getBothDescriptions();
                 break;
             case "use door to hallway":
                 hallway.resetKeypad();
                 currentRoom = hallway;
-                response = this.getBothDescriptions(currentRoom);
+                response = currentRoom.getBothDescriptions();
                 break;
             case "use door to loo":
                 loo.resetCounter();
@@ -64,11 +64,11 @@ public class Adventure {
                 break;
             case "use door to team office":
                 currentRoom = teamOffice;
-                response = this.getBothDescriptions(currentRoom);
+                response = currentRoom.getBothDescriptions();
                 break;
             case "use door to kitchen":
                 currentRoom = kitchen;
-                response = this.getBothDescriptions(currentRoom);
+                response = currentRoom.getBothDescriptions();
                 break;
             case "help":
                 response = currentRoom.getHelp();
@@ -86,10 +86,6 @@ public class Adventure {
         }
         lastResponse = response;
         return response;
-    }
-
-    private String getBothDescriptions(Room room) {
-        return room.getDescription() + "\n" + room.getDetailedDescription();
     }
    
     public String getActions() {

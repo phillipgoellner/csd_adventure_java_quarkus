@@ -13,4 +13,8 @@ public interface Room {
     String handleCommand(String command);
 
     String getHelp();
+
+    default String getBothDescriptions() {
+        return getDescription() + "\n" + getDetailedDescription();
+    }
 }
