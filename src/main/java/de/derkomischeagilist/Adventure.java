@@ -9,10 +9,10 @@ public class Adventure {
     private int counter;
     protected Room currentRoom;
     private Loo loo;
-    protected Room washroom;
+    protected WashRoom washroom;
     private Hallway hallway;
-    private Room teamOffice;
-    private Room kitchen;
+    private TeamOffice teamOffice;
+    private Kitchen kitchen;
     private String lastResponse;
 
     public Adventure() {
