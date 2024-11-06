@@ -103,19 +103,12 @@ public class Adventure {
     }
 
     public String whereAreWe() {
-        switch (currentRoom.getLocation()) {
-            case LOO:
-                return "Loo";
-            case WASHROOM:
-                return "Washroom";
-            case HALLWAY:
-                return "Hallway";
-            case TEAM_OFFICE:
-                return "Team Office";
-            case KITCHEN:
-                return "Kitchen";
-            default:
-                return "Unknown";
+        Location location = currentRoom.getLocation();
+
+        if (location != null) {
+            return location.getName();
+        } else {
+            return "Unknown";
         }
     }
 }
