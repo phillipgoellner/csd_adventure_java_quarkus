@@ -9,7 +9,7 @@ public class Adventure {
     private int counter;
     protected Room currentRoom;
     private Loo loo;
-    protected Room washroom;
+    protected WashRoom washroom;
     private Hallway hallway;
     private Room teamOffice;
     private Room kitchen;
@@ -50,11 +50,19 @@ public class Adventure {
                 break;
             case "use door to washroom":
                 currentRoom = washroom;
+                washroom.setAreHandsWashed(false);
                 response = this.getBothDescriptions(currentRoom);
                 break;
             case "use door to hallway":
-                hallway.resetKeypad();
-                currentRoom = hallway;
+                if (currentRoom instanceof WashRoom roomOfWashroom) {
+                    boolean iwashedmyhands = false;
+                    iwashedmyhands = roomOfWashroom.getAreHandsWashed();
+                    currentRoom = iwashedmyhands ? hallway : washroom;
+                }
+                else  {
+                    currentRoom = hallway;
+                    hallway.resetKeypad();
+                }
                 response = this.getBothDescriptions(currentRoom);
                 break;
             case "use door to loo":
