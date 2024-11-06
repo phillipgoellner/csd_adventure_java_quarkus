@@ -28,6 +28,8 @@ public class CommandResourceTest {
 
 	@Test
 	public void testSwitchRoom() {
+		String initialResponse = commandResource.game(""); // Nothing should happen, we get the previous response
+		assertThat(initialResponse, containsStringIgnoringCase("you are in the loo"));
 		assertThat(commandResource.game("use door to washroom"), containsStringIgnoringCase("you are in the washroom"));
 	}
 }
