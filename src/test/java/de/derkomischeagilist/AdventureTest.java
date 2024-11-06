@@ -128,7 +128,7 @@ public class AdventureTest {
         String actual = adventure.tell("put paper towels in the bin");
         // Then the bin gets filled with used paper towels
         assertThat(actual, containsStringIgnoringCase(
-                "Bin has been filled with used paper towels. Now the bin is overflowing with even more dirty paper towels."));
+                "The bin is as always overflowing... Somehow you manage to stuff the dirty paper towels in the bin."));
     }
 
     @Test
@@ -270,7 +270,7 @@ public class AdventureTest {
         String actual = adventure.tell("wash hands");
         // Then I am washing my hands
         assertThat(actual, containsStringIgnoringCase(
-                "Unfortunately the soap dispenser is empty :( So you wash your hands only with hot water."));
+                "Oh WOW!!! The soap dispenser is full :) So you happily wash your hands with hot water and soap."));
     }
 
     @Test
