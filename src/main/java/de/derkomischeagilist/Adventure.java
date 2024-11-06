@@ -54,16 +54,17 @@ public class Adventure {
                 response = this.getBothDescriptions(currentRoom);
                 break;
             case "use door to hallway":
-                if (currentRoom instanceof WashRoom roomOfWashroom) {
-                    boolean iwashedmyhands = false;
-                    iwashedmyhands = roomOfWashroom.getAreHandsWashed();
-                    currentRoom = iwashedmyhands ? hallway : washroom;
+                if (currentRoom instanceof WashRoom) {
+                    WashRoom roomOfWashroom = (WashRoom) currentRoom;
+                    boolean iWashedMyHands = roomOfWashroom.getAreHandsWashed();
+                    currentRoom = iWashedMyHands ? hallway : washroom;
+                    response += iWashedMyHands ? "" : "Your hands feel sticky, maybe you should remove the stains before leaving the washroom...\n\n";
                 }
                 else  {
                     currentRoom = hallway;
                     hallway.resetKeypad();
                 }
-                response = this.getBothDescriptions(currentRoom);
+                response += this.getBothDescriptions(currentRoom);
                 break;
             case "use door to loo":
                 loo.resetCounter();
