@@ -26,7 +26,7 @@ public class StepDefinitions {
     @Given("I am playing the game")
     public void i_am_playing_the_game() {
         adventure = new Adventure();
-        lastResponse = adventure.Begin();
+        lastResponse = adventure.Begin(); 
 
         assertThat(lastResponse, is(not(emptyString())));
     }
@@ -37,14 +37,6 @@ public class StepDefinitions {
         assertThatTheLooIsTheInitialRoom();
     }
 
-    @Given("I am in the washroom")
-    public void i_am_in_the_washroom() {
-        i_am_playing_the_game();
-
-        lastResponse = adventure.tell("use door to washroom");
-
-        assertThat(lastResponse, containsStringIgnoringCase("looks like a wash room"));
-    }
 
     @When("I say {string}")
     public void i_say(String string) {
@@ -61,10 +53,6 @@ public class StepDefinitions {
         assertThat(lastResponse, containsStringIgnoringCase(string));
     }
 
-    @When("I use the door to the hallway")
-    public void i_use_the_door_to_the_hallway() {
-        lastResponse = adventure.tell("use door to hallway");
-    }
 
     @Then("I am now in the hallway")
     public void i_am_now_in_the_hallway() {
