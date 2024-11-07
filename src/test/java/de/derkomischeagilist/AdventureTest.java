@@ -364,6 +364,8 @@ public class AdventureTest {
         assertThat(adventure.Begin(), containsStringIgnoringCase("you <b>wake up</b> on the Loo"));
         String actual = adventure.tell("use door to washroom");
         assertThat(actual, containsStringIgnoringCase("You enter a room that looks like a wash room."));
+        actual = adventure.tell("wash hands");
+        assertThat(actual, containsStringIgnoringCase("you happily wash your hands with hot water and soap."));
         actual = adventure.tell("use door to hallway");
         assertThat(actual, containsStringIgnoringCase("Welcome to the hallway to hell."));
         actual = adventure.tell("use door to loo");
@@ -377,6 +379,8 @@ public class AdventureTest {
         // Commands shall work, regardless if written in lower or uppercase
         String actual = adventure.tell("USe dooR to washrOOm");
         assertThat(actual, containsStringIgnoringCase("You enter a room that looks like a wash room."));
+        actual = adventure.tell("wAsH hAnDs");
+        assertThat(actual, containsStringIgnoringCase("you happily wash your hands with hot water and soap."));
         actual = adventure.tell("USE DOOR TO HALLWAY");
         assertThat(actual, containsStringIgnoringCase("Welcome to the hallway to hell."));
         actual = adventure.tell("USE DOOR TO LOO");
@@ -389,6 +393,8 @@ public class AdventureTest {
         assertThat(adventure.Begin(), containsStringIgnoringCase("you <b>wake up</b> on the Loo"));
         String actual = adventure.tell("use door to washroom");
         assertThat(actual, containsStringIgnoringCase("You enter a room that looks like a wash room."));
+        actual = adventure.tell("wash hands");
+        assertThat(actual, containsStringIgnoringCase("you happily wash your hands with hot water and soap."));
         actual = adventure.tell("use door to hallway");
         assertThat(actual, containsStringIgnoringCase("Welcome to the hallway to hell."));
         actual = adventure.tell("inspect the spooky door");
