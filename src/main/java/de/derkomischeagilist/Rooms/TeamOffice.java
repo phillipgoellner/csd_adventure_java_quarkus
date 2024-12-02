@@ -20,7 +20,8 @@ public class TeamOffice extends AbstractRoom {
     public String getDetailedDescription() {  
         return "You see many flip charts, sticky notes and other things on the walls. \n" +
                 "One wall holds a burndown chart. Its line is horizontal! Seems that the team does not finish anything ;) -> Close your PBI´s \n \n" +
-                "Try 'look at first cubicle'.";
+                "Try 'look at first cubicle'.\n" +
+                "Try 'look at chart'";
     }
 
     @Override
@@ -30,6 +31,20 @@ public class TeamOffice extends AbstractRoom {
     	}
         if(command.equals("look at first cubicle")) {
             return "Hey! I am Homer!";
+        }
+        if(command.equals("look at chart")) {
+            return " 10 |------------------------------------------\n" +
+                            "    |\n" +
+                            "  8 |                                          \n" +
+                            "    |                                          \n" +
+                            "  6 |                                          \n" +
+                            "    |                                          \n" +
+                            "  4 |                                          \n" +
+                            "    |                                          \n" +
+                            "  2 |                                          \n" +
+                            "    |                                          \n" +
+                            "    -------------------------------------------\n" +
+                            "       Day 1    Day 2    Day 3    Day 4    Day 5    Day 6    Day 7\n";
         }
     	else return super.handleCommand(command);
     }
