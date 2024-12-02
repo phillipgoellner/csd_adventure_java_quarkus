@@ -56,7 +56,7 @@ public class StepDefinitions {
 
     @Then("I am now in the hallway")
     public void i_am_now_in_the_hallway() {
-        assertThat(lastResponse, containsStringIgnoringCase("welcome to the hallway"));
+        assertThat(lastResponse, containsStringIgnoringCase("Welcome to the very dark hallway to hell. "));
     }
 
     @Given("I am in the hallway")

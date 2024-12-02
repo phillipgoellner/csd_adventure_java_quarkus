@@ -20,12 +20,12 @@ public class Hallway extends AbstractRoom {
 
     @Override
     public String getDescription() {
-        return "Welcome to the hallway to hell.";
+        return "Welcome to the very dark hallway to hell. ";
     }
 
     @Override
     public String getDetailedDescription() {
-        return "Welcome to the very dark hallway to hell. You see 3 doors. One door leads to the kitchen, one to the washroom. At the end you see a spooky looking door. On one of the walls there is a dirty poster.";
+        return "You see 3 doors. One door leads to the kitchen, one to the washroom. At the end you see a spooky looking door. On one of the walls there is a dirty poster.";
     }
 
     @Override
