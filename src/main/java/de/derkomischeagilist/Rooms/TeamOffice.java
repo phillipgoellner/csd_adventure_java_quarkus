@@ -18,33 +18,35 @@ public class TeamOffice extends AbstractRoom {
 
     @Override
     public String getDetailedDescription() {  
-        return "You see many flip charts, sticky notes and other things on the walls. \n" +
-                "One wall holds a burndown chart. Its line is horizontal! Seems that the team does not finish anything ;) -> Close your PBI´s \n \n" +
-                "Try 'look at first cubicle'.\n" +
-                "Try 'look at chart'";
+        return "You see many flip charts, sticky notes and other things on the wall. \n\n" +
+                "Try 'look at first cubicle' or 'look at wall'.";
+    }
+
+    private String getBurndownChart() {
+        return          "Note from Management: Impressive! Your Burndown Chart resist all forms of gravity!\n\n" +
+                        "<pre>\n" +
+                        " 10 |-------------------------------------------------------------\n" +
+                        "    |                                          \n" +
+                        "  8 |                                          \n" +
+                        "    |                                          \n" +
+                        "  6 |                                          \n" +
+                        "    |                                          \n" +
+                        "  4 |                                          \n" +
+                        "    |                                          \n" +
+                        "  2 |                                          \n" +
+                        "    |                                          \n" +
+                        "    --------------------------------------------------------------\n" +
+                        "       Day 1    Day 2    Day 3    Day 4    Day 5    Day 6    Day 7\n" +
+                        "</pre>";
     }
 
     @Override
     public String handleCommand(String command) {
-    	if(command.equals("look at stickies")) {
-    		return "You see a sticky with what I hated about the last sprint review. \n Took endless time. \n Technical problems. \n Customer requirements not met.";
-    	}
         if(command.equals("look at first cubicle")) {
             return "Hey! I am Homer!";
         }
-        if(command.equals("look at chart")) {
-            return " 10 |------------------------------------------\n" +
-                            "    |\n" +
-                            "  8 |                                          \n" +
-                            "    |                                          \n" +
-                            "  6 |                                          \n" +
-                            "    |                                          \n" +
-                            "  4 |                                          \n" +
-                            "    |                                          \n" +
-                            "  2 |                                          \n" +
-                            "    |                                          \n" +
-                            "    -------------------------------------------\n" +
-                            "       Day 1    Day 2    Day 3    Day 4    Day 5    Day 6    Day 7\n";
+        if(command.equals("look at wall")) {
+            return getBurndownChart();
         }
     	else return super.handleCommand(command);
     }
