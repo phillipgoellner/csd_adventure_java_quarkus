@@ -23,7 +23,8 @@ public class TeamOffice extends AbstractRoom {
     }
 
     private String getBurndownChart() {
-        return          "Note from Management: Impressive! Your Burndown Chart resist all forms of gravity!\n\n" +
+        return          "Among many unintelligible Sticky Notes, you see a big flip chart with a note added:\n\n" +
+                        "Note from Management: Impressive! Your Burndown Chart resists all forms of gravity!\n\n" +
                         "<pre>\n" +
                         " 10 |-------------------------------------------------------------\n" +
                         "    |                                          \n" +
