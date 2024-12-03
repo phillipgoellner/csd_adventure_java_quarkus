@@ -201,8 +201,8 @@ public class AdventureTest {
         //When I look around
         actual = adventure.tell("look around");
         //Then i can see flip charts, sticky notes, a burn down chart and other things on wall
-        assertThat(actual, containsStringIgnoringCase("You see many flip charts, sticky notes and other things on the walls. \n" +
-                "One wall holds a burndown chart. Its line is horizontal! Seems that the team does not finish anything ;) -> Close your PBI´s"));
+        assertThat(actual, containsStringIgnoringCase("You see many flip charts, sticky notes and other things on the wall. \n\n" +
+                "Try 'look at first cubicle' or 'look at wall'."));
     }
 
     @Test
