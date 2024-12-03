@@ -367,7 +367,7 @@ public class AdventureTest {
         actual = adventure.tell("wash hands");
         assertThat(actual, containsStringIgnoringCase("you happily wash your hands with hot water and soap."));
         actual = adventure.tell("use door to hallway");
-        assertThat(actual, containsStringIgnoringCase("Welcome to the hallway to hell."));
+        assertThat(actual, containsStringIgnoringCase("Welcome to the very dark hallway to hell. "));
         actual = adventure.tell("use door to loo");
         assertThat(actual, containsStringIgnoringCase("You are on the loo again. Still smelly."));
     }
@@ -382,7 +382,7 @@ public class AdventureTest {
         actual = adventure.tell("wAsH hAnDs");
         assertThat(actual, containsStringIgnoringCase("you happily wash your hands with hot water and soap."));
         actual = adventure.tell("USE DOOR TO HALLWAY");
-        assertThat(actual, containsStringIgnoringCase("Welcome to the hallway to hell."));
+        assertThat(actual, containsStringIgnoringCase("Welcome to the very dark hallway to hell. "));
         actual = adventure.tell("USE DOOR TO LOO");
         assertThat(actual, containsStringIgnoringCase("You are on the loo again. Still smelly."));
     }
@@ -396,7 +396,7 @@ public class AdventureTest {
         actual = adventure.tell("wash hands");
         assertThat(actual, containsStringIgnoringCase("you happily wash your hands with hot water and soap."));
         actual = adventure.tell("use door to hallway");
-        assertThat(actual, containsStringIgnoringCase("Welcome to the hallway to hell."));
+        assertThat(actual, containsStringIgnoringCase("Welcome to the very dark hallway to hell. "));
         actual = adventure.tell("inspect the spooky door");
         assertThat(actual, containsStringIgnoringCase("and next to it is a rusty keypad"));
         actual = adventure.tell("use keypad");
