@@ -36,10 +36,17 @@ public class WashroomTest {
 	}
 
 	@Test
-	void testDoorDescriptioninDetailedDescription() {
+	void testDoorDescriptionsinDetailedDescription() {
 		String detailedDescription = washroom.getDetailedDescription();
 		assertThat(detailedDescription, containsStringIgnoringCase("door"));
 		assertThat(detailedDescription, containsStringIgnoringCase("leads to"));
 		assertThat(detailedDescription, containsStringIgnoringCase("loo"));
+		assertThat(detailedDescription, containsStringIgnoringCase("hallway"));
+	}
+
+	@Test
+	void testConfusingDetailedDescription() {
+		String detailedDescription = washroom.getDetailedDescription();
+		assertThat(detailedDescription, not(containsStringIgnoringCase("On the other side")));
 	}
 }

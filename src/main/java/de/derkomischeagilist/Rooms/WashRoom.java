@@ -20,7 +20,7 @@ public class WashRoom extends AbstractRoom {
                 + "<br/>"
                 + "You notice a DoD on the door."
                 + "</br>"
-                + "On the other side of the room you see the door that leads to the loo.";
+                + "You see 2 doors. One door leads to the loo, one to the hallway.";
     }
 
     public String handleCommand(String command) {
