@@ -18,8 +18,7 @@ public class TeamOffice extends AbstractRoom {
 
     @Override
     public String getDetailedDescription() {  
-        return "You see many flip charts, sticky notes and other things on the wall. \n\n" +
-                "Try 'look at first cubicle' or 'look at wall'.";
+        return "You see many flip charts, sticky notes and other things on the wall.";
     }
 
     private String getBurndownChart() {
@@ -54,6 +53,7 @@ public class TeamOffice extends AbstractRoom {
 
     @Override
     public String getHelp() {
-        return "Try to type 'look around' or 'use door to hallway'." + "<br/>" + super.getHelp();
+        return "Try to type 'look around', 'look at first cubicle', 'look at wall' or 'use door to hallway'." + "<br/>"
+        + super.getHelp();
     }
 }

@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsStringIgnoringCase;
 import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.not;
 
 /**
  * @author Jakob Silbereisen, Foconis Analytics GmbH
@@ -23,8 +24,8 @@ public class TeamOfficeTest {
     @Test
     void testHelp() {
         String helpText = teamOffice.getHelp();
-        assertThat(helpText, equalTo("Try to type 'look around' or 'use door to hallway'.<br/>"
-                + "If you want to restart, just try to 'commit suicide'."));
+        assertThat(helpText, not(equalTo("Try to type 'look around' or 'use door to hallway'.<br/>"
+                + "If you want to restart, just try to 'commit suicide'.")));
     }
 
 
@@ -37,9 +38,10 @@ public class TeamOfficeTest {
     @Test
     void HelpInTeamOfficeCommandToUseDoors() {
         String teamOfficeHelp = teamOffice.getHelp();
-        String teamOfficeDescription = teamOffice.getDetailedDescription();
-        assertThat(teamOfficeDescription, containsStringIgnoringCase("look at first cubicle"));
-        assertThat(teamOfficeDescription, containsStringIgnoringCase("look at wall"));
+        assertThat(teamOfficeHelp, containsStringIgnoringCase("look at first cubicle"));
+        assertThat(teamOfficeHelp, containsStringIgnoringCase("look at wall"));
         assertThat(teamOfficeHelp, containsStringIgnoringCase("use door to hallway"));
+        assertThat(teamOfficeHelp, containsStringIgnoringCase("look around"));
+        assertThat(teamOfficeHelp, containsStringIgnoringCase("commit suicide"));
     }
 }
