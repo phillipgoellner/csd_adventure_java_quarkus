@@ -62,6 +62,6 @@ public class Loo extends AbstractRoom {
 
     @Override
     public String getHelp() {
-        return "Try to 'look around', 'look at magazines' (better get your gloves), 'look at toilet paper', 'flush toilet' or just 'use door to washroom' to escape the smell." + "<br/>" + super.getHelp();
+        return "Try to 'look around', 'look at magazines', 'look at toilet paper', 'flush toilet' or just 'use door to washroom' to escape the smell." + "<br/>" + super.getHelp();
     }
 }
