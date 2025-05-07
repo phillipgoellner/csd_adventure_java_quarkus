@@ -36,12 +36,20 @@ public class TeamOfficeTest {
     }
 
     @Test
+    void LookingAroundLetsYouJukeBox() {
+        String actualDescription = teamOffice.getDetailedDescription();
+        assertThat(actualDescription, containsStringIgnoringCase("jukebox"));
+    }
+    
+    
+    @Test
     void HelpInTeamOfficeCommandToUseDoors() {
         String teamOfficeHelp = teamOffice.getHelp();
         assertThat(teamOfficeHelp, containsStringIgnoringCase("look at first cubicle"));
         assertThat(teamOfficeHelp, containsStringIgnoringCase("look at wall"));
         assertThat(teamOfficeHelp, containsStringIgnoringCase("use door to hallway"));
         assertThat(teamOfficeHelp, containsStringIgnoringCase("look around"));
+        assertThat(teamOfficeHelp, containsStringIgnoringCase("look at jukebox"));
         assertThat(teamOfficeHelp, containsStringIgnoringCase("commit suicide"));
     }
 }
