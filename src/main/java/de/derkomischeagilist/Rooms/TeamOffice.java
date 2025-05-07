@@ -4,6 +4,8 @@ import de.derkomischeagilist.Location;
 
 public class TeamOffice extends AbstractRoom {
 
+    private boolean coinPickedUp = false;
+
     @Override
     public Location getLocation() {
         return Location.TEAM_OFFICE;
@@ -12,7 +14,8 @@ public class TeamOffice extends AbstractRoom {
     @Override
     public String getDescription() {
         return "This is a very stinky room. Smells like real work and you can feel the Cold atmosphere inside the room. \n" +
-        		"In the middle of the room there are several dirty old cubicles. Nearly each one of the cubicles has a worker in front of it staring directly at the computer screen. \n" +
+        		"In the middle of the room there are several dirty old cubicles. " +
+                "Nearly each one of the cubicles has a worker in front of it staring directly at the computer screen. \n" +
                 "Your smart but smelly Teammates greet you in the usual manner: 'Hey, you moron! ;)'";
     }
 
@@ -40,6 +43,15 @@ public class TeamOffice extends AbstractRoom {
                         "</pre>";
     }
 
+    private String getCoin() {
+        if (!coinPickedUp) {
+            coinPickedUp = true;
+            return "You've picked your coin.";
+        } else {
+            return "You already picked up your coin.";
+        }
+    }
+
     @Override
     public String handleCommand(String command) {
         if(command.equals("look at first cubicle")) {
@@ -47,6 +59,9 @@ public class TeamOffice extends AbstractRoom {
         }
         if(command.equals("look at wall")) {
             return getBurndownChart();
+        }
+        if(command.equals("pickup coin")) {
+            return getCoin();
         }
     	else return super.handleCommand(command);
     }

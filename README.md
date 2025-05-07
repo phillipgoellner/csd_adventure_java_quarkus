@@ -31,6 +31,7 @@
 ```shell script
 java -jar target/quarkus-app/quarkus-run.jar
 ```
+It is reachable via http://localhost:8080/game.
 
 ## On the remote machine
 
