@@ -52,4 +52,11 @@ public class TeamOfficeTest {
         assertThat(teamOfficeHelp, containsStringIgnoringCase("look at jukebox"));
         assertThat(teamOfficeHelp, containsStringIgnoringCase("commit suicide"));
     }
+
+    @Test
+    void EmptyCubicleWithCoinCommand() {
+        String cubicleCommand = teamOffice.handleCommand("look at empty cubicle");
+        assertThat(cubicleCommand, not(containsStringIgnoringCase("Sorry, I don't understand")));
+        assertThat(cubicleCommand, containsStringIgnoringCase("coin"));
+    }
 }
