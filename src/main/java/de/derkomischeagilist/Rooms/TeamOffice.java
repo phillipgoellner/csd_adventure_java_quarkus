@@ -5,6 +5,7 @@ import de.derkomischeagilist.Location;
 public class TeamOffice extends AbstractRoom {
 
     private boolean coinPickedUp = false;
+    private boolean lookedAtEmptyCubicle = false;
 
     @Override
     public Location getLocation() {
@@ -14,9 +15,8 @@ public class TeamOffice extends AbstractRoom {
     @Override
     public String getDescription() {
         return "This is a very stinky room. Smells like real work and you can feel the Cold atmosphere inside the room. \n" +
-        		"In the middle of the room there are several dirty old cubicles. " +
-                "Nearly each one of the cubicles has a worker in front of it staring directly at the computer screen. \n" +
-                "Your smart but smelly Teammates greet you in the usual manner: 'Hey, you moron! ;)'";
+        		"In the middle of the room there are several dirty old cubicles. Nearly each one of the cubicles has a worker in front of it staring directly at the computer screen. \n" +
+                "Your smart but smelly Teammates greet you in the usual manner: 'Hey, you moron! ;)', one of the cubicles seems empty, might be yours";
     }
 
     @Override
@@ -63,12 +63,27 @@ public class TeamOffice extends AbstractRoom {
         if(command.equals("pickup coin")) {
             return getCoin();
         }
+        if(command.equals("look at empty cubicle")) {
+            lookedAtEmptyCubicle = true;
+            String cubicleText = "You recognize your cubicle. All the papers and the pain are still there from where you left them.\n\n";
+
+            if(!coinPickedUp) {
+                cubicleText += "You see a coin on the desk, how did that get there?";
+            }
+
+            return cubicleText;
+        }
     	else return super.handleCommand(command);
     }
 
     @Override
     public String getHelp() {
-        return "Try to type 'look around', 'look at first cubicle', 'look at wall' or 'use door to hallway'." + "<br/>"
-        + super.getHelp();
+        String helpText = "Try to type 'look around', 'look at first cubicle', 'look at empty cubicle', 'look at wall'";
+
+        if(lookedAtEmptyCubicle && !coinPickedUp) {
+            helpText += ", 'pickup coin'";
+        }
+
+        return helpText + " or 'use door to hallway'" + "<br/>" + super.getHelp();
     }
 }
