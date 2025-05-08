@@ -75,4 +75,15 @@ public class TeamOfficeTest {
         assertThat(pickupCoinCommand, not(containsStringIgnoringCase("Sorry, I don't understand")));
         assertThat(teamOffice.coinPickedUp, equalTo(true));
     }
+
+    @Test
+    void PickUpCoinOnlyOnce() {
+        String firstTryToPickUp = teamOffice.handleCommand("pick up coin");
+        assertThat(firstTryToPickUp, containsStringIgnoringCase("pick"));
+        assertThat(firstTryToPickUp, containsStringIgnoringCase("up"));
+        assertThat(firstTryToPickUp, containsStringIgnoringCase("coin"));
+        String secondTryToPickUp = teamOffice.handleCommand("pick up coin");
+        assertThat(secondTryToPickUp, containsStringIgnoringCase("already have"));
+        assertThat(secondTryToPickUp, containsStringIgnoringCase("coin"));
+    }
 }

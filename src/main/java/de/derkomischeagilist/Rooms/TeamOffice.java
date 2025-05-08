@@ -15,8 +15,10 @@ public class TeamOffice extends AbstractRoom {
     @Override
     public String getDescription() {
         return "This is a very stinky room. Smells like real work and you can feel the Cold atmosphere inside the room. \n" +
-        		"In the middle of the room there are several dirty old cubicles. Nearly each one of the cubicles has a worker in front of it staring directly at the computer screen. \n" +
-                "Your smart but smelly Teammates greet you in the usual manner: 'Hey, you moron! ;)', one of the cubicles seems empty, might be yours";
+        		"In the middle of the room there are several dirty old cubicles. " +
+                "Nearly each one of the cubicles has a worker in front of it staring directly at the computer screen. \n" +
+                "Your smart but smelly Teammates greet you in the usual manner: 'Hey, you moron! ;)', " +
+                "one of the cubicles seems empty, might be yours.";
     }
 
     @Override
@@ -46,9 +48,9 @@ public class TeamOffice extends AbstractRoom {
     private String getCoin() {
         if (!coinPickedUp) {
             coinPickedUp = true;
-            return "You've picked your coin.";
+            return "You've picked up your coin.";
         } else {
-            return "You already picked up your coin.";
+            return "You already have picked up your coin.";
         }
     }
 
@@ -63,7 +65,7 @@ public class TeamOffice extends AbstractRoom {
         if(command.equals("look at jukebox")) {
             return "The jukebox looks old, but might be operational";  
         }
-        if(command.equals("pickup coin")) {
+        if(command.equals("pick up coin")) {
             return getCoin();
         }
         if(command.equals("look at empty cubicle")) {
