@@ -26,6 +26,19 @@ public class TeamOffice extends AbstractRoom {
         return "You see many flip charts, sticky notes and other things on the wall. In the corner, you spot an ancient jukebox.";
     }
 
+    public String getEmptyCubicleDescription() {
+        String description =  "You recognise your cubicle. " +
+            "All the papers and the pain are still where you left them. " +
+            "A half-eaten bar of Scrum Company chocolate lies next to the crusty keyboard, as do a couple of pens with half-bitten tips. ";
+        
+        if(!coinPickedUp) {
+            description += "A small coin is being used to prop up the monitor, might be useful somewhere else. ";
+        }
+        
+        return description +
+            "You can also see a used handkerchief covering part of the monitor, though strangely enough you can't tell the pattern.";
+    }
+
     private String getBurndownChart() {
         return          "Among many unintelligible Sticky Notes, you see a big flip chart with a note added:\n\n" +
                         "Note from Management: Impressive! Your Burndown Chart resists all forms of gravity!\n\n" +
@@ -68,15 +81,12 @@ public class TeamOffice extends AbstractRoom {
         if(command.equals("pick up coin")) {
             return getCoin();
         }
+        if(command.equals("pick up handkerchief")) {
+            return "Ew.";
+        }
         if(command.equals("look at empty cubicle")) {
             lookedAtEmptyCubicle = true;
-            String cubicleText = "You recognize your cubicle. All the papers and the pain are still there from where you left them.\n\n";
-
-            if(!coinPickedUp) {
-                cubicleText += "You see a coin on the desk, how did that get there?";
-            }
-
-            return cubicleText;
+            return getEmptyCubicleDescription();
         }
     	else return super.handleCommand(command);
     }
@@ -86,7 +96,7 @@ public class TeamOffice extends AbstractRoom {
         String helpText = "Try to type 'look around', 'look at first cubicle', 'look at empty cubicle', 'look at wall', 'look at jukebox'";
 
         if(lookedAtEmptyCubicle && !coinPickedUp) {
-            helpText += ", 'pick up coin'";
+            helpText += ", 'pick up coin', 'pickup handkerchief'";
         }
 
         return helpText + " or 'use door to hallway'" + "<br/>" + super.getHelp();
