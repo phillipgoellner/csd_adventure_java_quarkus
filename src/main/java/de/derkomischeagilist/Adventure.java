@@ -25,7 +25,7 @@ public class Adventure {
         kitchen = new Kitchen();
         currentRoom = loo;
 
-        inventory = new Inventory();
+        inventory = Inventory.getInstance();
         counter = 0;
         lastResponse = "";
     }

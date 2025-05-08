@@ -4,16 +4,16 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.equalToIgnoringCase;
 
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 public class InventoryTest {
 
-    private Inventory inventory;
+    private Inventory inventory = Inventory.getInstance();
 
-    @BeforeEach
+    @AfterEach
     void init() {
-        inventory = new Inventory();
+        inventory.clear();
     }
 
     @Test
@@ -37,10 +37,21 @@ public class InventoryTest {
         assertThat(inventory.hasItem("test"), equalTo(false));
 
         // Add multiple items and check representation
+        assertThat(inventory.toString(), equalToIgnoringCase("empty"));
         inventory.addItem("test1");
         inventory.addItem("test2");
         assertThat(inventory.toString(), equalToIgnoringCase("test1, test2"));
-        inventory.clear();
-        assertThat(inventory.toString(), equalToIgnoringCase("empty"));
+    }
+
+    @Test
+    void inventoryReferencesTest() {
+        assertThat(inventory.hasItem("test"), equalTo(false));
+
+        inventory.addItem("test");
+        Inventory inventoryReference = Inventory.getInstance();
+        assertThat(inventoryReference.hasItem("test"), equalTo(true));
+
+        inventoryReference.clear();
+        assertThat(inventory.hasItem("test"), equalTo(false));
     }
 }

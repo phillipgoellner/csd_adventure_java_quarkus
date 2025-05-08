@@ -3,10 +3,12 @@ package de.derkomischeagilist;
 import java.util.ArrayList;
 
 public class Inventory {
-  
+
+    private static Inventory inventoryInstance;
+
     private ArrayList<String> items;
 
-    public Inventory() {
+    private Inventory() {
         items = new ArrayList<>();
     }
 
@@ -15,10 +17,10 @@ public class Inventory {
     }
 
     public boolean addItem(String item) {
-        if(!hasItem(item)) {
-        return items.add(item);
+        if (!hasItem(item)) {
+            return items.add(item);
         }
-        
+
         return false;
     }
 
@@ -37,5 +39,13 @@ public class Inventory {
         }
 
         return String.join(", ", items);
+    }
+
+    public static Inventory getInstance() {
+        if (inventoryInstance == null) {
+            inventoryInstance = new Inventory();
+        }
+
+        return inventoryInstance;
     }
 }
