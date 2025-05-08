@@ -33,7 +33,7 @@ public class Adventure {
     public String tell(String command) {
         String response = "";
         switch (command.toLowerCase()) {
-            case "commit suicide":
+            case "restart drinking":
                 loo.resetCounter();
                 teamOffice.resetRoom();
                 inventory.clear();

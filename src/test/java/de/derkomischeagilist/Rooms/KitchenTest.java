@@ -33,6 +33,6 @@ class KitchenTest {
         String help = kitchen.getHelp();
         assertThat(help, containsStringIgnoringCase("Help in the kitchen is useless, but just in case, "
                 + "you can: add beans,add water,connect power,put in cup,make coffee<br/>"
-                + "If you want to restart, just try to 'commit suicide'."));
+                + "If you want to restart, just try to 'restart drinking'."));
     }
 }

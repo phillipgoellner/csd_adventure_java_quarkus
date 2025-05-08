@@ -25,7 +25,7 @@ public class TeamOfficeTest {
     void testHelp() {
         String helpText = teamOffice.getHelp();
         assertThat(helpText, not(equalTo("Try to type 'look around' or 'use door to hallway'.<br/>"
-                + "If you want to restart, just try to 'commit suicide'.")));
+                + "If you want to restart, just try to 'restart drinking'.")));
     }
 
 
@@ -50,7 +50,7 @@ public class TeamOfficeTest {
         assertThat(teamOfficeHelp, containsStringIgnoringCase("use door to hallway"));
         assertThat(teamOfficeHelp, containsStringIgnoringCase("look around"));
         assertThat(teamOfficeHelp, containsStringIgnoringCase("look at jukebox"));
-        assertThat(teamOfficeHelp, containsStringIgnoringCase("commit suicide"));
+        assertThat(teamOfficeHelp, containsStringIgnoringCase("restart drinking"));
     }
 
     @Test

@@ -34,6 +34,6 @@ public class LooTest {
         assertThat(helpText, containsStringIgnoringCase("Try to 'look around', 'look at magazines', "
                 + "'look at toilet paper', 'flush toilet' or just 'use door to washroom' "
                 + "to escape the smell.<br/>"
-                + "If you want to restart, just try to 'commit suicide'."));
+                + "If you want to restart, just try to 'restart drinking'."));
     }
 }

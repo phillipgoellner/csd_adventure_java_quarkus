@@ -26,7 +26,7 @@ public class WashroomTest {
 		String helpText = washroom.getHelp();
 		assertThat(helpText, equalTo("Try to type 'look around', 'read DoD', 'use door to hallway', 'use door to loo', "
 				+ "'put paper towels in the bin' or 'wash hands'.<br/>"
-				+ "If you want to restart, just try to 'commit suicide'."));
+				+ "If you want to restart, just try to 'restart drinking'."));
 	}
 
 	@Test

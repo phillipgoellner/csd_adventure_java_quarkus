@@ -46,7 +46,7 @@ public class HallwayTest {
     @Test
     void testHelpLineBreak() {
         String helpText = hallway.getHelp();
-        assertThat(helpText, containsStringIgnoringCase("<br/>If you want to restart, just try to 'commit suicide'."));
+        assertThat(helpText, containsStringIgnoringCase("<br/>If you want to restart, just try to 'restart drinking'."));
     }
 
     @Test
