@@ -4,8 +4,8 @@ import de.derkomischeagilist.Location;
 
 public class TeamOffice extends AbstractRoom {
 
-    private boolean coinPickedUp = false;
-    private boolean lookedAtEmptyCubicle = false;
+    public boolean coinPickedUp = false;
+    public boolean lookedAtEmptyCubicle = false;
 
     @Override
     public Location getLocation() {

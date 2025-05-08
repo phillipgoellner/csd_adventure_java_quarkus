@@ -205,6 +205,24 @@ public class AdventureTest {
     }
 
     @Test
+    void PickingUpCoinInEmptyCubicleInTheTeamOffice() {
+        //given i am on the loo
+    	assertThat(adventure.Begin(), containsStringIgnoringCase("you <b>wake up</b> on the Loo"));
+    	//When I go into the team office
+        String actual = adventure.tell("use door to team office");
+        //Then I can see cubicles and workers
+        assertThat(actual, allOf(
+            containsStringIgnoringCase("empty"),
+            containsStringIgnoringCase("cubicle")));
+        //When I look at empty cubicle
+        String emptyCubicle = adventure.tell("look at empty cubicle");
+        assertThat(emptyCubicle, containsStringIgnoringCase("coin"));
+        //Can pick up coin
+        String pickupCoin = adventure.tell("pickup coin");
+        assertThat(pickupCoin, not(containsStringIgnoringCase(String.format("Sorry, I don't understand '%s'", "pickup coin"))));
+    }
+
+    @Test
     void GoingThroughDoorInTheTeamRoomThenIAmGreetedByMyTeammates() {
         // given i am on the loo
         assertThat(adventure.Begin(), containsStringIgnoringCase("you <b>wake up</b> on the Loo"));

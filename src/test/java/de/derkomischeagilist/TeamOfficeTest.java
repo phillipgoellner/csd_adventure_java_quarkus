@@ -55,8 +55,24 @@ public class TeamOfficeTest {
 
     @Test
     void EmptyCubicleWithCoinCommand() {
+        teamOffice.coinPickedUp = false;
+        teamOffice.lookedAtEmptyCubicle = false;
+
         String cubicleCommand = teamOffice.handleCommand("look at empty cubicle");
         assertThat(cubicleCommand, not(containsStringIgnoringCase("Sorry, I don't understand")));
         assertThat(cubicleCommand, containsStringIgnoringCase("coin"));
+
+        assertThat(teamOffice.lookedAtEmptyCubicle, equalTo(true));
+        assertThat(teamOffice.getHelp(), containsStringIgnoringCase("pickup coin"));
+    }
+
+    @Test
+    void PickupCoinCommand() {
+        teamOffice.coinPickedUp = false;
+        teamOffice.lookedAtEmptyCubicle = true;
+
+        String pickupCoinCommand = teamOffice.handleCommand("pickup coin");
+        assertThat(pickupCoinCommand, not(containsStringIgnoringCase("Sorry, I don't understand")));
+        assertThat(teamOffice.coinPickedUp, equalTo(true));
     }
 }
