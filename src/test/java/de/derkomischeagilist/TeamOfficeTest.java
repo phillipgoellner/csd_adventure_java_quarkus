@@ -59,4 +59,15 @@ public class TeamOfficeTest {
         assertThat(cubicleCommand, not(containsStringIgnoringCase("Sorry, I don't understand")));
         assertThat(cubicleCommand, containsStringIgnoringCase("coin"));
     }
+
+    @Test
+    void PickUpCoinOnlyOnce() {
+        String firstTryToPickUp = teamOffice.handleCommand("pick up coin");
+        assertThat(firstTryToPickUp, containsStringIgnoringCase("pick"));
+        assertThat(firstTryToPickUp, containsStringIgnoringCase("up"));
+        assertThat(firstTryToPickUp, containsStringIgnoringCase("coin"));
+        String secondTryToPickUp = teamOffice.handleCommand("pick up coin");
+        assertThat(secondTryToPickUp, containsStringIgnoringCase("already have"));
+        assertThat(secondTryToPickUp, containsStringIgnoringCase("coin"));
+    }
 }
