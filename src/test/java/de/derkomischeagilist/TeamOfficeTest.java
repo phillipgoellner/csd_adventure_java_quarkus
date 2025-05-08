@@ -15,10 +15,13 @@ import static org.hamcrest.Matchers.not;
 public class TeamOfficeTest {
 
     private TeamOffice teamOffice;
+    private Inventory inventory;
 
     @BeforeEach
     void init() {
         teamOffice = new TeamOffice();
+        inventory = Inventory.getInstance();
+        inventory.clear();
     }
 
     @Test
@@ -55,9 +58,7 @@ public class TeamOfficeTest {
 
     @Test
     void EmptyCubicleWithCoinCommand() {
-        teamOffice.coinPickedUp = false;
         teamOffice.lookedAtEmptyCubicle = false;
-
         String cubicleCommand = teamOffice.handleCommand("look at empty cubicle");
         assertThat(cubicleCommand, not(containsStringIgnoringCase("Sorry, I don't understand")));
         assertThat(cubicleCommand, containsStringIgnoringCase("coin"));
@@ -68,12 +69,11 @@ public class TeamOfficeTest {
 
     @Test
     void PickupCoinCommand() {
-        teamOffice.coinPickedUp = false;
         teamOffice.lookedAtEmptyCubicle = true;
 
         String pickUpCoinCommand = teamOffice.handleCommand("pick up coin");
         assertThat(pickUpCoinCommand, not(containsStringIgnoringCase("Sorry, I don't understand")));
-        assertThat(teamOffice.coinPickedUp, equalTo(true));
+        assertThat(inventory.hasItem("coin"), equalTo(true));
     }
 
     @Test

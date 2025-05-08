@@ -1,11 +1,12 @@
 package de.derkomischeagilist.Rooms;
 
+import de.derkomischeagilist.Inventory;
 import de.derkomischeagilist.Location;
 
 public class TeamOffice extends AbstractRoom {
 
-    public boolean coinPickedUp = false;
     public boolean lookedAtEmptyCubicle = false;
+    private final Inventory inventory = Inventory.getInstance();
 
     @Override
     public Location getLocation() {
@@ -13,7 +14,6 @@ public class TeamOffice extends AbstractRoom {
     }
 
     public void resetRoom() {
-        coinPickedUp = false;
         lookedAtEmptyCubicle = false;
     }
 
@@ -36,7 +36,7 @@ public class TeamOffice extends AbstractRoom {
             "All the papers and the pain are still where you left them. " +
             "A half-eaten bar of Scrum Company chocolate lies next to the crusty keyboard, as do a couple of pens with half-bitten tips. ";
         
-        if(!coinPickedUp) {
+        if(!inventory.hasItem("coin")) {
             description += "A small coin is being used to prop up the monitor, might be useful somewhere else. ";
         }
         
@@ -64,8 +64,8 @@ public class TeamOffice extends AbstractRoom {
     }
 
     private String getCoin() {
-        if (!coinPickedUp) {
-            coinPickedUp = true;
+        if (!inventory.hasItem("coin")) {
+            inventory.addItem("coin");
             return "You've picked up your coin.";
         } else {
             return "You already have picked up your coin.";
@@ -100,7 +100,7 @@ public class TeamOffice extends AbstractRoom {
     public String getHelp() {
         String helpText = "Try to type 'look around', 'look at first cubicle', 'look at empty cubicle', 'look at wall', 'look at jukebox'";
 
-        if(lookedAtEmptyCubicle && !coinPickedUp) {
+        if(lookedAtEmptyCubicle && !inventory.hasItem("coin")) {
             helpText += ", 'pick up coin', 'pickup handkerchief'";
         }
 
