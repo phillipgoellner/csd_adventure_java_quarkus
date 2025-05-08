@@ -486,4 +486,11 @@ public class AdventureTest {
         // then
         assertThat(adventure.whereAreWe(), equalTo("Team Office"));
     }
+
+    @Test
+    void checkInventory() {
+        assertThat(adventure.Begin(), containsStringIgnoringCase("you <b>wake up</b> on the Loo"));
+        String inventory = adventure.tell("check inventory");
+        assertThat(inventory, equalToIgnoringCase("Inventory: Empty."));
+    }
 }

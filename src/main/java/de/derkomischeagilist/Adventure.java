@@ -7,6 +7,8 @@ import java.util.Locale;
 public class Adventure {
 
     private int counter;
+    private Inventory inventory;
+
     protected Room currentRoom;
     private Loo loo;
     protected WashRoom washroom;
@@ -22,6 +24,8 @@ public class Adventure {
         teamOffice = new TeamOffice();
         kitchen = new Kitchen();
         currentRoom = loo;
+
+        inventory = new Inventory();
         counter = 0;
         lastResponse = "";
     }
@@ -32,6 +36,7 @@ public class Adventure {
             case "commit suicide":
                 loo.resetCounter();
                 teamOffice.resetRoom();
+                inventory.clear();
                 currentRoom = loo;
                 response = this.getBothDescriptions(currentRoom);
                 break;
@@ -48,6 +53,9 @@ public class Adventure {
             case "count":
                 counter++;
                 response = "The counter is at " + counter;
+                break;
+            case "check inventory":
+                response = String.format("Inventory: %s.", inventory.toString());
                 break;
             case "use door to washroom":
                 currentRoom = washroom;
