@@ -12,6 +12,11 @@ public class TeamOffice extends AbstractRoom {
         return Location.TEAM_OFFICE;
     }
 
+    public void resetRoom() {
+        coinPickedUp = false;
+        lookedAtEmptyCubicle = false;
+    }
+
     @Override
     public String getDescription() {
         return "This is a very stinky room. Smells like real work and you can feel the Cold atmosphere inside the room. \n" +

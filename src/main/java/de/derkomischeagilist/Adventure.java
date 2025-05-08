@@ -11,7 +11,7 @@ public class Adventure {
     private Loo loo;
     protected WashRoom washroom;
     private Hallway hallway;
-    private Room teamOffice;
+    private TeamOffice teamOffice;
     private Room kitchen;
     private String lastResponse;
 
@@ -31,6 +31,7 @@ public class Adventure {
         switch (command.toLowerCase()) {
             case "commit suicide":
                 loo.resetCounter();
+                teamOffice.resetRoom();
                 currentRoom = loo;
                 response = this.getBothDescriptions(currentRoom);
                 break;
