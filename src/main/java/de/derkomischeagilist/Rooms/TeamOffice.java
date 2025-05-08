@@ -23,7 +23,7 @@ public class TeamOffice extends AbstractRoom {
 
     @Override
     public String getDetailedDescription() {  
-        return "You see many flip charts, sticky notes and other things on the wall. You also see an antique appealing jukebox.";
+        return "You see many flip charts, sticky notes and other things on the wall. In the corner, you spot an ancient jukebox.";
     }
 
     private String getBurndownChart() {
@@ -63,7 +63,7 @@ public class TeamOffice extends AbstractRoom {
             return getBurndownChart();
         }
         if(command.equals("look at jukebox")) {
-            return "The jukebox looks old, but might be operational";  
+            return "The jukebox looks old, but might be operational. Its chrome edges slightly tarnished but still gleaming under the soft glow of vintage bulbs. Behind scratched glass you see a list of old songs.";  
         }
         if(command.equals("pick up coin")) {
             return getCoin();
