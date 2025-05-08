@@ -218,8 +218,8 @@ public class AdventureTest {
         String emptyCubicle = adventure.tell("look at empty cubicle");
         assertThat(emptyCubicle, containsStringIgnoringCase("coin"));
         //Can pick up coin
-        String pickupCoin = adventure.tell("pickup coin");
-        assertThat(pickupCoin, not(containsStringIgnoringCase(String.format("Sorry, I don't understand '%s'", "pickup coin"))));
+        String pickUpCoin = adventure.tell("pick up coin");
+        assertThat(pickUpCoin, not(containsStringIgnoringCase(String.format("Sorry, I don't understand '%s'", "pick up coin"))));
     }
 
     @Test
