@@ -101,7 +101,7 @@ public class TeamOffice extends AbstractRoom {
         String helpText = "Try to type 'look around', 'look at first cubicle', 'look at empty cubicle', 'look at wall', 'look at jukebox'";
 
         if(lookedAtEmptyCubicle && !inventory.hasItem("coin")) {
-            helpText += ", 'pick up coin', 'pickup handkerchief'";
+            helpText += ", 'pick up coin', 'pick up handkerchief'";
         }
 
         return helpText + " or 'use door to hallway'" + "<br/>" + super.getHelp();
