@@ -47,7 +47,7 @@ public class TeamOfficeTest {
     @Test
     void LookAtJukeBox() {
         String actualDescription = teamOffice.handleCommand("look at jukebox");
-        assertThat(actualDescription, containsStringIgnoringCase("the scrum song"));
+        assertThat(actualDescription, containsStringIgnoringCase("Under Pressure"));
     }
     
     
