@@ -96,7 +96,8 @@ public class TeamOfficeTest {
     @Test
     void lookingAtjukeboxHelpText() {
         String insertCoin = teamOffice.handleCommand("insert coin");
-        assertThat(insertCoin, containsStringIgnoringCase("insert"));
+        assertThat(insertCoin, containsStringIgnoringCase("inserted"));
         assertThat(insertCoin, containsStringIgnoringCase("coin"));
+        assertThat(insertCoin, not(containsStringIgnoringCase("Sorry")));
     }
 }

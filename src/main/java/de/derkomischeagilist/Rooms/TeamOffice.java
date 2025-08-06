@@ -101,6 +101,10 @@ public class TeamOffice extends AbstractRoom {
             lookedAtEmptyCubicle = true;
             return getEmptyCubicleDescription();
         }
+        if(command.equals("insert coin")) {
+            
+            return "After you inserted the coin, you see the dirty looking keys lighting up, below you can choose a song, by entering the songnumber";
+        }
     	else return super.handleCommand(command);
     }
 
