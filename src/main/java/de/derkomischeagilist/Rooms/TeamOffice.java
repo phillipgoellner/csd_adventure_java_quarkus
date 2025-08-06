@@ -83,12 +83,12 @@ public class TeamOffice extends AbstractRoom {
         if(command.equals("look at jukebox")) {
             return "The jukebox looks old, but might be operational. Its chrome edges slightly tarnished but still gleaming under the soft glow of vintage bulbs. Behind scratched glass you see a list of old songs.<br>" + 
                                 "<ol>" + 
-                                "  <li>The scrum song</li>" + 
+                                "  <li>The Scrum song</li>" + 
                                 "  <li>Highway to Scrum</li>" +
-                                "  <li>Leave me to scrum</li>" +
-                                "  <li>Yellow Srummarine</li>" +
-                                "  <li>All you need is scrum</li>" +
-                                "  <li>Hit the scrum Jack</li>" + 
+                                "  <li>Leave me to Scrum</li>" +
+                                "  <li>Yellow Scrummarine</li>" +
+                                "  <li>All you need is Scrum</li>" +
+                                "  <li>Hit the Scrum Jack</li>" + 
                                 "</ol>";  
         }
         if(command.equals("pick up coin")) {
