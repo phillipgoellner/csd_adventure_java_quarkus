@@ -86,4 +86,11 @@ public class TeamOfficeTest {
         assertThat(secondTryToPickUp, containsStringIgnoringCase("already have"));
         assertThat(secondTryToPickUp, containsStringIgnoringCase("coin"));
     }
+
+    @Test
+    void lookingAtjukeboxHelpText() {
+        String insertCoin = teamOffice.handleCommand("insert coin");
+        assertThat(insertCoin, containsStringIgnoringCase("insert"));
+        assertThat(insertCoin, containsStringIgnoringCase("coin"));
+    }
 }
