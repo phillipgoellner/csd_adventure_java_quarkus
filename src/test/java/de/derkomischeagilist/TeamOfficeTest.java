@@ -43,6 +43,12 @@ public class TeamOfficeTest {
         String actualDescription = teamOffice.getDetailedDescription();
         assertThat(actualDescription, containsStringIgnoringCase("jukebox"));
     }
+
+    @Test
+    void LookAtJukeBox() {
+        String actualDescription = teamOffice.handleCommand("look at jukebox");
+        assertThat(actualDescription, containsStringIgnoringCase("the scrum song"));
+    }
     
     
     @Test
