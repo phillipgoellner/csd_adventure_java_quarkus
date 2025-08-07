@@ -6,6 +6,7 @@ import de.derkomischeagilist.Location;
 public class TeamOffice extends AbstractRoom {
 
     public boolean lookedAtEmptyCubicle = false;
+    public boolean lookedAtJukeBox = false;
     private final Inventory inventory = Inventory.getInstance();
 
     @Override
@@ -81,6 +82,9 @@ public class TeamOffice extends AbstractRoom {
             return getBurndownChart();
         }
         if(command.equals("look at jukebox")) {
+
+            lookedAtJukeBox = true;
+
             return "The jukebox looks old, but might be operational. Its chrome edges slightly tarnished but still gleaming under the soft glow of vintage bulbs. Behind scratched glass you see a list of old songs.<br>" + 
                                 "<br>" + 
                                 "11. O Happy Day<br>" +
@@ -113,6 +117,10 @@ public class TeamOffice extends AbstractRoom {
 
         if(lookedAtEmptyCubicle && !inventory.hasItem("coin")) {
             helpText += ", 'pick up coin', 'pick up handkerchief'";
+        }
+        
+        if(inventory.hasItem("coin") && lookedAtJukeBox) {
+            helpText += ", 'insert coin'";
         }
 
         return helpText + " or 'use door to hallway'" + "<br/>" + super.getHelp();

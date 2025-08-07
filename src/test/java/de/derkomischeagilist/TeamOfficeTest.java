@@ -1,6 +1,9 @@
 package de.derkomischeagilist;
 
 import de.derkomischeagilist.Rooms.TeamOffice;
+
+import static org.junit.Assert.assertFalse;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -94,10 +97,24 @@ public class TeamOfficeTest {
     }
 
     @Test
-    void lookingAtjukeboxHelpText() {
+    void lookingAtjukeboxOutput() {
         String insertCoin = teamOffice.handleCommand("insert coin");
         assertThat(insertCoin, containsStringIgnoringCase("inserted"));
         assertThat(insertCoin, containsStringIgnoringCase("coin"));
         assertThat(insertCoin, not(containsStringIgnoringCase("Sorry")));
+    }
+
+    @Test
+    void lookingAtjukeboxHelpText() {
+        inventory.clear();
+        assertFalse(inventory.hasItem("coin"));
+    }
+
+    @Test
+    void lookingAtJukeboxWithCoin() {
+        inventory.clear();
+        inventory.addItem("coin");
+        teamOffice.lookedAtJukeBox = true;
+        assertThat(teamOffice.getHelp(), containsStringIgnoringCase("insert coin"));
     }
 }
