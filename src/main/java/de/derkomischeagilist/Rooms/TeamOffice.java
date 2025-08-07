@@ -21,7 +21,7 @@ public class TeamOffice extends AbstractRoom {
     @Override
     public String getDescription() {
         return "This is a very stinky room. Smells like real work and you can feel the Cold atmosphere inside the room. \n" +
-                "In the middle of the room there are several dirty old cubicles. " +
+        		"In the middle of the room there are several dirty old cubicles. " +
                 "Nearly each one of the cubicles has a worker in front of it staring directly at the computer screen. \n" +
                 "Your smart but smelly Teammates greet you in the usual manner: 'Hey, you moron! ;)', " +
                 "one of the cubicles seems empty, might be yours.";
@@ -75,41 +75,37 @@ public class TeamOffice extends AbstractRoom {
 
     @Override
     public String handleCommand(String command) {
-        if (command.equals("look at first cubicle")) {
-            return "Hey! I am Homer!";
-        }
-        if (command.equals("look at wall")) {
-            return getBurndownChart();
-        }
-        if (command.equals("look at jukebox")) {
+        switch (command) {
+            case "look at first cubicle":
+                return "Hey! I am Homer!";
+            case "look at wall":
+                return getBurndownChart();
+            case "look at jukebox":
 
-            lookedAtJukeBox = true;
+                lookedAtJukeBox = true;
 
-            return "The jukebox looks old, but might be operational. Its chrome edges slightly tarnished but still gleaming under the soft glow of vintage bulbs. Behind scratched glass you see a list of old songs.<br>" +
-                    "<br>" +
-                    "11. O Happy Day<br>" +
-                    "13. Under Pressure<br>" +
-                    "19. Yellow Submarine<br>" +
-                    "23. All you need is Love<br>" +
-                    "29. Hit the Road Jack<br>" +
-                    "<br>";
-        }
-        if (command.equals("pick up coin")) {
-            return getCoin();
-        }
-        if (command.equals("pick up handkerchief")) {
-            return "Ew.";
-        }
-        if (command.equals("look at empty cubicle")) {
-            lookedAtEmptyCubicle = true;
-            return getEmptyCubicleDescription();
-        }
-        if (command.equals("insert coin")) {
-            if (inventory.hasItem("coin")) {
+                return "The jukebox looks old, but might be operational. Its chrome edges slightly tarnished but still gleaming under the soft glow of vintage bulbs. Behind scratched glass you see a list of old songs.<br>" +
+                        "<br>" +
+                        "11. O Happy Day<br>" +
+                        "13. Under Pressure<br>" +
+                        "19. Yellow Submarine<br>" +
+                        "23. All you need is Love<br>" +
+                        "29. Hit the Road Jack<br>" +
+                        "<br>";
+            case "pick up coin":
+                return getCoin();
+            case "pick up handkerchief":
+                return "Ew.";
+            case "look at empty cubicle":
+                lookedAtEmptyCubicle = true;
+                return getEmptyCubicleDescription();
+            case "insert coin": if (inventory.hasItem("coin")) {
                 inventory.removeItem("coin");
                 return "After you inserted the coin, you see the dirty looking keys lighting up, below you can choose a song, by entering the songnumber";
             } else return "You are searching your pockets for a coin, but unfortunately you don't have one with you.";
-        } else return super.handleCommand(command);
+            default:
+                return super.handleCommand(command);
+        }
     }
 
     @Override
