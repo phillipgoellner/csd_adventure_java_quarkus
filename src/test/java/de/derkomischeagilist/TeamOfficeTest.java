@@ -98,6 +98,8 @@ public class TeamOfficeTest {
 
     @Test
     void lookingAtjukeboxOutput() {
+        inventory.clear();
+        inventory.addItem("coin");
         String insertCoin = teamOffice.handleCommand("insert coin");
         assertThat(insertCoin, containsStringIgnoringCase("inserted"));
         assertThat(insertCoin, containsStringIgnoringCase("coin"));
@@ -116,5 +118,13 @@ public class TeamOfficeTest {
         inventory.addItem("coin");
         teamOffice.lookedAtJukeBox = true;
         assertThat(teamOffice.getHelp(), containsStringIgnoringCase("insert coin"));
+
+    }@Test
+    void lookingAtJukeboxWithCoinNoCoinAfterwards() {
+        inventory.clear();
+        inventory.addItem("coin");
+        teamOffice.lookedAtJukeBox = true;
+        teamOffice.handleCommand("insert coin");
+        assertFalse(inventory.hasItem("coin"));
     }
 }
