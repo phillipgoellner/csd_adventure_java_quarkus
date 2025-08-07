@@ -1,4 +1,4 @@
-package de.derkomischeagilist;
+package de.derkomischeagilist.Rooms;
 
 import de.derkomischeagilist.Rooms.Loo;
 import org.junit.jupiter.api.BeforeEach;
