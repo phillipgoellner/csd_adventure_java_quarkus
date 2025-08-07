@@ -108,7 +108,7 @@ public class TeamOffice extends AbstractRoom {
             if (inventory.hasItem("coin")) {
                 inventory.removeItem("coin");
                 return "After you inserted the coin, you see the dirty looking keys lighting up, below you can choose a song, by entering the songnumber";
-            } else return "You are searching pockets for a coin, but unfortunately you don't have one with you.";
+            } else return "You are searching your pockets for a coin, but unfortunately you don't have one with you.";
         } else return super.handleCommand(command);
     }
 
