@@ -86,7 +86,7 @@ public class TeamOffice extends AbstractRoom {
 
                 return "The jukebox looks old, but might be operational. Its chrome edges slightly tarnished but still gleaming under the soft glow of vintage bulbs. Behind scratched glass you see a list of old songs.<br>" +
                         "<br>" +
-                        "11. O Happy Day<br>" +
+                        "11. Oh Happy Day<br>" +
                         "13. Under Pressure<br>" +
                         "19. Yellow Submarine<br>" +
                         "23. All you need is Love<br>" +
