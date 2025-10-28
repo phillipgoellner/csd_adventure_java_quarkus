@@ -91,6 +91,12 @@ public class TeamOffice extends AbstractRoom {
                         "19. Yellow Submarine<br>" +
                         "23. All you need is Love<br>" +
                         "<br>";
+            case "play 11th song":
+                if (lookedAtJukeBox) {
+                    return "11th song is being played... Enjoy it";
+                } else {
+                    return super.handleCommand(command);
+                }
             case "pick up coin":
                 return getCoin();
             case "pick up handkerchief":
@@ -117,6 +123,10 @@ public class TeamOffice extends AbstractRoom {
 
         if (inventory.hasItem("coin") && lookedAtJukeBox) {
             helpText += ", 'insert coin'";
+        }
+
+        if (lookedAtJukeBox) {
+            helpText += ", 'play 11th song'";
         }
 
         return helpText + " or 'use door to hallway'" + "<br/>" + super.getHelp();
