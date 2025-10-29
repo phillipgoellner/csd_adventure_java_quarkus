@@ -93,8 +93,8 @@ public class TeamOffice extends AbstractRoom {
                         "<br>";
             case "play 11th song":
                 if (lookedAtJukeBox) {
-                    if (Inventory.getInstance().hasItem("coin")) {
-                        Inventory.getInstance().removeItem("coin");
+                    if (inventory.hasItem("coin")) {
+                        inventory.removeItem("coin");
                         return "11th song is being played... Enjoy it";
                         // TODO 29 Oct 2025 xsu:  add text;
                     } else {
