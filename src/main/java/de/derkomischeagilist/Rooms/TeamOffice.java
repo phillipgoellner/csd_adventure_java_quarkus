@@ -91,12 +91,6 @@ public class TeamOffice extends AbstractRoom {
                         "19. Yellow Submarine<br>" +
                         "23. All you need is Love<br>" +
                         "<br>";
-            case "play 11th song":
-                if (lookedAtJukeBox) {
-                    return "11th song is being played... Enjoy it";
-                } else {
-                    return super.handleCommand(command);
-                }
             case "pick up coin":
                 return getCoin();
             case "pick up handkerchief":
@@ -108,6 +102,27 @@ public class TeamOffice extends AbstractRoom {
                 inventory.removeItem("coin");
                 return "After you inserted the coin, you see the dirty looking keys lighting up, below you can choose a song, by entering the songnumber";
             } else return "You are searching your pockets for a coin, but unfortunately you don't have one with you.";
+            case "play song 11":
+                if(lookedAtJukeBox){
+                    return  "♩ ♪ ♩ ♫ ♩ ♫ ♪ ♩ ♩ ♫ \n" +
+                            " \n" +
+                            "The jukebox hums softly as a familiar melody begins to fill the room...\n" +
+                            " \n" +
+                            "♩ ♩ ♪ ♫ ♩ ♫ ♪ ♫ ♩ ♩  \n" +
+                            " \n" +
+                            "Oh happy day\n" +
+                            "(Oh happy day)\n" +
+                            "Oh happy day\n" +
+                            "(Oh happy day)\n" +
+                            "When Jesus washed\n" +
+                            "Oh when he washed\n" +
+                            "When Jesus washed\n" +
+                            "He washed the sins away\n" +
+                            "Oh happy day\n" +
+                            "(Oh happy day)\n" +
+                            "Oh happy day\n" +
+                            "(Oh happy day)\n";
+                }
             default:
                 return super.handleCommand(command);
         }
@@ -126,9 +141,9 @@ public class TeamOffice extends AbstractRoom {
         }
 
         if (lookedAtJukeBox) {
-            helpText += ", 'play 11th song'";
+            helpText += ", 'play song [number]'";
         }
 
-        return helpText + " or 'use door to hallway'" + "<br/>" + super.getHelp();
+        return helpText + " or 'use door to hallway'" + " " + super.getHelp();
     }
 }
