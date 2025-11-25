@@ -89,7 +89,7 @@ public class TeamOffice extends AbstractRoom {
                         "11. Oh Happy Day<br>" +
                         "13. Under Pressure<br>" +
                         "19. Yellow Submarine<br>" +
-                        "23. All you need is Love<br>" +
+                        "23. All You Need Is Love<br>" +
                         "<br>";
             case "pick up coin":
                 return getCoin();
