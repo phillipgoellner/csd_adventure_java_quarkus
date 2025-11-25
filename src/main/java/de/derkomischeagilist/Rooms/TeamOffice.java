@@ -106,32 +106,80 @@ public class TeamOffice extends AbstractRoom {
             default:
                 if(lookedAtJukeBox){
                     if(command.startsWith("play song")){
-                        String songNumber = command.replace("play song", "").trim();
-                        if(songNumber.equals("11")){
-                            return  "♩ ♪ ♩ ♫ ♩ ♫ ♪ ♩ ♩ ♫ \n" +
-                                    " \n" +
-                                    "The jukebox hums softly as a familiar melody begins to fill the room...\n" +
-                                    " \n" +
-                                    "♩ ♩ ♪ ♫ ♩ ♫ ♪ ♫ ♩ ♩  \n" +
-                                    " \n" +
-                                    "Oh happy day\n" +
-                                    "(Oh happy day)\n" +
-                                    "Oh happy day\n" +
-                                    "(Oh happy day)\n" +
-                                    "When Jesus washed\n" +
-                                    "Oh when he washed\n" +
-                                    "When Jesus washed\n" +
-                                    "He washed the sins away\n" +
-                                    "Oh happy day\n" +
-                                    "(Oh happy day)\n" +
-                                    "Oh happy day\n" +
-                                    "(Oh happy day)\n";
-                        }
-                        else if(songNumber.equals("13") || songNumber.equals("19") || songNumber.equals("23")){
-                            return "The jukebox blinks with orange light. You hear a short hum, then silence. It seems this song can’t be played.";
-                        }
-                        else{
-                            return "You press the buttons, but nothing happens. The jukebox makes a quiet buzz and shows a message: “TRACK NOT FOUND";
+                        int songNumber = Integer.parseInt(command.replace("play song", "").trim());
+                        switch (songNumber) {
+                            case 10: {
+                                return "♩ ♪ ♩ ♫ ♩ ♫ ♪ ♩ ♩ ♫ \n" +
+                                        " \n" +
+                                        "The jukebox hums softly as a familiar melody begins to fill the room...\n" +
+                                        " \n" +
+                                        "♩ ♩ ♪ ♫ ♩ ♫ ♪ ♫ ♩ ♩  \n" +
+                                        " \n" +
+                                        "Oh happy day\n" +
+                                        "(Oh happy day)\n" +
+                                        "Oh happy day\n" +
+                                        "(Oh happy day)\n" +
+                                        "When Jesus washed\n" +
+                                        "Oh when he washed\n" +
+                                        "When Jesus washed\n" +
+                                        "He washed the sins away\n" +
+                                        "Oh happy day\n" +
+                                        "(Oh happy day)\n" +
+                                        "Oh happy day\n" +
+                                        "(Oh happy day)\n";
+                            }
+                            case 13: {
+                                return "♩ ♪ ♩ ♫ ♩ ♫ ♪ ♩ ♩ ♫ \n" +
+                                        " \n" +
+                                        "The jukebox hums softly as a familiar melody begins to fill the room...\n" +
+                                        " \n" +
+                                        "♩ ♩ ♪ ♫ ♩ ♫ ♪ ♫ ♩ ♩  \n" +
+                                        " \n" +
+                                         "Here comes the sun, doo-doo-doo\n" +
+                                        "Here comes the sun\n" +
+                                        "And I say, \"It's all right\"\n" +
+                                        "Little darlin'\n" +
+                                        "It's been a long, cold, lonely winter\n" +
+                                        "Little darlin'\n" +
+                                        "It feels like years since it's been here";
+                            }
+                            case 19: {
+                                return "♩ ♪ ♩ ♫ ♩ ♫ ♪ ♩ ♩ ♫ \n" +
+                                        " \n" +
+                                        "The jukebox hums softly as a familiar melody begins to fill the room...\n" +
+                                        " \n" +
+                                        "♩ ♩ ♪ ♫ ♩ ♫ ♪ ♫ ♩ ♩  \n" +
+                                        " \n" +
+                                        "Is this the real life? Is this just fantasy?\n" +
+                                        "Caught in a landslide, no escape from reality\n" +
+                                        "Open your eyes, look up to the skies and see\n" +
+                                        "I'm just a poor boy, I need no sympathy\n" +
+                                        "Because I'm easy come, easy go\n" +
+                                        "Little high, little low\n" +
+                                        "Any way the wind blows doesn't really matter to me, to me";
+                            }
+                            case 23: {
+                                return "♩ ♪ ♩ ♫ ♩ ♫ ♪ ♩ ♩ ♫ \n" +
+                                        " \n" +
+                                        "The jukebox hums softly as a familiar melody begins to fill the room...\n" +
+                                        " \n" +
+                                        "♩ ♩ ♪ ♫ ♩ ♫ ♪ ♫ ♩ ♩  \n" +
+                                        " \n" +
+                                        "Tonight\n" +
+                                        "I'm gonna have myself a real good time\n" +
+                                        "I feel alive\n" +
+                                        "And the world, I'll turn it inside out, yeah\n" +
+                                        "I'm floating around in ecstasy, so\n" +
+                                        "Don't stop me now\n" +
+                                        "Don't stop me\n" +
+                                        "'Cause I'm having a good time, having a good time\n" +
+                                        "I'm a shooting star leaping through the sky like a tiger\n" +
+                                        "Defying the laws of gravity\n" +
+                                        "I'm a racing car, passing by like Lady Godiva\n" +
+                                        "I'm gonna go, go, go, there's no stopping me";
+                            }
+                            default:
+                                return "You press the buttons, but nothing happens. The jukebox makes a quiet buzz and shows a message: “TRACK NOT FOUND";
                         }
                     }
                 }
