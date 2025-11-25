@@ -17,6 +17,12 @@ public class AdventureTest {
         adventure = new Adventure();
     }
 
+    void getToHallway(){
+        adventure.tell("use door to washroom");
+        adventure.tell("wash hands");
+        adventure.tell("use door to hallway");
+    }
+
     @Ignore
     void currentTimeLooksGood() {
         assertThat("timestamp", TimeService.currentTime("Europe/Berlin"), greaterThan(-1L));
@@ -194,6 +200,9 @@ public class AdventureTest {
     	//given i am on the loo
     	assertThat(adventure.Begin(), containsStringIgnoringCase("you <b>wake up</b> on the Loo"));
     	//When I go into the team office
+    	        adventure.tell("use door to washroom");
+              adventure.tell("wash hands");
+              adventure.tell("use door to hallway");
         String actual = adventure.tell("use door to team office");
         //Then I can see cubicles and workers
         assertThat(actual, containsStringIgnoringCase("This is a very stinky room. Smells like real work and you can feel the cold atmosphere inside the room. \n" +
@@ -210,6 +219,9 @@ public class AdventureTest {
         //given i am on the loo
     	assertThat(adventure.Begin(), containsStringIgnoringCase("you <b>wake up</b> on the Loo"));
     	//When I go into the team office
+    	        adventure.tell("use door to washroom");
+              adventure.tell("wash hands");
+              adventure.tell("use door to hallway");
         String actual = adventure.tell("use door to team office");
         //Then I can see cubicles and workers
         assertThat(actual, allOf(
@@ -228,6 +240,7 @@ public class AdventureTest {
         // given i am on the loo
         assertThat(adventure.Begin(), containsStringIgnoringCase("you <b>wake up</b> on the Loo"));
         // When I go into the Team Office
+        getToHallway();
         String actual = adventure.tell("use door to team office");
         // Then i am greeted by my teammates
         assertThat(actual, containsStringIgnoringCase("Hey, you moron! ;)"));
@@ -237,6 +250,7 @@ public class AdventureTest {
     void GoingThroughDoorInTheTeamRoomThenMyTeammatesAreSmartAndSmelly() {
         // given i am on the loo
         assertThat(adventure.Begin(), containsStringIgnoringCase("you <b>wake up</b> on the Loo"));
+        getToHallway();
         // When I go into the Team Office
         String actual = adventure.tell("use door to team office");
         // Then my teammates are smart
@@ -471,6 +485,7 @@ public class AdventureTest {
 
         // when
         adventure.Begin();
+        getToHallway();
         adventure.tell("use door to kitchen");
 
         // then
@@ -482,6 +497,7 @@ public class AdventureTest {
 
         // when
         adventure.Begin();
+        getToHallway();
         adventure.tell("use door to team office");
 
         // then
