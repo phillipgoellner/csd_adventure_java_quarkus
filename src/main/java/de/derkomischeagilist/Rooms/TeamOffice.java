@@ -89,7 +89,7 @@ public class TeamOffice extends AbstractRoom {
                         "11. Oh Happy Day<br>" +
                         "13. Under Pressure<br>" +
                         "19. Yellow Submarine<br>" +
-                        "23. All you need is Love<br>" +
+                        "20. All you need is Love<br>" +
                         "<br>";
             case "pick up coin":
                 return getCoin();
@@ -127,7 +127,7 @@ public class TeamOffice extends AbstractRoom {
                                     "Oh happy day\n" +
                                     "(Oh happy day)\n";
                         }
-                        else if(songNumber.equals("13") || songNumber.equals("19") || songNumber.equals("23")){
+                        else if(songNumber.equals("13") || songNumber.equals("19") || songNumber.equals("20")){
                             return "The jukebox blinks with orange light. You hear a short hum, then silence. It seems this song can’t be played.";
                         }
                         else{
