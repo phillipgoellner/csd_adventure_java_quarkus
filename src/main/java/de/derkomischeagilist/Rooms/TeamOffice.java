@@ -135,13 +135,13 @@ public class TeamOffice extends AbstractRoom {
                                         " \n" +
                                         "♩ ♩ ♪ ♫ ♩ ♫ ♪ ♫ ♩ ♩  \n" +
                                         " \n" +
-                                         "Here comes the sun, doo-doo-doo\n" +
-                                        "Here comes the sun\n" +
-                                        "And I say, It's all right\n" +
-                                        "Little darlin'\n" +
-                                        "It's been a long, cold, lonely winter\n" +
-                                        "Little darlin'\n" +
-                                        "It feels like years since it's been here";
+                                        "Pressure pushing down on me\n" +
+                                        "Pressing down on you, no man ask for\n" +
+                                        "Under pressure that burns a building down\n" +
+                                        "Splits a family in two\n" +
+                                        "Puts people on streets\n" +
+                                        "\n" +
+                                        "That′s OK";
                             }
                             case 19: {
                                 return "♩ ♪ ♩ ♫ ♩ ♫ ♪ ♩ ♩ ♫ \n" +
@@ -150,13 +150,10 @@ public class TeamOffice extends AbstractRoom {
                                         " \n" +
                                         "♩ ♩ ♪ ♫ ♩ ♫ ♪ ♫ ♩ ♩  \n" +
                                         " \n" +
-                                        "Is this the real life? Is this just fantasy?\n" +
-                                        "Caught in a landslide, no escape from reality\n" +
-                                        "Open your eyes, look up to the skies and see\n" +
-                                        "I'm just a poor boy, I need no sympathy\n" +
-                                        "Because I'm easy come, easy go\n" +
-                                        "Little high, little low\n" +
-                                        "Any way the wind blows doesn't really matter to me, to me";
+                                        "In the town where I was born\n" +
+                                        "Lived a man who sailed to sea\n" +
+                                        "And he told us of his life\n" +
+                                        "In the land of submarines";
                             }
                             case 20: {
                                 return "♩ ♪ ♩ ♫ ♩ ♫ ♪ ♩ ♩ ♫ \n" +
@@ -165,18 +162,14 @@ public class TeamOffice extends AbstractRoom {
                                         " \n" +
                                         "♩ ♩ ♪ ♫ ♩ ♫ ♪ ♫ ♩ ♩  \n" +
                                         " \n" +
-                                        "Tonight\n" +
-                                        "I'm gonna have myself a real good time\n" +
-                                        "I feel alive\n" +
-                                        "And the world, I'll turn it inside out, yeah\n" +
-                                        "I'm floating around in ecstasy, so\n" +
-                                        "Don't stop me now\n" +
-                                        "Don't stop me\n" +
-                                        "'Cause I'm having a good time, having a good time\n" +
-                                        "I'm a shooting star leaping through the sky like a tiger\n" +
-                                        "Defying the laws of gravity\n" +
-                                        "I'm a racing car, passing by like Lady Godiva\n" +
-                                        "I'm gonna go, go, go, there's no stopping me";
+                                        "Love, love, love\n" +
+                                        "Love, love, love\n" +
+                                        "Love, love, love\n" +
+                                        "There's nothing you can do that can't be done\n" +
+                                        "Nothing you can sing that can't be sung\n" +
+                                        "Nothing you can say, but you can learn\n" +
+                                        "How to play the game\n" +
+                                        "It's easy";
                             }
                             default:
                                 return "You press the buttons, but nothing happens. The jukebox makes a quiet buzz and shows a message: “TRACK NOT FOUND“";
