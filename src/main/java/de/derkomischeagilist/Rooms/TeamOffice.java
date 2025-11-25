@@ -137,7 +137,7 @@ public class TeamOffice extends AbstractRoom {
                                         " \n" +
                                          "Here comes the sun, doo-doo-doo\n" +
                                         "Here comes the sun\n" +
-                                        "And I say, \"It's all right\"\n" +
+                                        "And I say, It's all right\n" +
                                         "Little darlin'\n" +
                                         "It's been a long, cold, lonely winter\n" +
                                         "Little darlin'\n" +
