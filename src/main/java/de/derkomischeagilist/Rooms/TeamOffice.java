@@ -89,7 +89,7 @@ public class TeamOffice extends AbstractRoom {
                         "11. Oh Happy Day<br>" +
                         "13. Under Pressure<br>" +
                         "19. Yellow Submarine<br>" +
-                        "23. All you need is Love<br>" +
+                        "20. All You Need Is Love<br>" +
                         "<br>";
             case "pick up coin":
                 return getCoin();
@@ -108,7 +108,7 @@ public class TeamOffice extends AbstractRoom {
                     if(command.startsWith("play song")){
                         int songNumber = Integer.parseInt(command.replace("play song", "").trim());
                         switch (songNumber) {
-                            case 10: {
+                            case 11: {
                                 return "♩ ♪ ♩ ♫ ♩ ♫ ♪ ♩ ♩ ♫ \n" +
                                         " \n" +
                                         "The jukebox hums softly as a familiar melody begins to fill the room...\n" +
@@ -158,7 +158,7 @@ public class TeamOffice extends AbstractRoom {
                                         "Little high, little low\n" +
                                         "Any way the wind blows doesn't really matter to me, to me";
                             }
-                            case 23: {
+                            case 20: {
                                 return "♩ ♪ ♩ ♫ ♩ ♫ ♪ ♩ ♩ ♫ \n" +
                                         " \n" +
                                         "The jukebox hums softly as a familiar melody begins to fill the room...\n" +
