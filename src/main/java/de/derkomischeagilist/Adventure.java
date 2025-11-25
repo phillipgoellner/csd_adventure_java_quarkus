@@ -58,10 +58,8 @@ public class Adventure {
                 response = String.format("Inventory: %s.", inventory.toString());
                 break;
             case "use door to washroom":
-                 if (currentRoom instanceof Hallway || currentRoom instanceof Loo) {
                 currentRoom = washroom;
                 washroom.setAreHandsWashed(false);
-                }
                 response = this.getBothDescriptions(currentRoom);
                 break;
             case "use door to hallway":
@@ -78,23 +76,17 @@ public class Adventure {
                 response += this.getBothDescriptions(currentRoom);
                 break;
             case "use door to loo":
-                if (currentRoom instanceof WashRoom) {
-                    loo.resetCounter();
-                    currentRoom = loo;
-                    response = "You are on the loo again. Still smelly.";
-                }
+                loo.resetCounter();
+                currentRoom = loo;
+                response = "You are on the loo again. Still smelly.";
                 break;
             case "use door to team office":
-                if (currentRoom instanceof Hallway) {
-                   currentRoom = teamOffice;
-                   response = this.getBothDescriptions(currentRoom);
-            }
+                currentRoom = teamOffice;
+                response = this.getBothDescriptions(currentRoom);
                 break;
             case "use door to kitchen":
-             if (currentRoom instanceof Hallway) {
-                 currentRoom = kitchen;
-                 response = this.getBothDescriptions(currentRoom);
-             }
+                currentRoom = kitchen;
+                response = this.getBothDescriptions(currentRoom);
                 break;
             case "help":
                 response = currentRoom.getHelp();
