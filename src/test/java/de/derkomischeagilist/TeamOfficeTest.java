@@ -52,7 +52,13 @@ public class TeamOfficeTest {
         String actualDescription = teamOffice.handleCommand("look at jukebox");
         assertThat(actualDescription, containsStringIgnoringCase("Under Pressure"));
     }
-    
+
+    @Test
+    void playSong19() {
+        teamOffice.handleCommand("look at jukebox");
+        var result = teamOffice.handleCommand("play song 19");
+        assertThat(result, containsStringIgnoringCase("Is this the real life? Is this just fantasy?"));
+    }
     
     @Test
     void HelpInTeamOfficeCommandToUseDoors() {
