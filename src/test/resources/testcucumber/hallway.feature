@@ -9,4 +9,4 @@ Feature: hallway
   Scenario: Use the door from the hallway to the loo
     Given I am in the hallway
     When I use the door to the loo
-    Then I am now in the hallway
+    Then we get unknown command message

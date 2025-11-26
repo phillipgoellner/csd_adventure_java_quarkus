@@ -59,8 +59,10 @@ public class Adventure {
                 break;
             case "use door to washroom":
                  if (currentRoom instanceof Hallway || currentRoom instanceof Loo) {
-                currentRoom = washroom;
-                washroom.setAreHandsWashed(false);
+                    currentRoom = washroom;
+                    washroom.setAreHandsWashed(false);
+                } else {
+                    response = throwIncorrectCommand(command);
                 }
                 response = this.getBothDescriptions(currentRoom);
                 break;
@@ -70,7 +72,10 @@ public class Adventure {
                     boolean iWashedMyHands = roomOfWashroom.getAreHandsWashed();
                     currentRoom = iWashedMyHands ? hallway : washroom;
                     response += iWashedMyHands ? "" : "Your hands feel sticky, maybe you should remove the stains before leaving the washroom...\n\n";
-                } else if(!(currentRoom instanceof Loo)) {
+                } else if(currentRoom instanceof Loo) {
+                    response = throwIncorrectCommand(command);
+                    break;
+                } else {
                     currentRoom = hallway;
                     hallway.resetKeypad();
                 }
@@ -80,23 +85,28 @@ public class Adventure {
                 if (currentRoom instanceof WashRoom) {
                     loo.resetCounter();
                     currentRoom = loo;
-                   response = "You are on the loo again. Still smelly.";
-
+                    response = "You are on the loo again. Still smelly.";
+                    response +=this.getBothDescriptions(currentRoom);
+                } else {
+                    response = throwIncorrectCommand(command);
                 }
-                response +=this.getBothDescriptions(currentRoom);
-                                                  break;
+                break;
 
             case "use door to team office":
                 if (currentRoom instanceof Hallway) {
-                   currentRoom = teamOffice;
-            }
-                response = this.getBothDescriptions(currentRoom);
+                    currentRoom = teamOffice;
+                    response = this.getBothDescriptions(currentRoom);
+                } else {
+                    response = throwIncorrectCommand(command);
+                }
                 break;
             case "use door to kitchen":
              if (currentRoom instanceof Hallway) {
                  currentRoom = kitchen;
+                  response = this.getBothDescriptions(currentRoom);
+             } else {
+                  response = throwIncorrectCommand(command);
              }
-                response = this.getBothDescriptions(currentRoom);
                 break;
             case "help":
                 response = currentRoom.getHelp();
@@ -129,7 +139,10 @@ public class Adventure {
         lastResponse += "\nIf you want to play the game, enter commands into the textbox.";
         return lastResponse;
     }
-
+    public String throwIncorrectCommand(String command) {
+            return String.format("Sorry, I don't understand '%s'" +
+                    "<br /><br />", command);
+    }
     public String whereAreWe() {
         switch (currentRoom.getLocation()) {
             case LOO:

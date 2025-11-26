@@ -144,4 +144,9 @@ public class StepDefinitions {
         i_added_all_necessary_components_to_the_coffee_machine();
         lastResponse = adventure.tell("make coffee");
     }
+
+    @Then("we get unknown command message")
+    public void we_get_unknown_command() {
+        assertThat(lastResponse, containsStringIgnoringCase("Sorry, I don't understand"));
+    }
 }
