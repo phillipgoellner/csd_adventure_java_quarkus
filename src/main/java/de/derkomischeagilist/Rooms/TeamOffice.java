@@ -106,32 +106,73 @@ public class TeamOffice extends AbstractRoom {
             default:
                 if(lookedAtJukeBox){
                     if(command.startsWith("play song")){
-                        String songNumber = command.replace("play song", "").trim();
-                        if(songNumber.equals("11")){
-                            return  "♩ ♪ ♩ ♫ ♩ ♫ ♪ ♩ ♩ ♫ \n" +
-                                    " \n" +
-                                    "The jukebox hums softly as a familiar melody begins to fill the room...\n" +
-                                    " \n" +
-                                    "♩ ♩ ♪ ♫ ♩ ♫ ♪ ♫ ♩ ♩  \n" +
-                                    " \n" +
-                                    "Oh happy day\n" +
-                                    "(Oh happy day)\n" +
-                                    "Oh happy day\n" +
-                                    "(Oh happy day)\n" +
-                                    "When Jesus washed\n" +
-                                    "Oh when he washed\n" +
-                                    "When Jesus washed\n" +
-                                    "He washed the sins away\n" +
-                                    "Oh happy day\n" +
-                                    "(Oh happy day)\n" +
-                                    "Oh happy day\n" +
-                                    "(Oh happy day)\n";
-                        }
-                        else if(songNumber.equals("13") || songNumber.equals("19") || songNumber.equals("20")){
-                            return "The jukebox blinks with orange light. You hear a short hum, then silence. It seems this song can’t be played.";
-                        }
-                        else{
-                            return "You press the buttons, but nothing happens. The jukebox makes a quiet buzz and shows a message: “TRACK NOT FOUND";
+                        int songNumber = Integer.parseInt(command.replace("play song", "").trim());
+                        switch (songNumber) {
+                            case 11: {
+                                return "♩ ♪ ♩ ♫ ♩ ♫ ♪ ♩ ♩ ♫ \n" +
+                                        " \n" +
+                                        "The jukebox hums softly as a familiar melody begins to fill the room...\n" +
+                                        " \n" +
+                                        "♩ ♩ ♪ ♫ ♩ ♫ ♪ ♫ ♩ ♩  \n" +
+                                        " \n" +
+                                        "Oh happy day\n" +
+                                        "(Oh happy day)\n" +
+                                        "Oh happy day\n" +
+                                        "(Oh happy day)\n" +
+                                        "When Jesus washed\n" +
+                                        "Oh when he washed\n" +
+                                        "When Jesus washed\n" +
+                                        "He washed the sins away\n" +
+                                        "Oh happy day\n" +
+                                        "(Oh happy day)\n" +
+                                        "Oh happy day\n" +
+                                        "(Oh happy day)\n";
+                            }
+                            case 13: {
+                                return "♩ ♪ ♩ ♫ ♩ ♫ ♪ ♩ ♩ ♫ \n" +
+                                        " \n" +
+                                        "The jukebox hums softly as a familiar melody begins to fill the room...\n" +
+                                        " \n" +
+                                        "♩ ♩ ♪ ♫ ♩ ♫ ♪ ♫ ♩ ♩  \n" +
+                                        " \n" +
+                                        "Pressure pushing down on me\n" +
+                                        "Pressing down on you, no man ask for\n" +
+                                        "Under pressure that burns a building down\n" +
+                                        "Splits a family in two\n" +
+                                        "Puts people on streets\n" +
+                                        "\n" +
+                                        "That′s OK";
+                            }
+                            case 19: {
+                                return "♩ ♪ ♩ ♫ ♩ ♫ ♪ ♩ ♩ ♫ \n" +
+                                        " \n" +
+                                        "The jukebox hums softly as a familiar melody begins to fill the room...\n" +
+                                        " \n" +
+                                        "♩ ♩ ♪ ♫ ♩ ♫ ♪ ♫ ♩ ♩  \n" +
+                                        " \n" +
+                                        "In the town where I was born\n" +
+                                        "Lived a man who sailed to sea\n" +
+                                        "And he told us of his life\n" +
+                                        "In the land of submarines";
+                            }
+                            case 20: {
+                                return "♩ ♪ ♩ ♫ ♩ ♫ ♪ ♩ ♩ ♫ \n" +
+                                        " \n" +
+                                        "The jukebox hums softly as a familiar melody begins to fill the room...\n" +
+                                        " \n" +
+                                        "♩ ♩ ♪ ♫ ♩ ♫ ♪ ♫ ♩ ♩  \n" +
+                                        " \n" +
+                                        "Love, love, love\n" +
+                                        "Love, love, love\n" +
+                                        "Love, love, love\n" +
+                                        "There's nothing you can do that can't be done\n" +
+                                        "Nothing you can sing that can't be sung\n" +
+                                        "Nothing you can say, but you can learn\n" +
+                                        "How to play the game\n" +
+                                        "It's easy";
+                            }
+                            default:
+                                return "You press the buttons, but nothing happens. The jukebox makes a quiet buzz and shows a message: “TRACK NOT FOUND“";
                         }
                     }
                 }
