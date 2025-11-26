@@ -57,7 +57,7 @@ public class TeamOfficeTest {
     void playSong19() {
         teamOffice.handleCommand("look at jukebox");
         var result = teamOffice.handleCommand("play song 19");
-        assertThat(result, containsStringIgnoringCase("Is this the real life? Is this just fantasy?"));
+        assertThat(result, containsStringIgnoringCase("In the land of submarines"));
     }
     
     @Test
