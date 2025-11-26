@@ -70,8 +70,7 @@ public class Adventure {
                     boolean iWashedMyHands = roomOfWashroom.getAreHandsWashed();
                     currentRoom = iWashedMyHands ? hallway : washroom;
                     response += iWashedMyHands ? "" : "Your hands feel sticky, maybe you should remove the stains before leaving the washroom...\n\n";
-                }
-                else  {
+                } else if(!(currentRoom instanceof Loo)) {
                     currentRoom = hallway;
                     hallway.resetKeypad();
                 }
@@ -81,9 +80,12 @@ public class Adventure {
                 if (currentRoom instanceof WashRoom) {
                     loo.resetCounter();
                     currentRoom = loo;
+                   response = "You are on the loo again. Still smelly.";
+
                 }
-                response = "You are on the loo again. Still smelly.";
-                break;
+                response +=this.getBothDescriptions(currentRoom);
+                                                  break;
+
             case "use door to team office":
                 if (currentRoom instanceof Hallway) {
                    currentRoom = teamOffice;

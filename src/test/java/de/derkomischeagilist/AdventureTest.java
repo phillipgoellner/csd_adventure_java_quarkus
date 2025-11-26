@@ -399,7 +399,9 @@ public class AdventureTest {
         actual = adventure.tell("wash hands");
         assertThat(actual, containsStringIgnoringCase("you happily wash your hands with hot water and soap."));
         actual = adventure.tell("use door to hallway");
-        assertThat(actual, containsStringIgnoringCase("Welcome to the very dark hallway to hell. "));
+                assertThat(actual, containsStringIgnoringCase("Welcome to the very dark hallway to hell. "));
+                actual = adventure.tell("use door to washroom");
+                assertThat(actual, containsStringIgnoringCase("You enter a room that looks like a wash room."));
         actual = adventure.tell("use door to loo");
         assertThat(actual, containsStringIgnoringCase("You are on the loo again. Still smelly."));
     }
@@ -415,6 +417,9 @@ public class AdventureTest {
         assertThat(actual, containsStringIgnoringCase("you happily wash your hands with hot water and soap."));
         actual = adventure.tell("USE DOOR TO HALLWAY");
         assertThat(actual, containsStringIgnoringCase("Welcome to the very dark hallway to hell. "));
+         actual = adventure.tell("USe dooR to washrOOm");
+        assertThat(actual, containsStringIgnoringCase("You enter a room that looks like a wash room."));
+
         actual = adventure.tell("USE DOOR TO LOO");
         assertThat(actual, containsStringIgnoringCase("You are on the loo again. Still smelly."));
     }
@@ -441,7 +446,7 @@ public class AdventureTest {
     void useKeypadInHallwayWithInvalidKey() {
         // given I enter the hallway
         assertThat(adventure.Begin(), containsStringIgnoringCase("you <b>wake up</b> on the Loo"));
-        adventure.tell("use door to hallway");
+        getToHallway();
         // when I use the keypad
         String actual = adventure.tell("use keypad");
         // i see the description of the keypad
@@ -474,7 +479,7 @@ public class AdventureTest {
 
         // when
         adventure.Begin();
-        adventure.tell("use door to hallway");
+        getToHallway();
 
         // then
         assertThat(adventure.whereAreWe(), equalTo("Hallway"));

@@ -62,7 +62,8 @@ public class StepDefinitions {
     @Given("I am in the hallway")
     public void i_am_in_the_hallway() {
         i_am_playing_the_game();
-
+        adventure.tell("use door to washroom");
+                adventure.tell("wash hands");
         lastResponse = adventure.tell("use door to hallway");
 
         i_am_now_in_the_hallway();
@@ -71,6 +72,10 @@ public class StepDefinitions {
     @When("I use the door to the team office")
     public void i_use_the_door_to_the_team_office() {
         lastResponse = adventure.tell("use door to team office");
+    }
+       @When("I use the door to the loo")
+    public void i_use_the_door_to_the_loo() {
+        lastResponse = adventure.tell("use door to loo");
     }
 
     @Given("I am in the team office")
