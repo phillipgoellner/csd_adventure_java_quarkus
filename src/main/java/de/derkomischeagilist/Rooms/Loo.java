@@ -41,12 +41,13 @@ public class Loo extends AbstractRoom {
             case "look at toilet paper":
                 toiletPaperCount++;
                 switch (toiletPaperCount) {
-                    case 1: return "On the first piece is written: \"Scrum Master: Nobody ever comes to my retros... I need to get out of here.\" There are more pieces on the ground.";
-                    case 2: return "Another one states: \"A foo walks into a bar.\" More to read on the floor.";
-                    case 3: return "Next piece says: \"Product Owner: My developers are way too slow.\" There is one more piece on the ground.";
-                    case 4:
+                    case 1: return "On the first piece is written: “Scrum Master: Nobody ever comes to my retros... I need to get out of here.“ There are more pieces on the ground.";
+                    case 2: return "Another one states: “A foo walks into a bar.“ More to read on the floor.";
+                    case 3: return "Next piece says: “Product Owner: My developers are way too slow.“ There is one more piece on the ground.";
+                    case 4: return "On the last piece is written: “Developers: We have too many meetings.“ I remember. I need to find my Scrum team to help them get out of here.";
+                    case 5:
                         toiletPaperCount = 0;
-                        return "On the last piece is written: \"Developers: We have too many meetings.\" I remember. I need to find my Scrum team to help them get out of here.";
+                        return "And I think to myself: “Why am I still looking at toilet paper?“";
                 }
                 case "go through door":
             case "flush toilet":

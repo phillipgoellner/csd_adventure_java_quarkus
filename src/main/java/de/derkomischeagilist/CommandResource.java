@@ -19,6 +19,8 @@ public class CommandResource {
         adventure = adventureService.getAdventure();
     }
 
+
+    // HINT: For "/"" use "“" symbol instead (json parsing problems on frontend)
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @QueryParam("command")
