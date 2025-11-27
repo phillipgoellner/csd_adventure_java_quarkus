@@ -61,7 +61,9 @@ public class Hallway extends AbstractRoom {
         if (keypadIsActive) {
             resetKeypad();
             if (command.equalsIgnoreCase("517")) {
-                return "You made it! In front of you are a lot of people, who start clapping as they see you. " +
+                return "You made it! You hear a loud, metallic click. " +
+                        "The creepy exit door squeaks open and you step through it. " +
+                        "In front of you are a lot of people, who start clapping as they see you. " +
                         "You realize, that you are standing on a podium. " +
                         "Some guy hurries over and hands over a certificate, which says that you are now a " +
                         "'Certified Scrum Developer'. " +
