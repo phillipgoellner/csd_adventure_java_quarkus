@@ -48,12 +48,9 @@ public class Hallway extends AbstractRoom {
             case "use keypad":
             case "use rusty keypad":
                 activateKeypad();
-                return "You need to enter the number of the scrum values. If you have no clue, take a look around.";
-            case "17":
-                if (keypadIsActive)
-                {
-                    return "You've entered the correct exit code. The sppoky door opens up and you can leave!";
-                }
+                return "Near the keypad you notice a dirty poster with some numbers scribbled on it. " +
+                        "You wonder if those numbers could help to open the keypad. You suddenly feel the urge to hum some lines from Get up Stand up in the jukebox.\n" +
+                        "<p><b>Values first and Get up Stand up is the key to success!!!<b></p>";
             default: {
                 return handleDefaultCase(command);
             }
@@ -63,7 +60,7 @@ public class Hallway extends AbstractRoom {
     private String handleDefaultCase(String command) {
         if (keypadIsActive) {
             resetKeypad();
-            if (command.equalsIgnoreCase("5")) {
+            if (command.equalsIgnoreCase("517")) {
                 return "You made it! In front of you are a lot of people, who start clapping as they see you. " +
                         "You realize, that you are standing on a podium. " +
                         "Some guy hurries over and hands over a certificate, which says that you are now a " +
