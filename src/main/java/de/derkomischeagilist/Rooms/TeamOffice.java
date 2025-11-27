@@ -88,6 +88,7 @@ public class TeamOffice extends AbstractRoom {
                         "<br>" +
                         "11. Oh Happy Day<br>" +
                         "13. Under Pressure<br>" +
+                        "17. Get UP Stand Up<br>" +
                         "19. Yellow Submarine<br>" +
                         "20. All You Need Is Love<br>" +
                         "<br>";
@@ -142,6 +143,16 @@ public class TeamOffice extends AbstractRoom {
                                         "Puts people on streets\n" +
                                         "\n" +
                                         "That′s OK";
+                            }
+                            case 17: {
+                                return  "The jukebox hums softly as a familiar melody begins to fill the room...\n" +
+                                        " \n" +
+                                        "♩ ♩ ♪ ♫ ♩ ♫ ♪ ♫ ♩ ♩  \n" +
+                                        " \n" +
+                                        "Get Up Stand Up, get up for the Scrum! \n"+
+                                        "We are locked in the loo during the sprint, were blocked but not unite \n"+
+                                        "where we sync and unite we’re keeping it all tight \n"+
+                                        "in the daily scrum, now stand up in circle, now!";
                             }
                             case 19: {
                                 return "♩ ♪ ♩ ♫ ♩ ♫ ♪ ♩ ♩ ♫ \n" +
