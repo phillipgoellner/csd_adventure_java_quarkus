@@ -439,6 +439,8 @@ public class AdventureTest {
         actual = adventure.tell("use keypad");
         assertThat(actual, containsStringIgnoringCase("You wonder if those numbers could help to open the keypad"));
         actual = adventure.tell("517");
+        //assertThat(actual, containsStringIgnoringCase("number of the scrum values"));
+        actual = adventure.tell("517");
         assertThat(actual, containsStringIgnoringCase("You made it"));
     }
 
@@ -451,6 +453,7 @@ public class AdventureTest {
         String actual = adventure.tell("use keypad");
         // i see the description of the keypad
         assertThat(actual, containsStringIgnoringCase("You wonder if those numbers could help to open the keypad"));
+        //assertThat(actual, containsStringIgnoringCase("number of the scrum values"));
         actual = adventure.tell("10");
         assertThat(actual, containsStringIgnoringCase("but nothing happens"));
     }
