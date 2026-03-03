@@ -88,7 +88,7 @@ public class TeamOffice extends AbstractRoom {
                         "<br>" +
                         "11. Oh Happy Day<br>" +
                         "13. Under Pressure<br>" +
-                        "17. Get UP Stand Up<br>" +
+                        "17. Get Up Stand Up<br>" +
                         "19. Yellow Submarine<br>" +
                         "20. All You Need Is Love<br>" +
                         "<br>";
